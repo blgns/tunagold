@@ -1,185 +1,690 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tuna Gold — Est. 1995</title>
-<style>
-:root {
-  --t:#0ABAB5; --td:#089490; --tdd:#067A77;
-  --tl:#E0F7F6; --tp:#F0FAFA;
-  --g:#C9A84C; --gl:#E8D5A3; --gp:#FBF5E6;
-  --w:#FFFFFF; --ow:#F8F7F4; --mw:#F3F0EA;
-  --dk:#15140E; --dm:#3A3830; --md:#716F65; --lt:#B0AEA6;
-  --br:rgba(0,0,0,0.07); --bg:rgba(201,168,76,0.22);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family: Playfair Display,'Times New Roman',serif;background:var(--w);color:var(--dk);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuna Gold — Est. 1995 · Turgutlu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --g:      #C9A84C;
+      --g-mid:  #D4B560;
+      --g-lt:   #E8D5A3;
+      --g-pal:  #F7F0DC;
+      --t:      #0ABAB5;
+      --t-dk:   #089490;
+      --t-ddk:  #067A77;
+      --t-lt:   #D4F2F1;
+      --ink:    #0D0C09;
+      --ink-7:  #1C1A14;
+      --ink-5:  #3A3830;
+      --ink-3:  #71706A;
+      --ink-2:  #A9A7A0;
+      --ink-1:  #D4D2CC;
+      --cr:     #F8F5F0;
+      --w:      #FDFCF9;
+      --border: rgba(0,0,0,0.065);
+      --gbord:  rgba(201,168,76,0.18);
+      --tbord:  rgba(10,186,181,0.15);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
+    html { scroll-behavior:smooth }
+    body {
+      font-family: 'Jost', 'Helvetica Neue', sans-serif;
+      background: var(--w);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-/* ── TICKER ─────────────────────────────────── */
-.ticker-wrap{background:#10100A;height:40px;display:flex;overflow:hidden;border-bottom:1px solid rgba(201,168,76,.12);flex-shrink:0}
-.ticker-badge{background:var(--g);color:#10100A;font:700 9px/40px 'Courier New',monospace;letter-spacing:.18em;padding:0 20px;white-space:nowrap;text-transform:uppercase;flex-shrink:0;display:flex;align-items:center;gap:7px}
-.t-dot{width:6px;height:6px;background:#10100A;border-radius:50%;animation:pulse 1.2s ease-in-out infinite}
-.ticker-overflow{overflow:hidden;flex:1}
-.ticker-track{display:flex;animation:tick 45s linear infinite;white-space:nowrap;height:40px;align-items:center}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.ti{font:400 11px/1 'Courier New',monospace;padding:0 26px;border-right:1px solid rgba(255,255,255,.05);height:100%;display:flex;align-items:center;gap:10px}
-.ti .lbl{color:#696660;letter-spacing:.05em}
-.ti .pr{color:var(--gl);font-weight:700;letter-spacing:.04em}
-.ti .up{color:#4ADE80;font-size:10px}
-.ti .dn{color:#F87171;font-size:10px}
-.divider{color:#333;font-size:16px;margin:0 4px;opacity:.4}
+    /* ── GRAIN TEXTURE OVERLAY ─────────────────── */
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
 
-/* ── NAV ─────────────────────────────────────── */
-nav{background:var(--w);height:72px;display:flex;align-items:center;padding:0 52px;border-bottom:0.5px solid var(--br);position:sticky;top:0;z-index:100;backdrop-filter:blur(8px)}
-.nl,.nr{flex:1;display:flex;align-items:center;gap:30px}
-.nr{justify-content:flex-end}
-.na{font:400 10px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--md);text-decoration:none;transition:color .25s}
-.na:hover{color:var(--t)}
-.logo-wrap{flex:0;padding:0 44px}
-.logo-box{border:1.5px solid var(--bg);padding:10px 30px;display:inline-block;transition:border-color .25s}
-.logo-box:hover{border-color:rgba(201,168,76,.45)}
-.logo-main{font:400 16px/1 Georgia,serif;letter-spacing:.42em;text-transform:uppercase;color:var(--dk);white-space:nowrap}
-.logo-sub{font:400 7px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.65em;text-transform:uppercase;color:var(--lt);margin-top:5px;text-align:center}
-.nav-ico{display:flex;gap:14px;margin-left:12px}
-.ico{background:none;border:none;cursor:pointer;color:var(--md);font-size:20px;transition:color .2s;line-height:1;padding:4px}
-.ico:hover{color:var(--t)}
+    /* ── TICKER ────────────────────────────────── */
+    .ticker-wrap {
+      background: #09090A;
+      height: 38px;
+      display: flex;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .ticker-badge {
+      background: var(--g);
+      color: #09090A;
+      font: 500 8px/38px 'Jost', sans-serif;
+      letter-spacing: .24em;
+      padding: 0 18px;
+      white-space: nowrap;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .t-dot { width:5px; height:5px; background:#09090A; border-radius:50%; animation:pulse 1.4s ease-in-out infinite }
+    .ticker-overflow { overflow:hidden; flex:1 }
+    .ticker-track {
+      display: flex;
+      animation: tick 55s linear infinite;
+      white-space: nowrap;
+      height: 38px;
+      align-items: center;
+    }
+    @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .ti {
+      font: 400 10px/1 'Courier New', monospace;
+      padding: 0 22px;
+      border-right: 1px solid rgba(255,255,255,0.04);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .ti .lbl { color:#474542; letter-spacing:.06em }
+    .ti .pr  { color:var(--g-lt); font-weight:700; letter-spacing:.02em }
+    .ti .up  { color:#4ADE80; font-size:9px }
+    .ti .dn  { color:#F87171; font-size:9px }
 
-/* ── HERO ─────────────────────────────────────── */
-.hero{min-height:88vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
-.hero-l{background:var(--mw);display:flex;flex-direction:column;justify-content:center;padding:80px 72px;position:relative;overflow:hidden}
-.hero-l::before{content:'';position:absolute;inset:0;background-image:
-  radial-gradient(ellipse at 80% 20%,rgba(10,186,181,.05) 0%,transparent 60%),
-  radial-gradient(ellipse at 10% 80%,rgba(201,168,76,.05) 0%,transparent 50%);pointer-events:none}
-.hero-l::after{content:'';position:absolute;top:0;right:0;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(201,168,76,.25),transparent)}
-.h-tag{font:400 9.5px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.45em;text-transform:uppercase;color:var(--t);margin-bottom:24px;display:flex;align-items:center;gap:14px;animation:fiu .65s .1s both}
-.h-tag::before{content:'';width:30px;height:1px;background:var(--t)}
-.h-h1{font:400 62px/1.06 Georgia,serif;letter-spacing:-.025em;color:var(--dk);margin-bottom:28px;animation:fiu .65s .25s both}
-.h-h1 em{font-style:italic;color:var(--td)}
-.h-p{font:300 15px/1.85 'Helvetica Neue',Arial,sans-serif;color:var(--md);max-width:360px;margin-bottom:50px;animation:fiu .65s .4s both}
-.h-btns{display:flex;gap:14px;animation:fiu .65s .55s both}
-.btn-p{background:var(--t);color:var(--w);border:none;padding:15px 38px;font:400 9.5px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:background .22s}
-.btn-p:hover{background:var(--td)}
-.btn-s{background:transparent;color:var(--dk);border:1px solid rgba(0,0,0,.18);padding:15px 38px;font:400 9.5px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:all .22s}
-.btn-s:hover{border-color:var(--t);color:var(--t)}
-.hero-trust{margin-top:52px;display:flex;align-items:center;gap:28px;animation:fiu .65s .7s both}
-.ht-line{width:1px;height:36px;background:rgba(0,0,0,.12)}
-.ht-item{text-align:center}
-.ht-n{font:400 22px/1 Georgia,serif;color:var(--dk)}
-.ht-l{font:400 8px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--lt);margin-top:4px}
-.hero-r{background:var(--ow);display:flex;align-items:center;justify-content:center;padding:52px;position:relative;overflow:hidden}
-.hero-r::before{content:'';position:absolute;top:50px;right:50px;bottom:50px;width:1.5px;background:linear-gradient(to bottom,transparent,var(--t),transparent);opacity:.3}
-.hero-r::after{content:'';position:absolute;bottom:50px;left:50px;right:50px;height:1.5px;background:linear-gradient(to right,transparent,var(--g),transparent);opacity:.2}
-.hero-jewel-wrap{width:100%;max-width:420px;position:relative}
+    /* ── NAV ───────────────────────────────────── */
+    nav {
+      background: rgba(253,252,249,0.94);
+      height: 70px;
+      display: flex;
+      align-items: center;
+      padding: 0 52px;
+      border-bottom: 0.5px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .nl, .nr {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .nr { justify-content: flex-end }
+    .na {
+      font: 300 8.5px/1 'Jost', sans-serif;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      text-decoration: none;
+      transition: color .22s;
+    }
+    .na:hover { color: var(--t) }
+    .logo-wrap { flex: 0; padding: 0 52px; text-align: center }
+    .logo-main {
+      font: 400 16px/1 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: .52em;
+      text-transform: uppercase;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .logo-rule { width:100%; height:0.5px; background:var(--gbord); margin:5px 0 }
+    .logo-sub {
+      font: 200 7px/1 'Jost', sans-serif;
+      letter-spacing: .45em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+    }
+    .nav-ico { display:flex; gap:10px; margin-left:8px }
+    .ico {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--ink-3);
+      font-size: 19px;
+      transition: color .2s;
+      line-height: 1;
+      padding: 5px;
+    }
+    .ico:hover { color: var(--t) }
 
-/* ── BAND ─────────────────────────────────────── */
-.band{background:var(--t);padding:18px 24px;text-align:center;font:400 8.5px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.55em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+    /* ── HERO ──────────────────────────────────── */
+    .hero {
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+    .hero-l {
+      background: var(--cr);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 80px 80px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-l::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 0.5px; height: 100%;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(201,168,76,.3) 35%,
+        rgba(201,168,76,.3) 65%,
+        transparent 100%);
+    }
+    .h-tag {
+      font: 300 8.5px/1 'Jost', sans-serif;
+      letter-spacing: .48em;
+      text-transform: uppercase;
+      color: var(--t);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      animation: fiu .7s .1s both;
+    }
+    .h-tag::before {
+      content: '';
+      width: 28px;
+      height: 0.5px;
+      background: var(--t);
+      flex-shrink: 0;
+    }
+    .h-h1 {
+      font: 300 88px/1.0 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: -.025em;
+      color: var(--ink);
+      margin-bottom: 28px;
+      animation: fiu .7s .22s both;
+    }
+    .h-h1 em {
+      font-style: italic;
+      color: var(--t-dk);
+      font-weight: 400;
+    }
+    .h-p {
+      font: 300 13.5px/1.92 'Jost', sans-serif;
+      color: var(--ink-3);
+      max-width: 340px;
+      margin-bottom: 46px;
+      animation: fiu .7s .34s both;
+    }
+    .h-btns {
+      display: flex;
+      gap: 12px;
+      animation: fiu .7s .46s both;
+    }
+    .btn-p {
+      background: var(--ink);
+      color: var(--w);
+      border: none;
+      padding: 14px 38px;
+      font: 400 8px/1 'Jost', sans-serif;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .22s;
+    }
+    .btn-p:hover { background: var(--ink-5) }
+    .btn-s {
+      background: transparent;
+      color: var(--ink);
+      border: 0.5px solid var(--ink-1);
+      padding: 14px 38px;
+      font: 400 8px/1 'Jost', sans-serif;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .22s;
+    }
+    .btn-s:hover { border-color: var(--t); color: var(--t) }
+    .hero-trust {
+      margin-top: 52px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      animation: fiu .7s .58s both;
+      padding-top: 34px;
+      border-top: 0.5px solid var(--border);
+    }
+    .ht-line { width:0.5px; height:34px; background:var(--border) }
+    .ht-n {
+      font: 300 26px/1 'Cormorant Garamond', Georgia, serif;
+      color: var(--ink);
+    }
+    .ht-l {
+      font: 300 8px/1 'Jost', sans-serif;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+      margin-top: 5px;
+    }
+    .hero-r {
+      background: #F2EDE5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Geometric circle ornament */
+    .hero-r::before {
+      content: '';
+      position: absolute;
+      top: 56px; right: 56px;
+      width: 160px; height: 160px;
+      border: 0.5px solid var(--gbord);
+      border-radius: 50%;
+    }
+    /* Corner square ornament */
+    .hero-r::after {
+      content: '';
+      position: absolute;
+      bottom: 44px; left: 44px;
+      width: 80px; height: 80px;
+      border: 0.5px solid var(--gbord);
+    }
+    .hero-jewel-wrap {
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      z-index: 1;
+    }
 
-/* ── PRODUCTS ─────────────────────────────────── */
-.prod-sec{padding:100px 60px;background:var(--w)}
-.sec-head{text-align:center;margin-bottom:68px}
-.sec-eye{font:400 9.5px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.42em;text-transform:uppercase;color:var(--t);margin-bottom:16px}
-.sec-ttl{font:400 42px/1.1 Georgia,serif;color:var(--dk);letter-spacing:-.01em}
-.sec-sep{width:40px;height:1px;background:var(--g);margin:20px auto 0;opacity:.5}
-.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.055)}
-.pc{background:var(--w);cursor:pointer;transition:background .3s;position:relative;overflow:hidden}
-.pc:hover{background:var(--tp)}
-.pi{aspect-ratio:1;background:var(--ow);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.pi svg{transition:transform .5s ease}
-.pc:hover .pi svg{transform:scale(1.08)}
-.ptag{position:absolute;top:14px;left:0;background:var(--t);color:var(--w);font:400 7.5px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;padding:5px 12px}
-.pinfo{padding:22px 22px 26px;border-top:0.5px solid var(--br)}
-.pkr{font:400 8.5px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--g);margin-bottom:7px}
-.pnm{font:400 15.5px/1.2 Georgia,serif;color:var(--dk);margin-bottom:4px}
-.pwt{font:300 11px/1 'Helvetica Neue',Arial,sans-serif;color:var(--lt);margin-bottom:18px}
-.ppr{display:flex;justify-content:space-between;align-items:center}
-.pprice{font:400 20px/1 Georgia,serif;color:var(--dk)}
-.pprice sup{font:300 11px/1 'Helvetica Neue',Arial,sans-serif;color:var(--md)}
-.plive{font:400 7.5px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.1em;color:var(--td);background:var(--tl);padding:5px 10px;display:flex;align-items:center;gap:5px;cursor:default}
-.ldot{width:5px;height:5px;background:var(--t);border-radius:50%;animation:pulse 1.4s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
-.pc-wishlist{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.85);border:none;width:32px;height:32px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;border-radius:0}
-.pc:hover .pc-wishlist{opacity:1}
-.pc-wishlist:hover{background:var(--t);color:var(--w)}
+    /* ── ANNOUNCEMENT BAND ─────────────────────── */
+    .band {
+      background: var(--t);
+      padding: 13px 24px;
+      text-align: center;
+      font: 300 7.5px/1 'Jost', sans-serif;
+      letter-spacing: .52em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.9);
+    }
 
-/* ── MARQUEE / BRAND ──────────────────────────── */
-.marquee-sec{border-top:0.5px solid var(--br);border-bottom:0.5px solid var(--br);padding:22px 0;overflow:hidden;background:var(--ow)}
-.marquee-track{display:flex;animation:tick 25s linear infinite;white-space:nowrap;align-items:center;gap:0}
-.mq-item{font:400 11px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.35em;text-transform:uppercase;color:var(--lt);padding:0 40px;display:flex;align-items:center;gap:40px}
-.mq-sep{width:4px;height:4px;background:var(--g);border-radius:50%;opacity:.5}
+    /* ── MARQUEE ───────────────────────────────── */
+    .marquee-sec {
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      padding: 20px 0;
+      overflow: hidden;
+      background: var(--cr);
+    }
+    .marquee-track {
+      display: flex;
+      animation: tick 30s linear infinite;
+      white-space: nowrap;
+      align-items: center;
+    }
+    .mq-item {
+      font: 200 8.5px/1 'Jost', sans-serif;
+      letter-spacing: .38em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+      padding: 0 36px;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .mq-sep { width:3px; height:3px; background:var(--g); border-radius:50%; opacity:.45; flex-shrink:0 }
 
-/* ── ABOUT ────────────────────────────────────── */
-.about{background:var(--dk);display:grid;grid-template-columns:1fr 1fr;min-height:520px}
-.about-l{padding:84px 72px;display:flex;flex-direction:column;justify-content:center}
-.ab-eye{font:400 9.5px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.42em;text-transform:uppercase;color:var(--t);margin-bottom:20px}
-.ab-h{font:400 46px/1.1 Georgia,serif;color:var(--w);margin-bottom:24px}
-.ab-p{font:300 14.5px/1.88 'Helvetica Neue',Arial,sans-serif;color:rgba(255,255,255,.48);max-width:400px;margin-bottom:44px}
-.ab-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;border-top:0.5px solid rgba(255,255,255,.1);padding-top:36px}
-.ab-n{font:400 38px/1 Georgia,serif;color:var(--gl);margin-bottom:6px}
-.ab-l{font:400 9px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3)}
-.about-r{background:var(--tdd);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.about-r::before{content:'';position:absolute;inset:-30px;background:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 1px,transparent 1px 14px);pointer-events:none}
-.ab-badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:44px 56px;text-align:center;position:relative;z-index:1}
-.ab-badge::before{content:'';position:absolute;inset:8px;border:0.5px solid rgba(255,255,255,.08)}
-.ab-year{font:400 88px/1 Georgia,serif;color:rgba(255,255,255,.9);letter-spacing:-.03em}
-.ab-since{font:400 9px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.55em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:10px}
-.ab-turgutlu{font:400 8px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.35em;text-transform:uppercase;color:var(--g);margin-top:8px;opacity:.7}
+    /* ── PRODUCTS ──────────────────────────────── */
+    .prod-sec {
+      padding: 116px 80px;
+      background: var(--w);
+    }
+    .sec-head {
+      text-align: center;
+      margin-bottom: 76px;
+    }
+    .sec-eye {
+      font: 300 8px/1 'Jost', sans-serif;
+      letter-spacing: .48em;
+      text-transform: uppercase;
+      color: var(--t);
+      margin-bottom: 14px;
+    }
+    .sec-ttl {
+      font: 300 48px/1.06 'Cormorant Garamond', Georgia, serif;
+      color: var(--ink);
+    }
+    .sec-sep { width:36px; height:0.5px; background:var(--g); margin:22px auto 0; opacity:.55 }
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 0.5px solid var(--border);
+    }
+    .pc {
+      background: var(--w);
+      cursor: pointer;
+      transition: background .3s;
+      position: relative;
+      overflow: hidden;
+      border-right: 0.5px solid var(--border);
+    }
+    .pc:last-child { border-right: none }
+    .pc:hover { background: #FDFAF4 }
+    .pi {
+      aspect-ratio: 1;
+      background: var(--cr);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .pi svg { transition: transform .55s cubic-bezier(.25,.46,.45,.94) }
+    .pc:hover .pi svg { transform: scale(1.07) }
+    .ptag {
+      position: absolute;
+      top: 16px; left: 0;
+      background: var(--ink);
+      color: var(--w);
+      font: 400 6.5px/1 'Jost', sans-serif;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      padding: 5px 11px;
+    }
+    .pinfo {
+      padding: 26px 28px 30px;
+      border-top: 0.5px solid var(--border);
+    }
+    .pkr {
+      font: 300 7.5px/1 'Jost', sans-serif;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--g);
+      margin-bottom: 7px;
+    }
+    .pnm {
+      font: 400 16px/1.2 'Cormorant Garamond', Georgia, serif;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .pwt {
+      font: 300 11px/1 'Jost', sans-serif;
+      color: var(--ink-2);
+      margin-bottom: 20px;
+    }
+    .ppr { display:flex; justify-content:space-between; align-items:baseline }
+    .pprice {
+      font: 300 24px/1 'Cormorant Garamond', Georgia, serif;
+      color: var(--ink);
+    }
+    .pprice sup {
+      font: 300 11px/1 'Jost', sans-serif;
+      color: var(--ink-3);
+      vertical-align: super;
+    }
+    .plive {
+      font: 300 7px/1 'Jost', sans-serif;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--t-dk);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .ldot {
+      width: 4px; height: 4px;
+      background: var(--t);
+      border-radius: 50%;
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    .pc-wishlist {
+      position: absolute;
+      top: 14px; right: 14px;
+      background: rgba(253,252,249,.92);
+      border: 0.5px solid var(--border);
+      width: 30px; height: 30px;
+      cursor: pointer;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .22s;
+    }
+    .pc:hover .pc-wishlist { opacity: 1 }
+    .pc-wishlist:hover { background: var(--t); color: var(--w); border-color: var(--t) }
 
-/* ── CONTACT STRIP ────────────────────────────── */
-.contact-strip{background:var(--mw);border-top:0.5px solid var(--br);display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;padding:0}
-.cs-col{padding:40px 44px;display:flex;flex-direction:column;gap:10px}
-.cs-div{background:var(--br)}
-.cs-icon{font-size:22px;color:var(--t);margin-bottom:4px}
-.cs-label{font:400 9px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--lt)}
-.cs-val{font:400 14.5px/1.3 Georgia,serif;color:var(--dk)}
-.cs-sub{font:300 12px/1 'Helvetica Neue',Arial,sans-serif;color:var(--md)}
+    /* ── ABOUT ─────────────────────────────────── */
+    .about {
+      background: var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 580px;
+    }
+    .about-l {
+      padding: 96px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 0.5px solid rgba(255,255,255,.05);
+    }
+    .ab-eye {
+      font: 300 8.5px/1 'Jost', sans-serif;
+      letter-spacing: .45em;
+      text-transform: uppercase;
+      color: var(--t);
+      margin-bottom: 22px;
+    }
+    .ab-h {
+      font: 300 54px/1.08 'Cormorant Garamond', Georgia, serif;
+      color: rgba(255,255,255,.95);
+      margin-bottom: 28px;
+    }
+    .ab-p {
+      font: 300 13.5px/1.9 'Jost', sans-serif;
+      color: rgba(255,255,255,.34);
+      max-width: 400px;
+      margin-bottom: 52px;
+    }
+    .ab-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 0.5px solid rgba(255,255,255,.07);
+      padding-top: 38px;
+    }
+    .ab-stat {
+      padding-right: 24px;
+      border-right: 0.5px solid rgba(255,255,255,.07);
+      margin-right: 24px;
+    }
+    .ab-stat:last-child { border-right: none; margin-right: 0 }
+    .ab-n {
+      font: 300 40px/1 'Cormorant Garamond', Georgia, serif;
+      color: var(--g-lt);
+      margin-bottom: 7px;
+    }
+    .ab-l {
+      font: 300 8px/1 'Jost', sans-serif;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.2);
+    }
+    .about-r {
+      background: var(--t-ddk);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-r::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+    /* Diagonal accent line */
+    .about-r::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -1px;
+      width: 0.5px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,.15), transparent);
+    }
+    .ab-badge {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .ab-badge-frame {
+      border: 0.5px solid rgba(255,255,255,.14);
+      padding: 52px 60px;
+      position: relative;
+    }
+    .ab-badge-frame::before {
+      content: '';
+      position: absolute;
+      inset: 7px;
+      border: 0.5px solid rgba(255,255,255,.06);
+    }
+    .ab-year {
+      font: 300 100px/1 'Cormorant Garamond', Georgia, serif;
+      color: rgba(255,255,255,.88);
+      letter-spacing: -.03em;
+      display: block;
+    }
+    .ab-since {
+      font: 200 7.5px/1 'Jost', sans-serif;
+      letter-spacing: .55em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      margin-top: 14px;
+    }
+    .ab-turgutlu {
+      font: 300 7.5px/1 'Jost', sans-serif;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      color: rgba(232,213,163,.55);
+      margin-top: 8px;
+    }
 
-/* ── FOOTER ───────────────────────────────────── */
-footer{background:#0E0D08;display:flex;justify-content:space-between;align-items:center;padding:32px 60px;border-top:0.5px solid rgba(201,168,76,.08)}
-.ft{font:300 10px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.1em;color:rgba(255,255,255,.28)}
-.ft a{color:rgba(201,168,76,.7);text-decoration:none;transition:color .2s}
-.ft a:hover{color:var(--g)}
-.ft-logo{font:400 13px/1 Georgia,serif;letter-spacing:.35em;color:rgba(255,255,255,.4);text-transform:uppercase}
+    /* ── CONTACT STRIP ─────────────────────────── */
+    .contact-strip {
+      background: var(--cr);
+      border-top: 0.5px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 0.5px 1fr 0.5px 1fr;
+    }
+    .cs-col {
+      padding: 46px 52px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .cs-div { background: var(--border) }
+    .cs-icon {
+      font-size: 20px;
+      color: var(--t);
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .cs-label {
+      font: 300 7.5px/1 'Jost', sans-serif;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+    }
+    .cs-val {
+      font: 400 15px/1.3 'Cormorant Garamond', Georgia, serif;
+      color: var(--ink);
+    }
+    .cs-sub {
+      font: 300 12px/1.55 'Jost', sans-serif;
+      color: var(--ink-3);
+    }
 
-/* ── ANIMATIONS ───────────────────────────────── */
-@keyframes fiu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-.ai{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
-.ai.v{opacity:1;transform:translateY(0)}
-  /* ── MOBİL UYUMLULUK ── */
-@media (max-width: 768px) {
-  /* Menü ve Başlıklar */
-  nav { padding: 0 20px; justify-content: center; }
-  .nl, .nr { display: none; } /* Mobilde yan menüleri gizle, sadece logo kalsın */
-  
-  /* Hero Alanı (Üst Kısım) */
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-l, .hero-r { padding: 40px 20px; }
-  .h-h1 { font-size: 42px; }
-  
-  /* Ürünler ve Hakkımızda (Yan yana duranları alt alta al) */
-  .prod-grid { grid-template-columns: repeat(2, 1fr); }
-  .about { grid-template-columns: 1fr; }
-  .about-l { padding: 40px 20px; }
-  .ab-stats { grid-template-columns: 1fr; gap: 15px; }
-}
-</style>
+    /* ── FOOTER ────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 60px;
+      border-top: 0.5px solid rgba(201,168,76,.09);
+    }
+    .ft {
+      font: 300 9px/1 'Jost', sans-serif;
+      letter-spacing: .07em;
+      color: rgba(255,255,255,.2);
+    }
+    .ft a { color:rgba(201,168,76,.5); text-decoration:none; transition:color .2s }
+    .ft a:hover { color: var(--g) }
+    .ft-logo {
+      font: 400 13px/1 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: .45em;
+      color: rgba(255,255,255,.28);
+      text-transform: uppercase;
+    }
+
+    /* ── ANIMATIONS ────────────────────────────── */
+    @keyframes fiu {
+      from { opacity:0; transform:translateY(20px) }
+      to   { opacity:1; transform:translateY(0) }
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1 } 50% { opacity:.18 }
+    }
+    .ai {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .8s cubic-bezier(.23,1,.32,1), transform .8s cubic-bezier(.23,1,.32,1);
+    }
+    .ai.v { opacity:1; transform:translateY(0) }
+
+    /* ── MOBILE ────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 0 20px }
+      .nl, .nr { display: none }
+      .logo-wrap { padding: 0; flex: 1; text-align: center }
+      .hero { grid-template-columns: 1fr; min-height: auto }
+      .hero-l { padding: 56px 32px }
+      .hero-r { padding: 40px 32px; min-height: 380px }
+      .h-h1 { font-size: 60px }
+      .prod-grid { grid-template-columns: repeat(2, 1fr) }
+      .prod-sec { padding: 72px 24px }
+      .about { grid-template-columns: 1fr }
+      .about-l { padding: 60px 32px }
+      .about-r { min-height: 300px }
+      .ab-stats { grid-template-columns: 1fr 1fr; gap: 24px }
+      .contact-strip { grid-template-columns: 1fr }
+      .cs-div { display: none }
+      .cs-col { padding: 32px 28px }
+      footer { flex-direction: column; gap: 16px; padding: 32px; text-align: center }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ═══ GOLD TICKER ═══════════════════════════════════════════════════ -->
+<!-- Grain overlay -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ═══ TICKER ════════════════════════════════════════════════ -->
 <div class="ticker-wrap">
   <div class="ticker-badge">
     <span class="t-dot"></span>
-    CANLI FİYAT
+    Canlı Fiyat
   </div>
   <div class="ticker-overflow">
     <div class="ticker-track" id="ticker-track"></div>
   </div>
 </div>
 
-<!-- ═══ NAVIGATION ════════════════════════════════════════════════════ -->
+<!-- ═══ NAV ══════════════════════════════════════════════════ -->
 <nav>
   <div class="nl">
     <a href="#" class="na">Koleksiyonlar</a>
@@ -189,10 +694,9 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
     <a href="#" class="na">Bilezikler</a>
   </div>
   <div class="logo-wrap">
-  <a href="/">
-    <img src="logo.png" alt="Tuna Gold Logo" style="height: 60px; width: auto; object-fit: contain;">
-  </a>
-</div>
+    <div class="logo-main">Tuna Gold</div>
+    <div class="logo-rule"></div>
+    <div class="logo-sub">Est. 1995 · Turgutlu</div>
   </div>
   <div class="nr">
     <a href="#" class="na">Hakkımızda</a>
@@ -205,7 +709,7 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
   </div>
 </nav>
 
-<!-- ═══ HERO ══════════════════════════════════════════════════════════ -->
+<!-- ═══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-l">
     <div class="h-tag">Sonbahar – Kış 2025</div>
@@ -216,59 +720,52 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
       <button class="btn-s">Randevu Al</button>
     </div>
     <div class="hero-trust">
-      <div class="ht-item"><div class="ht-n">27+</div><div class="ht-l">Yıl Deneyim</div></div>
+      <div class="ht-item">
+        <div class="ht-n">27+</div>
+        <div class="ht-l">Yıl Deneyim</div>
+      </div>
       <div class="ht-line"></div>
-      <div class="ht-item"><div class="ht-n">8K+</div><div class="ht-l">Mutlu Müşteri</div></div>
+      <div class="ht-item">
+        <div class="ht-n">8K+</div>
+        <div class="ht-l">Mutlu Müşteri</div>
+      </div>
       <div class="ht-line"></div>
-      <div class="ht-item"><div class="ht-n">%100</div><div class="ht-l">Sertifikalı Altın</div></div>
+      <div class="ht-item">
+        <div class="ht-n">%100</div>
+        <div class="ht-l">Sertifikalı Altın</div>
+      </div>
     </div>
   </div>
+
   <div class="hero-r">
     <div class="hero-jewel-wrap">
-      <!-- ── HERO DIAMOND RING – MACRO SVG ART ── -->
       <svg viewBox="0 0 440 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;display:block">
-        <!-- Caustic ambient glow -->
         <ellipse cx="220" cy="415" rx="175" ry="52" fill="#D6F4F3" opacity=".55"/>
         <ellipse cx="220" cy="415" rx="105" ry="30" fill="#B2EEEC" opacity=".35"/>
-        <!-- Ring band shadow -->
         <ellipse cx="220" cy="374" rx="72" ry="18" fill="rgba(0,0,0,.07)"/>
-        <!-- Ring shank outer -->
         <path d="M148 272 C148 328 176 372 220 382 C264 372 292 328 292 272" fill="none" stroke="#9A7020" stroke-width="30" stroke-linecap="round"/>
-        <!-- Ring shank mid -->
         <path d="M148 272 C148 328 176 372 220 382 C264 372 292 328 292 272" fill="none" stroke="#C9A84C" stroke-width="22" stroke-linecap="round"/>
-        <!-- Ring shank highlight sweep -->
         <path d="M162 278 C162 326 186 362 220 370 C254 362 278 326 278 278" fill="none" stroke="#D4B560" stroke-width="10" stroke-linecap="round"/>
-        <!-- Ring shank centre shine -->
         <path d="M174 285 C174 326 194 355 220 363" fill="none" stroke="#EDD272" stroke-width="4" stroke-linecap="round" opacity=".65"/>
-        <!-- Setting platform -->
         <ellipse cx="220" cy="222" rx="74" ry="19" fill="#9A7020"/>
         <ellipse cx="220" cy="218" rx="71" ry="17" fill="#C9A84C"/>
         <ellipse cx="220" cy="214" rx="66" ry="14" fill="#D4B560"/>
-        <!-- ── BRILLIANT CUT DIAMOND ── -->
-        <!-- Pavilion bottom -->
         <polygon points="220,290 162,222 278,222" fill="#033E3D" opacity=".88"/>
-        <!-- Lower pavilion halves -->
         <polygon points="162,222 180,216 220,230 198,272" fill="#044D4B" opacity=".75"/>
         <polygon points="278,222 260,216 220,230 242,272" fill="#033E3D" opacity=".75"/>
         <polygon points="198,272 220,230 242,272 220,290" fill="#022928" opacity=".9"/>
-        <!-- Crown girdle band -->
         <polygon points="142,218 170,196 220,186 270,196 298,218 278,222 162,222" fill="#0ABAB5" opacity=".92"/>
-        <!-- Table facet -->
         <polygon points="182,206 220,194 258,206 258,218 220,226 182,218" fill="#B8EFED"/>
-        <!-- Upper crown facets -->
         <polygon points="142,218 170,196 174,206 158,222" fill="#089490" opacity=".82"/>
         <polygon points="298,218 270,196 246,206 262,222" fill="#067A77" opacity=".82"/>
         <polygon points="170,196 220,186 222,194 182,206" fill="#E0FFFD" opacity=".96"/>
         <polygon points="220,186 270,196 258,206 218,194" fill="#C4F8F6" opacity=".88"/>
-        <!-- Star facets -->
         <polygon points="182,206 182,218 162,222 170,196" fill="#089490" opacity=".55"/>
         <polygon points="258,206 258,218 278,222 270,196" fill="#067A77" opacity=".55"/>
-        <!-- Light flashes -->
         <polygon points="187,208 202,200 212,206 202,212" fill="white" opacity=".9"/>
         <polygon points="230,193 245,199 240,207" fill="white" opacity=".75"/>
         <polygon points="166,217 174,211 178,218" fill="white" opacity=".55"/>
         <polygon points="260,212 266,218 255,219" fill="white" opacity=".4"/>
-        <!-- Gold prongs (6-prong cathedral setting) -->
         <g stroke="#C9A84C" stroke-linecap="round" fill="none">
           <line x1="162" y1="220" x2="155" y2="244" stroke-width="7"/>
           <line x1="278" y1="220" x2="285" y2="244" stroke-width="7"/>
@@ -277,59 +774,51 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
           <line x1="220" y1="226" x2="220" y2="248" stroke-width="6"/>
           <line x1="220" y1="186" x2="220" y2="172" stroke-width="5" stroke="#D4B560" opacity=".6"/>
         </g>
-        <!-- Caustic light scatter on surface -->
         <ellipse cx="336" cy="374" rx="32" ry="10" fill="#E8D5A3" opacity=".38" transform="rotate(-18,336,374)"/>
         <ellipse cx="114" cy="390" rx="24" ry="7" fill="#E8D5A3" opacity=".28" transform="rotate(14,114,390)"/>
         <ellipse cx="355" cy="300" rx="16" ry="5" fill="#0ABAB5" opacity=".22" transform="rotate(-28,355,300)"/>
         <ellipse cx="82" cy="312" rx="12" ry="4" fill="#0ABAB5" opacity=".16" transform="rotate(22,82,312)"/>
-        <ellipse cx="370" cy="230" rx="8" ry="3" fill="#C9A84C" opacity=".3" transform="rotate(-40,370,230)"/>
-        <!-- Sparkle stars -->
-        <g transform="translate(365,166)" opacity=".72">
-          <line x1="0" y1="-15" x2="0" y2="15" stroke="#C9A84C" stroke-width="1.5"/>
-          <line x1="-15" y1="0" x2="15" y2="0" stroke="#C9A84C" stroke-width="1.5"/>
-          <line x1="-9" y1="-9" x2="9" y2="9" stroke="#C9A84C" stroke-width=".6" opacity=".45"/>
-          <line x1="9" y1="-9" x2="-9" y2="9" stroke="#C9A84C" stroke-width=".6" opacity=".45"/>
+        <g transform="translate(365,166)" opacity=".7">
+          <line x1="0" y1="-14" x2="0" y2="14" stroke="#C9A84C" stroke-width="1.4"/>
+          <line x1="-14" y1="0" x2="14" y2="0" stroke="#C9A84C" stroke-width="1.4"/>
+          <line x1="-8" y1="-8" x2="8" y2="8" stroke="#C9A84C" stroke-width=".5" opacity=".4"/>
+          <line x1="8" y1="-8" x2="-8" y2="8" stroke="#C9A84C" stroke-width=".5" opacity=".4"/>
         </g>
-        <g transform="translate(70,200)" opacity=".48">
-          <line x1="0" y1="-10" x2="0" y2="10" stroke="#C9A84C" stroke-width="1.2"/>
-          <line x1="-10" y1="0" x2="10" y2="0" stroke="#C9A84C" stroke-width="1.2"/>
+        <g transform="translate(70,200)" opacity=".44">
+          <line x1="0" y1="-9" x2="0" y2="9" stroke="#C9A84C" stroke-width="1"/>
+          <line x1="-9" y1="0" x2="9" y2="0" stroke="#C9A84C" stroke-width="1"/>
         </g>
-        <g transform="translate(306,122)" opacity=".85">
-          <line x1="0" y1="-9" x2="0" y2="9" stroke="white" stroke-width="1.8"/>
-          <line x1="-9" y1="0" x2="9" y2="0" stroke="white" stroke-width="1.8"/>
-          <line x1="-5" y1="-5" x2="5" y2="5" stroke="white" stroke-width=".7" opacity=".45"/>
-          <line x1="5" y1="-5" x2="-5" y2="5" stroke="white" stroke-width=".7" opacity=".45"/>
+        <g transform="translate(306,122)" opacity=".84">
+          <line x1="0" y1="-8" x2="0" y2="8" stroke="white" stroke-width="1.6"/>
+          <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="1.6"/>
+          <line x1="-5" y1="-5" x2="5" y2="5" stroke="white" stroke-width=".6" opacity=".4"/>
+          <line x1="5" y1="-5" x2="-5" y2="5" stroke="white" stroke-width=".6" opacity=".4"/>
         </g>
-        <g transform="translate(136,145)" opacity=".38">
-          <line x1="0" y1="-7" x2="0" y2="7" stroke="#0ABAB5" stroke-width="1"/>
-          <line x1="-7" y1="0" x2="7" y2="0" stroke="#0ABAB5" stroke-width="1"/>
+        <g transform="translate(136,145)" opacity=".35">
+          <line x1="0" y1="-6" x2="0" y2="6" stroke="#0ABAB5" stroke-width=".9"/>
+          <line x1="-6" y1="0" x2="6" y2="0" stroke="#0ABAB5" stroke-width=".9"/>
         </g>
-        <g transform="translate(52,250)" opacity=".3">
-          <line x1="0" y1="-6" x2="0" y2="6" stroke="#C9A84C" stroke-width="1"/>
-          <line x1="-6" y1="0" x2="6" y2="0" stroke="#C9A84C" stroke-width="1"/>
-        </g>
-        <!-- Live price overlay -->
         <rect x="24" y="438" width="392" height="50" rx="0" fill="rgba(10,186,181,.07)" stroke="rgba(10,186,181,.18)" stroke-width=".5"/>
-        <text x="44" y="458" fill="#089490" font-size="8" font-family="'Helvetica Neue',Arial,sans-serif" letter-spacing="2" font-weight="400">CANLI FİYAT · 14 AYAR SOLİTAİRE YÜZÜK</text>
-        <text x="44" y="476" fill="#15140E" font-size="15" font-family: 'Playfair Display', serif;" id="hero-price-svg">Hesaplanıyor...</text>
-        <circle cx="402" cy="462" r="5" fill="#0ABAB5">
+        <text x="44" y="458" fill="#089490" font-size="7.5" font-family="'Jost',sans-serif" letter-spacing="2.5" font-weight="300">CANLI FİYAT · 14 AYAR SOLİTAİRE YÜZÜK</text>
+        <text x="44" y="477" fill="#15140E" font-size="15" font-family="'Cormorant Garamond',Georgia,serif" id="hero-price-svg">Hesaplanıyor...</text>
+        <circle cx="402" cy="462" r="4.5" fill="#0ABAB5">
           <animate attributeName="opacity" values="1;0.2;1" dur="1.4s" repeatCount="indefinite"/>
-          <animate attributeName="r" values="5;3.5;5" dur="1.4s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="4.5;3;4.5" dur="1.4s" repeatCount="indefinite"/>
         </circle>
       </svg>
     </div>
   </div>
 </section>
 
-<!-- ═══ MARQUEE BAND ═══════════════════════════════════════════════════ -->
+<!-- ═══ MARQUEE ═══════════════════════════════════════════════ -->
 <div class="marquee-sec">
   <div class="marquee-track" id="marquee-track"></div>
 </div>
 
-<!-- ═══ TIFFANY BLUE STRIP ════════════════════════════════════════════ -->
+<!-- ═══ BAND ═════════════════════════════════════════════════ -->
 <div class="band">— Turgutlu Kuyumcular Derneği Borsası ile Entegre &nbsp;·&nbsp; Anlık Fiyat Güncellemesi Her 10 Dakikada &nbsp;·&nbsp; 1995'ten Beri Güven ve Kalite —</div>
 
-<!-- ═══ PRODUCTS ══════════════════════════════════════════════════════ -->
+<!-- ═══ PRODUCTS ══════════════════════════════════════════════ -->
 <section class="prod-sec">
   <div class="sec-head ai">
     <div class="sec-eye">Öne Çıkan Ürünler</div>
@@ -338,7 +827,7 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
   </div>
 
   <div class="prod-grid">
-    <!-- ── P1: 14K Pırlanta Yüzük ── -->
+    <!-- P1: 14K Pırlanta Yüzük -->
     <div class="pc ai">
       <div class="pi">
         <span class="ptag">Yeni</span>
@@ -348,14 +837,12 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
           <circle cx="100" cy="104" r="55" fill="none" stroke="#C9A84C" stroke-width="16"/>
           <circle cx="100" cy="104" r="55" fill="none" stroke="#D4B560" stroke-width="8"/>
           <circle cx="100" cy="104" r="55" fill="none" stroke="#EDD272" stroke-width="3" stroke-dasharray="80 265"/>
-          <!-- Diamond top -->
           <polygon points="100,38 116,54 100,61 84,54" fill="#C4F8F6"/>
           <polygon points="84,54 100,61 100,74 76,66" fill="#0ABAB5" opacity=".78"/>
           <polygon points="116,54 100,61 100,74 124,66" fill="#089490" opacity=".78"/>
           <polygon points="76,66 100,74 124,66 100,80" fill="#055E5C" opacity=".7"/>
           <polygon points="100,38 116,54 100,46" fill="white" opacity=".75"/>
           <polygon points="86,54 100,48 109,54 100,59" fill="white" opacity=".6"/>
-          <!-- Prongs -->
           <line x1="84" y1="57" x2="78" y2="67" stroke="#C9A84C" stroke-width="4" stroke-linecap="round"/>
           <line x1="116" y1="57" x2="122" y2="67" stroke="#C9A84C" stroke-width="4" stroke-linecap="round"/>
           <line x1="100" y1="74" x2="100" y2="84" stroke="#C9A84C" stroke-width="4" stroke-linecap="round"/>
@@ -372,32 +859,24 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
       </div>
     </div>
 
-    <!-- ── P2: 22K Altın Kolye ── -->
+    <!-- P2: 22K Altın Kolye -->
     <div class="pc ai">
       <div class="pi">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:68%;height:68%">
-          <!-- Chain arc -->
           <path d="M28 68 Q100 22 172 68 Q172 136 100 158 Q28 136 28 68" fill="none" stroke="#9A7020" stroke-width="3.5"/>
           <path d="M28 68 Q100 22 172 68 Q172 136 100 158 Q28 136 28 68" fill="none" stroke="#C9A84C" stroke-width="2" stroke-dasharray="5 4"/>
           <path d="M34 72 Q100 28 166 72" fill="none" stroke="#EDD272" stroke-width="1" stroke-dasharray="2 6" opacity=".7"/>
-          <!-- Link details -->
           <ellipse cx="62" cy="54" rx="5" ry="3" fill="none" stroke="#C9A84C" stroke-width="1.2" opacity=".6"/>
           <ellipse cx="138" cy="54" rx="5" ry="3" fill="none" stroke="#C9A84C" stroke-width="1.2" opacity=".6"/>
           <ellipse cx="28" cy="85" rx="3" ry="5" fill="none" stroke="#C9A84C" stroke-width="1.2" opacity=".5"/>
           <ellipse cx="172" cy="85" rx="3" ry="5" fill="none" stroke="#C9A84C" stroke-width="1.2" opacity=".5"/>
-          <!-- Pendant teardrop -->
           <path d="M100,132 Q88,148 88,158 Q88,172 100,176 Q112,172 112,158 Q112,148 100,132" fill="#C9A84C"/>
           <path d="M100,132 Q90,146 90,157 Q90,169 100,172 Q110,169 110,157 Q110,146 100,132" fill="#D4B560"/>
-          <!-- Diamond in pendant -->
           <polygon points="100,136 93,148 100,157 107,148" fill="#B8EFED"/>
           <polygon points="100,136 93,148 100,143" fill="white" opacity=".75"/>
           <polygon points="100,136 107,148 100,143" fill="#E0FFFE" opacity=".5"/>
-          <!-- Bail -->
           <rect x="95" y="122" width="10" height="14" rx="3" fill="none" stroke="#C9A84C" stroke-width="2"/>
           <line x1="100" y1="120" x2="100" y2="132" stroke="#C9A84C" stroke-width="2.5"/>
-          <!-- Sparkle -->
-          <line x1="142" y1="42" x2="142" y2="52" stroke="#EDD272" stroke-width=".8" opacity=".6"/>
-          <line x1="137" y1="47" x2="147" y2="47" stroke="#EDD272" stroke-width=".8" opacity=".6"/>
         </svg>
       </div>
       <div class="pinfo">
@@ -411,13 +890,12 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
       </div>
     </div>
 
-    <!-- ── P3: 18K Pırlanta Küpe ── -->
+    <!-- P3: 18K Pırlanta Küpe -->
     <div class="pc ai">
       <div class="pi">
         <span class="ptag">Bestseller</span>
         <button class="pc-wishlist" title="Favorilere Ekle">♡</button>
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:68%;height:68%">
-          <!-- Left earring -->
           <circle cx="68" cy="52" r="9" fill="#C9A84C" stroke="#D4B560" stroke-width="2"/>
           <circle cx="68" cy="52" r="5" fill="#EDD272"/>
           <line x1="68" y1="61" x2="68" y2="84" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
@@ -426,8 +904,6 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
           <path d="M60,84 Q60,118 68,130 Q76,118 76,84 Z" fill="#D4B560"/>
           <polygon points="68,92 60,106 68,116 76,106" fill="#B8EFED"/>
           <polygon points="68,92 60,106 68,100" fill="white" opacity=".8"/>
-          <polygon points="68,92 76,106 68,100" fill="#E0FFFE" opacity=".5"/>
-          <!-- Right earring -->
           <circle cx="132" cy="52" r="9" fill="#C9A84C" stroke="#D4B560" stroke-width="2"/>
           <circle cx="132" cy="52" r="5" fill="#EDD272"/>
           <line x1="132" y1="61" x2="132" y2="84" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
@@ -436,7 +912,6 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
           <path d="M124,84 Q124,118 132,130 Q140,118 140,84 Z" fill="#D4B560"/>
           <polygon points="132,92 124,106 132,116 140,106" fill="#B8EFED"/>
           <polygon points="132,92 124,106 132,100" fill="white" opacity=".8"/>
-          <polygon points="132,92 140,106 132,100" fill="#E0FFFE" opacity=".5"/>
         </svg>
       </div>
       <div class="pinfo">
@@ -450,36 +925,21 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
       </div>
     </div>
 
-    <!-- ── P4: 14K Altın Bilezik ── -->
+    <!-- P4: 14K Altın Bilezik -->
     <div class="pc ai">
       <div class="pi">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:68%;height:68%">
-          <!-- Bangle shadow -->
           <ellipse cx="100" cy="118" rx="70" ry="18" fill="rgba(0,0,0,.06)"/>
-          <!-- Bangle outer glow -->
           <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#9A7020" stroke-width="20"/>
-          <!-- Bangle body -->
           <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#C9A84C" stroke-width="16"/>
-          <!-- Bangle highlight -->
           <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#D4B560" stroke-width="8"/>
-          <!-- Bangle top shine -->
           <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#EDD272" stroke-width="3.5" stroke-dasharray="55 230"/>
-          <!-- Inner detail -->
           <ellipse cx="100" cy="100" rx="56" ry="28" fill="none" stroke="#9A7020" stroke-width="1" stroke-dasharray="4 5" opacity=".5"/>
-          <!-- Clasp -->
           <rect x="132" y="89" width="16" height="22" rx="2" fill="#C9A84C" stroke="#D4B560" stroke-width="1.5"/>
           <rect x="135" y="93" width="10" height="14" rx="1" fill="#9A7020"/>
           <line x1="141" y1="96" x2="141" y2="104" stroke="#EDD272" stroke-width="1.5" stroke-linecap="round"/>
-          <!-- Diamond accent -->
           <polygon points="100,72 93,82 100,88 107,82" fill="#B8EFED" stroke="#0ABAB5" stroke-width=".5"/>
           <polygon points="100,72 93,82 100,79" fill="white" opacity=".8"/>
-          <!-- Link texture dots -->
-          <circle cx="60" cy="116" r="2.5" fill="#EDD272" opacity=".5"/>
-          <circle cx="46" cy="103" r="2.5" fill="#EDD272" opacity=".4"/>
-          <circle cx="142" cy="82" r="2.5" fill="#EDD272" opacity=".5"/>
-          <!-- Side sparkle -->
-          <line x1="34" y1="88" x2="34" y2="96" stroke="#EDD272" stroke-width=".8" opacity=".5"/>
-          <line x1="30" y1="92" x2="38" y2="92" stroke="#EDD272" stroke-width=".8" opacity=".5"/>
         </svg>
       </div>
       <div class="pinfo">
@@ -495,47 +955,45 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
   </div>
 </section>
 
-<!-- ═══ ABOUT ════════════════════════════════════════════════════════ -->
+<!-- ═══ ABOUT ═════════════════════════════════════════════════ -->
 <section class="about" id="about">
   <div class="about-l">
     <div class="ab-eye ai">Hakkımızda</div>
     <h2 class="ab-h ai">Güvenin ve<br>Zarafetin<br>Adresi</h2>
     <p class="ab-p ai">Tuna Gold, 1995 yılından itibaren Turgutlu'da en seçkin altın ve pırlanta takıları müşterilerimize sunmaktadır. Her parça, geleneksel Anadolu ustalık anlayışı ile modern estetik bir araya getirilerek titizlikle işlenmektedir. Vizyonumuz; kalıcı değerler taşıyan, nesiller boyu hatırlanacak takılar yaratmaktır.</p>
     <div class="ab-stats ai">
-      <div><div class="ab-n">27+</div><div class="ab-l">Yıllık Deneyim</div></div>
-      <div><div class="ab-n">8K+</div><div class="ab-l">Mutlu Müşteri</div></div>
-      <div><div class="ab-n">1.200+</div><div class="ab-l">Özgün Tasarım</div></div>
+      <div class="ab-stat">
+        <div class="ab-n">27+</div>
+        <div class="ab-l">Yıllık Deneyim</div>
+      </div>
+      <div class="ab-stat">
+        <div class="ab-n">8K+</div>
+        <div class="ab-l">Mutlu Müşteri</div>
+      </div>
+      <div class="ab-stat">
+        <div class="ab-n">1.200+</div>
+        <div class="ab-l">Özgün Tasarım</div>
+      </div>
     </div>
   </div>
   <div class="about-r">
     <div class="ab-badge">
-      <div class="ab-year">1995</div>
-      <div class="ab-since">· Est. in Turgutlu ·</div>
-      <div class="ab-turgutlu">Turgutlu / Manisa</div>
+      <div class="ab-badge-frame">
+        <span class="ab-year">1995</span>
+        <div class="ab-since">· Est. in Turgutlu ·</div>
+        <div class="ab-turgutlu">Turgutlu / Manisa</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ════════════════════════════════════════════════════════ -->
-<footer>
-  <div class="ft-logo">TUNA GOLD</div>
-  <div class="ft">© 2026 Tuna Gold Kuyumculuk. Tüm Hakları Saklıdır.</div>
-  <div class="ft">
-    <a href="#">Gizlilik Politikası</a> &nbsp;|&nbsp; 
-    <a href="#">Mesafeli Satış Sözleşmesi</a>
-  </div>
-</footer>
-
-</body>
-</html>
-
-<!-- ═══ CONTACT STRIP ══════════════════════════════════════════════════ -->
+<!-- ═══ CONTACT STRIP ══════════════════════════════════════════ -->
 <div class="contact-strip">
   <div class="cs-col">
     <span class="cs-icon">✦</span>
     <span class="cs-label">Adres</span>
     <span class="cs-val">Turgutlu, Manisa</span>
-    <span class="cs-sub">Altay Mah. Eczane Sok. No:26, Turgutlu, Manisa 45400</span>
+    <span class="cs-sub">Altay Mah. Eczane Sok. No:26,<br>Turgutlu, Manisa 45400</span>
   </div>
   <div class="cs-div"></div>
   <div class="cs-col">
@@ -553,153 +1011,145 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
   </div>
 </div>
 
-<!-- ═══ FOOTER ══════════════════════════════════════════════════════════ -->
+<!-- ═══ FOOTER ════════════════════════════════════════════════ -->
 <footer>
-  <span class="ft">© 2025 <a href="#">Tuna Gold</a> · Tüm hakları saklıdır.</span>
-  <span class="ft-logo">Tuna Gold</span>
-  <span class="ft"><a href="#">KVKK</a> · <a href="#">Gizlilik</a> · <a href="#">İletişim</a></span>
+  <div class="ft-logo">Tuna Gold</div>
+  <div class="ft">© 2026 Tuna Gold Kuyumculuk. Tüm Hakları Saklıdır.</div>
+  <div class="ft">
+    <a href="#">KVKK</a> &nbsp;·&nbsp;
+    <a href="#">Gizlilik</a> &nbsp;·&nbsp;
+    <a href="#">İletişim</a>
+  </div>
 </footer>
 
-<!-- ══════════════════════════════════════════════════════════════════════
-     JAVASCRIPT — Price Engine & Live Simulation
-     In production: replace simulateLive() with fetch() from your backend
-     ══════════════════════════════════════════════════════════════════════ -->
+<!-- ═══ JAVASCRIPT ════════════════════════════════════════════ -->
 <script>
-/* ── LIVE GOLD PRICES (simulated – replace with real scraper API) ── */
-let goldPrices = {
-  has:   { label:'Has Altın',  unitLabel:'gr', price:4823.40, change:+12.80, pct:'+0.27%', up:true },
-  ayar22:{ label:'22 Ayar',   unitLabel:'gr', price:4421.15, change:+11.70, pct:'+0.27%', up:true },
-  ayar18:{ label:'18 Ayar',   unitLabel:'gr', price:3614.55, change:+9.56,  pct:'+0.27%', up:true },
-  ayar14:{ label:'14 Ayar',   unitLabel:'gr', price:2811.98, change:+7.44,  pct:'+0.27%', up:true },
-  ons:   { label:'Ons ($)',   unitLabel:'oz', price:3452.70, change:-4.30,  pct:'-0.12%', up:false },
-  usdtry:{ label:'USD/TRY',   unitLabel:'',   price:38.47,   change:+0.14,  pct:'+0.36%', up:true },
-};
+  let goldPrices = {
+    has:    { label:'Has Altın', unitLabel:'gr', price:4823.40, change:+12.80, pct:'+0.27%', up:true },
+    ayar22: { label:'22 Ayar',  unitLabel:'gr', price:4421.15, change:+11.70, pct:'+0.27%', up:true },
+    ayar18: { label:'18 Ayar',  unitLabel:'gr', price:3614.55, change:+9.56,  pct:'+0.27%', up:true },
+    ayar14: { label:'14 Ayar',  unitLabel:'gr', price:2811.98, change:+7.44,  pct:'+0.27%', up:true },
+    ons:    { label:'Ons ($)',  unitLabel:'oz', price:3452.70, change:-4.30,  pct:'-0.12%', up:false },
+    usdtry: { label:'USD/TRY', unitLabel:'',   price:38.47,   change:+0.14,  pct:'+0.36%', up:true },
+  };
 
-/* ── PRODUCT DATA (from Notion CMS in production) ── */
-const products = [
-  { elId:'p1-price', grams:3.5,  karat:'14', labor:750,  laborType:'fixed' },
-  { elId:'p2-price', grams:8.2,  karat:'22', labor:950,  laborType:'fixed' },
-  { elId:'p3-price', grams:1.2,  karat:'18', labor:480,  laborType:'fixed' },
-  { elId:'p4-price', grams:12.5, karat:'14', labor:1400, laborType:'fixed' },
-];
-
-/* ── PRICE FORMULA: Price = (Grams × Live Karat Price) + Labor ── */
-function getKaratPrice(karat) {
-  const map = { '14':goldPrices.ayar14.price, '18':goldPrices.ayar18.price, '22':goldPrices.ayar22.price, 'has':goldPrices.has.price };
-  return map[karat] || goldPrices.ayar14.price;
-}
-
-function formatTRY(n) {
-  return Math.round(n).toLocaleString('tr-TR');
-}
-
-function calcAllPrices() {
-  products.forEach(p => {
-    const el = document.getElementById(p.elId);
-    if (!el) return;
-    let price = p.grams * getKaratPrice(p.karat);
-    if (p.laborType === 'fixed') price += p.labor;
-    else price *= (1 + p.labor / 100);
-    el.textContent = formatTRY(price);
-  });
-  /* Hero SVG price */
-  const heroEl = document.getElementById('hero-price-svg');
-  if (heroEl) {
-    const total = 3.5 * goldPrices.ayar14.price + 750;
-    heroEl.textContent = `₺${formatTRY(total)} · 14K · 3.5 gr`;
-  }
-}
-
-/* ── BUILD TICKER ── */
-function buildTicker() {
-  const items = Object.values(goldPrices);
-  let html = '';
-  for (let i = 0; i < 2; i++) {
-    items.forEach(d => {
-      const chSign = d.up ? '+' : '';
-      const suffix = d.unitLabel ? ` ₺/${d.unitLabel}` : ' ₺';
-      html += `<div class="ti">
-        <span class="lbl">${d.label}</span>
-        <span class="pr">${d.price.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2})}${suffix}</span>
-        <span class="${d.up ? 'up' : 'dn'}">${chSign}${d.pct}</span>
-      </div>`;
-    });
-  }
-  document.getElementById('ticker-track').innerHTML = html;
-}
-
-/* ── BUILD MARQUEE ── */
-function buildMarquee() {
-  const msgs = [
-    'Turgutlu Kuyumcular Derneği Onaylı',
-    'Has Altın Sertifikası',
-    'Ücretsiz Kargo – Türkiye Geneli',
-    '1995\'den Beri Güvenilir Kuyumculuk',
-    'Pırlanta GIA Sertifikalı',
-    'Kişiselleştirilmiş Tasarım',
-    'İndirimli Düğün Paketi',
+  const products = [
+    { elId:'p1-price', grams:3.5,  karat:'14', labor:750,  laborType:'fixed' },
+    { elId:'p2-price', grams:8.2,  karat:'22', labor:950,  laborType:'fixed' },
+    { elId:'p3-price', grams:1.2,  karat:'18', labor:480,  laborType:'fixed' },
+    { elId:'p4-price', grams:12.5, karat:'14', labor:1400, laborType:'fixed' },
   ];
-  let html = '';
-  for (let i = 0; i < 3; i++) {
-    msgs.forEach(m => {
-      html += `<div class="mq-item">${m}<span class="mq-sep"></span></div>`;
-    });
+
+  function getKaratPrice(karat) {
+    const map = { '14':goldPrices.ayar14.price, '18':goldPrices.ayar18.price, '22':goldPrices.ayar22.price, 'has':goldPrices.has.price };
+    return map[karat] || goldPrices.ayar14.price;
   }
-  const el = document.getElementById('marquee-track');
-  if (el) el.innerHTML = html;
-}
 
-/* ── SIMULATE LIVE FLUCTUATION (replace with real fetch in prod) ── */
-function simulateLive() {
-  Object.keys(goldPrices).forEach(k => {
-    const d = goldPrices[k];
-    const fl = (Math.random() - 0.49) * (k === 'ons' ? 1.5 : k === 'usdtry' ? 0.05 : 0.8);
-    d.price = parseFloat(Math.max(0.01, d.price + fl).toFixed(2));
-    d.up = fl >= 0;
-  });
-  buildTicker();
-  calcAllPrices();
-}
+  function formatTRY(n) {
+    return Math.round(n).toLocaleString('tr-TR');
+  }
 
-/* ── SCROLL ANIMATIONS ── */
-function initAnim() {
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('v'), i * 90);
-        obs.unobserve(e.target);
-      }
+  function calcAllPrices() {
+    products.forEach(p => {
+      const el = document.getElementById(p.elId);
+      if (!el) return;
+      let price = p.grams * getKaratPrice(p.karat);
+      if (p.laborType === 'fixed') price += p.labor;
+      else price *= (1 + p.labor / 100);
+      el.textContent = formatTRY(price);
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.ai').forEach(el => obs.observe(el));
-}
-
-/* ── WISHLIST TOGGLE ── */
-document.addEventListener('click', e => {
-  if (e.target.classList.contains('pc-wishlist')) {
-    const btn = e.target;
-    if (btn.dataset.active === '1') {
-      btn.textContent = '♡';
-      btn.style.background = 'rgba(255,255,255,0.85)';
-      btn.style.color = '';
-      delete btn.dataset.active;
-    } else {
-      btn.textContent = '♥';
-      btn.style.background = 'var(--t)';
-      btn.style.color = 'white';
-      btn.dataset.active = '1';
+    const heroEl = document.getElementById('hero-price-svg');
+    if (heroEl) {
+      const total = 3.5 * goldPrices.ayar14.price + 750;
+      heroEl.textContent = `₺${formatTRY(total)} · 14K · 3.5 gr`;
     }
   }
-});
 
-/* ── INIT ── */
-buildTicker();
-buildMarquee();
-calcAllPrices();
-initAnim();
+  function buildTicker() {
+    const items = Object.values(goldPrices);
+    let html = '';
+    for (let i = 0; i < 2; i++) {
+      items.forEach(d => {
+        const chSign = d.up ? '+' : '';
+        const suffix = d.unitLabel ? ` ₺/${d.unitLabel}` : ' ₺';
+        html += `<div class="ti">
+          <span class="lbl">${d.label}</span>
+          <span class="pr">${d.price.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2})}${suffix}</span>
+          <span class="${d.up ? 'up' : 'dn'}">${chSign}${d.pct}</span>
+        </div>`;
+      });
+    }
+    document.getElementById('ticker-track').innerHTML = html;
+  }
 
-/* Update every 10 seconds – production: fetch from /api/gold-prices */
-setInterval(simulateLive, 10000);
+  function buildMarquee() {
+    const msgs = [
+      'Turgutlu Kuyumcular Derneği Onaylı',
+      'Has Altın Sertifikası',
+      'Ücretsiz Kargo – Türkiye Geneli',
+      '1995\'ten Beri Güvenilir Kuyumculuk',
+      'Pırlanta GIA Sertifikalı',
+      'Kişiselleştirilmiş Tasarım',
+      'İndirimli Düğün Paketi',
+    ];
+    let html = '';
+    for (let i = 0; i < 3; i++) {
+      msgs.forEach(m => {
+        html += `<div class="mq-item">${m}<span class="mq-sep"></span></div>`;
+      });
+    }
+    const el = document.getElementById('marquee-track');
+    if (el) el.innerHTML = html;
+  }
+
+  function simulateLive() {
+    Object.keys(goldPrices).forEach(k => {
+      const d = goldPrices[k];
+      const fl = (Math.random() - 0.49) * (k === 'ons' ? 1.5 : k === 'usdtry' ? 0.05 : 0.8);
+      d.price = parseFloat(Math.max(0.01, d.price + fl).toFixed(2));
+      d.up = fl >= 0;
+    });
+    buildTicker();
+    calcAllPrices();
+  }
+
+  function initAnim() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('v'), i * 80);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.ai').forEach(el => obs.observe(el));
+  }
+
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('pc-wishlist')) {
+      const btn = e.target;
+      if (btn.dataset.active === '1') {
+        btn.textContent = '♡';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.style.borderColor = '';
+        delete btn.dataset.active;
+      } else {
+        btn.textContent = '♥';
+        btn.style.background = 'var(--t)';
+        btn.style.color = 'white';
+        btn.style.borderColor = 'var(--t)';
+        btn.dataset.active = '1';
+      }
+    }
+  });
+
+  buildTicker();
+  buildMarquee();
+  calcAllPrices();
+  initAnim();
+
+  setInterval(simulateLive, 10000);
 </script>
 </body>
 </html>
