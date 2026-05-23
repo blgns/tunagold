@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tuna Gold — Est. 1995</title>
@@ -15,7 +16,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:Georgia,'Times New Roman',serif;background:var(--w);color:var(--dk);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family: Playfair Display,'Times New Roman',serif;background:var(--w);color:var(--dk);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* ── TICKER ─────────────────────────────────── */
 .ticker-wrap{background:#10100A;height:40px;display:flex;overflow:hidden;border-bottom:1px solid rgba(201,168,76,.12);flex-shrink:0}
@@ -146,6 +147,23 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
 @keyframes fiu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 .ai{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
 .ai.v{opacity:1;transform:translateY(0)}
+  /* ── MOBİL UYUMLULUK ── */
+@media (max-width: 768px) {
+  /* Menü ve Başlıklar */
+  nav { padding: 0 20px; justify-content: center; }
+  .nl, .nr { display: none; } /* Mobilde yan menüleri gizle, sadece logo kalsın */
+  
+  /* Hero Alanı (Üst Kısım) */
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-l, .hero-r { padding: 40px 20px; }
+  .h-h1 { font-size: 42px; }
+  
+  /* Ürünler ve Hakkımızda (Yan yana duranları alt alta al) */
+  .prod-grid { grid-template-columns: repeat(2, 1fr); }
+  .about { grid-template-columns: 1fr; }
+  .about-l { padding: 40px 20px; }
+  .ab-stats { grid-template-columns: 1fr; gap: 15px; }
+}
 </style>
 </head>
 <body>
@@ -293,7 +311,7 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
         <!-- Live price overlay -->
         <rect x="24" y="438" width="392" height="50" rx="0" fill="rgba(10,186,181,.07)" stroke="rgba(10,186,181,.18)" stroke-width=".5"/>
         <text x="44" y="458" fill="#089490" font-size="8" font-family="'Helvetica Neue',Arial,sans-serif" letter-spacing="2" font-weight="400">CANLI FİYAT · 14 AYAR SOLİTAİRE YÜZÜK</text>
-        <text x="44" y="476" fill="#15140E" font-size="15" font-family="Georgia,serif" id="hero-price-svg">Hesaplanıyor...</text>
+        <text x="44" y="476" fill="#15140E" font-size="15" font-family: 'Playfair Display', serif;" id="hero-price-svg">Hesaplanıyor...</text>
         <circle cx="402" cy="462" r="5" fill="#0ABAB5">
           <animate attributeName="opacity" values="1;0.2;1" dur="1.4s" repeatCount="indefinite"/>
           <animate attributeName="r" values="5;3.5;5" dur="1.4s" repeatCount="indefinite"/>
@@ -493,10 +511,23 @@ footer{background:#0E0D08;display:flex;justify-content:space-between;align-items
     <div class="ab-badge">
       <div class="ab-year">1995</div>
       <div class="ab-since">· Est. in Turgutlu ·</div>
-      <div class="ab-turgutlu">Manisa · Türkiye</div>
+      <div class="ab-turgutlu">Turgutlu / Manisa</div>
     </div>
   </div>
 </section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="ft-logo">TUNA GOLD</div>
+  <div class="ft">© 2026 Tuna Gold Kuyumculuk. Tüm Hakları Saklıdır.</div>
+  <div class="ft">
+    <a href="#">Gizlilik Politikası</a> &nbsp;|&nbsp; 
+    <a href="#">Mesafeli Satış Sözleşmesi</a>
+  </div>
+</footer>
+
+</body>
+</html>
 
 <!-- ═══ CONTACT STRIP ══════════════════════════════════════════════════ -->
 <div class="contact-strip">
