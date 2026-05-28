@@ -57,8 +57,8 @@
       flex-shrink: 0;
     }
     .ticker-badge {
-      background: var(--g);
-      color: #09090A;
+      background: var(--t);
+      color: #fff;
       font: 500 8px/38px 'Jost', sans-serif;
       letter-spacing: .24em;
       padding: 0 18px;
@@ -69,7 +69,7 @@
       align-items: center;
       gap: 8px;
     }
-    .t-dot { width:5px; height:5px; background:#09090A; border-radius:50%; animation:pulse 1.4s ease-in-out infinite }
+    .t-dot { width:5px; height:5px; background:#fff; border-radius:50%; animation:pulse 1.4s ease-in-out infinite }
     .ticker-overflow { overflow:hidden; flex:1 }
     .ticker-track {
       display: flex;
@@ -124,19 +124,11 @@
     }
     .na:hover { color: var(--t) }
     .logo-wrap { flex: 0; padding: 0 52px; text-align: center }
-    .logo-main {
-      font: 400 16px/1 'Cormorant Garamond', Georgia, serif;
-      letter-spacing: .52em;
-      text-transform: uppercase;
-      color: var(--ink);
-      white-space: nowrap;
-    }
-    .logo-rule { width:100%; height:0.5px; background:var(--gbord); margin:5px 0 }
-    .logo-sub {
-      font: 200 7px/1 'Jost', sans-serif;
-      letter-spacing: .45em;
-      text-transform: uppercase;
-      color: var(--ink-2);
+    .logo-img {
+      height: 44px;
+      width: auto;
+      display: block;
+      object-fit: contain;
     }
     .nav-ico { display:flex; gap:10px; margin-left:8px }
     .ico {
@@ -608,28 +600,6 @@
       color: var(--ink-3);
     }
 
-    /* ── FOOTER ────────────────────────────────── */
-    footer {
-      background: var(--ink);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 60px;
-      border-top: 0.5px solid rgba(201,168,76,.09);
-    }
-    .ft {
-      font: 300 9px/1 'Jost', sans-serif;
-      letter-spacing: .07em;
-      color: rgba(255,255,255,.2);
-    }
-    .ft a { color:rgba(201,168,76,.5); text-decoration:none; transition:color .2s }
-    .ft a:hover { color: var(--g) }
-    .ft-logo {
-      font: 400 13px/1 'Cormorant Garamond', Georgia, serif;
-      letter-spacing: .45em;
-      color: rgba(255,255,255,.28);
-      text-transform: uppercase;
-    }
 
     /* ── ANIMATIONS ────────────────────────────── */
     @keyframes fiu {
@@ -646,8 +616,228 @@
     }
     .ai.v { opacity:1; transform:translateY(0) }
 
-    /* ── MOBILE ────────────────────────────────── */
+    /* ── CATEGORY GRID ─────────────────────────── */
+    .cat-sec { background: var(--w); padding: 80px 80px 0; }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .cat-item { position: relative; overflow: hidden; cursor: pointer; }
+    .cat-img {
+      aspect-ratio: 3/4;
+      position: relative;
+      overflow: hidden;
+      background: var(--cr);
+    }
+    .cat-img--placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed var(--ink-1);
+    }
+    .ph-label {
+      font: 300 10px/1.7 'Jost', sans-serif;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+      text-align: center;
+    }
+    .ph-label span { font-size: 9px; color: var(--ink-1); display: block; margin-top: 4px; letter-spacing:.06em; text-transform:none }
+    .ph-label--lg { font-size: 13px }
+    .cat-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,12,9,.72) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px 24px;
+      opacity: 0;
+      transition: opacity .35s;
+    }
+    .cat-item:hover .cat-overlay { opacity: 1 }
+    .cat-name {
+      font: 300 22px/1 'Cormorant Garamond', Georgia, serif;
+      color: #fff;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .cat-cta {
+      font: 300 7.5px/1 'Jost', sans-serif;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--t-lt);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cat-cta::after { content: '→' }
+
+    /* ── EDITORIAL BANNER ──────────────────────── */
+    .editorial-sec {
+      margin: 80px 80px 0;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      min-height: 560px;
+      overflow: hidden;
+      border: 0.5px solid var(--border);
+    }
+    .ed-img {
+      position: relative;
+      overflow: hidden;
+      background: #EAE4DA;
+      min-height: 400px;
+    }
+    .ed-img--placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px dashed var(--ink-1);
+    }
+    .ed-content {
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 72px 60px;
+    }
+    .ed-tag {
+      font: 300 7.5px/1 'Jost', sans-serif;
+      letter-spacing: .48em;
+      text-transform: uppercase;
+      color: var(--t);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .ed-tag::before { content:''; width:22px; height:0.5px; background:var(--t); flex-shrink:0 }
+    .ed-h {
+      font: 300 62px/1.0 'Cormorant Garamond', Georgia, serif;
+      color: rgba(255,255,255,.94);
+      margin-bottom: 24px;
+    }
+    .ed-h em { font-style:italic; color:var(--t-lt) }
+    .ed-p {
+      font: 300 13px/1.85 'Jost', sans-serif;
+      color: rgba(255,255,255,.38);
+      margin-bottom: 40px;
+      max-width: 280px;
+    }
+
+    /* ── MEGA FOOTER ───────────────────────────── */
+    .ft-mega {
+      background: var(--ink-7);
+      margin-top: 80px;
+      padding: 0;
+      border-top: 0.5px solid rgba(201,168,76,.10);
+    }
+    .ft-top {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 80px;
+      padding: 80px;
+      border-bottom: 0.5px solid rgba(255,255,255,.05);
+    }
+    .ft-brand {}
+    .ft-logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 24px;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: .7;
+    }
+    .ft-brand-desc {
+      font: 300 12.5px/1.88 'Jost', sans-serif;
+      color: rgba(255,255,255,.28);
+      margin-bottom: 32px;
+      max-width: 220px;
+    }
+    .ft-social { display: flex; gap: 14px }
+    .ft-soc-link {
+      width: 34px; height: 34px;
+      border: 0.5px solid rgba(255,255,255,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.3);
+      text-decoration: none;
+      transition: all .22s;
+    }
+    .ft-soc-link:hover { border-color: var(--t); color: var(--t) }
+    .ft-cols {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+    }
+    .ft-col { display: flex; flex-direction: column; gap: 12px }
+    .ft-col-head {
+      font: 400 8px/1 'Jost', sans-serif;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 6px;
+    }
+    .ft-link {
+      font: 300 13px/1 'Jost', sans-serif;
+      color: rgba(255,255,255,.22);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .ft-link:hover { color: var(--t) }
+    .ft-contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+    .ft-contact-label {
+      font: 300 7.5px/1 'Jost', sans-serif;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.2);
+    }
+    .ft-contact-val {
+      font: 300 12px/1.6 'Jost', sans-serif;
+      color: rgba(255,255,255,.38);
+    }
+    .ft-divider { height: 0.5px; background: rgba(255,255,255,.04); }
+    .ft-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 80px;
+    }
+    .ft-copy {
+      font: 300 10px/1 'Jost', sans-serif;
+      letter-spacing: .07em;
+      color: rgba(255,255,255,.16);
+    }
+    .ft-legal { display: flex; gap: 28px }
+    .ft-legal-link {
+      font: 300 9.5px/1 'Jost', sans-serif;
+      letter-spacing: .05em;
+      color: rgba(201,168,76,.35);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .ft-legal-link:hover { color: var(--g) }
+
+    /* ── MOBILE UPDATES ────────────────────────── */
     @media (max-width: 900px) {
+      .cat-sec { padding: 48px 20px 0 }
+      .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 8px }
+      .editorial-sec { margin: 48px 20px 0; grid-template-columns: 1fr }
+      .ed-img { min-height: 260px }
+      .ed-content { padding: 48px 32px }
+      .ed-h { font-size: 44px }
+      .ft-top { grid-template-columns: 1fr; gap: 40px; padding: 48px 28px }
+      .ft-cols { grid-template-columns: repeat(2, 1fr); gap: 32px }
+      .ft-bottom { flex-direction: column; gap: 16px; padding: 20px 28px }
+      .ft-legal { flex-wrap: wrap; justify-content: center; gap: 16px }
       nav { padding: 0 20px }
       .nl, .nr { display: none }
       .logo-wrap { padding: 0; flex: 1; text-align: center }
@@ -664,7 +854,6 @@
       .contact-strip { grid-template-columns: 1fr }
       .cs-div { display: none }
       .cs-col { padding: 32px 28px }
-      footer { flex-direction: column; gap: 16px; padding: 32px; text-align: center }
     }
   </style>
 </head>
@@ -694,9 +883,7 @@
     <a href="#" class="na">Bilezikler</a>
   </div>
   <div class="logo-wrap">
-    <div class="logo-main">Tuna Gold</div>
-    <div class="logo-rule"></div>
-    <div class="logo-sub">Est. 1995 · Turgutlu</div>
+    <img src="logo.png" alt="Tuna Gold" class="logo-img">
   </div>
   <div class="nr">
     <a href="#" class="na">Hakkımızda</a>
@@ -712,8 +899,7 @@
 <!-- ═══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-l">
-    <div class="h-tag">Sonbahar – Kış 2025</div>
-    <h1 class="h-h1">Her Anı<br><em>Ebedî</em><br>Kılmak İçin</h1>
+    <h1 class="h-h1">İnce İşçilik,<br><em>Sonsuz</em><br>Değer</h1>
     <p class="h-p">Tuna Gold olarak 1995'ten bu yana geleneksel ustalığı modern zarafetle harmanlayarak en seçkin altın ve pırlanta takıları sunuyoruz.</p>
     <div class="h-btns">
       <button class="btn-p">Koleksiyonu Keşfet</button>
@@ -1011,14 +1197,130 @@
   </div>
 </div>
 
+<!-- ═══ EDITORIAL CATEGORIES ══════════════════════════════════ -->
+<section class="cat-sec">
+  <div class="cat-grid">
+    <div class="cat-item ai">
+      <div class="cat-img cat-img--placeholder">
+        <div class="ph-label">Yüzük Görseli<br><span>Buraya yükleyin</span></div>
+        <div class="cat-overlay">
+          <span class="cat-name">Yüzükler</span>
+          <span class="cat-cta">Koleksiyonu Gör</span>
+        </div>
+      </div>
+    </div>
+    <div class="cat-item ai" style="transition-delay:.08s">
+      <div class="cat-img cat-img--placeholder">
+        <div class="ph-label">Kolye Görseli<br><span>Buraya yükleyin</span></div>
+        <div class="cat-overlay">
+          <span class="cat-name">Kolyeler</span>
+          <span class="cat-cta">Koleksiyonu Gör</span>
+        </div>
+      </div>
+    </div>
+    <div class="cat-item ai" style="transition-delay:.16s">
+      <div class="cat-img cat-img--placeholder">
+        <div class="ph-label">Küpe Görseli<br><span>Buraya yükleyin</span></div>
+        <div class="cat-overlay">
+          <span class="cat-name">Küpeler</span>
+          <span class="cat-cta">Koleksiyonu Gör</span>
+        </div>
+      </div>
+    </div>
+    <div class="cat-item ai" style="transition-delay:.24s">
+      <div class="cat-img cat-img--placeholder">
+        <div class="ph-label">Bilezik Görseli<br><span>Buraya yükleyin</span></div>
+        <div class="cat-overlay">
+          <span class="cat-name">Bilezikler</span>
+          <span class="cat-cta">Koleksiyonu Gör</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDITORIAL BANNER ═══════════════════════════════════════ -->
+<section class="editorial-sec ai">
+  <div class="ed-img ed-img--placeholder">
+    <div class="ph-label ph-label--lg">Öne Çıkan Kampanya Görseli<br><span>Buraya geniş format görsel yükleyin (önerilen: 1600×700px)</span></div>
+  </div>
+  <div class="ed-content">
+    <div class="ed-tag">Özel Koleksiyon</div>
+    <h2 class="ed-h">Pırlantanın<br><em>Işığında</em></h2>
+    <p class="ed-p">GIA sertifikalı pırlantalarımızla hazırladığımız özel tasarımlar, her özel anı kalıcı kılar.</p>
+    <button class="btn-p" style="margin-top:0">Keşfet</button>
+  </div>
+</section>
+
 <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
-<footer>
-  <div class="ft-logo">Tuna Gold</div>
-  <div class="ft">© 2026 Tuna Gold Kuyumculuk. Tüm Hakları Saklıdır.</div>
-  <div class="ft">
-    <a href="#">KVKK</a> &nbsp;·&nbsp;
-    <a href="#">Gizlilik</a> &nbsp;·&nbsp;
-    <a href="#">İletişim</a>
+<footer class="ft-mega">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <img src="logo.png" alt="Tuna Gold" class="ft-logo-img">
+      <p class="ft-brand-desc">1995'ten bu yana Turgutlu'dan dünyaya, geleneksel ustalık ve modern zarafetin buluştuğu adres.</p>
+      <div class="ft-social">
+        <a href="#" class="ft-soc-link" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" class="ft-soc-link" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" class="ft-soc-link" aria-label="WhatsApp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="ft-cols">
+      <div class="ft-col">
+        <div class="ft-col-head">Koleksiyonlar</div>
+        <a href="#" class="ft-link">Yüzükler</a>
+        <a href="#" class="ft-link">Kolyeler</a>
+        <a href="#" class="ft-link">Küpeler</a>
+        <a href="#" class="ft-link">Bilezikler</a>
+        <a href="#" class="ft-link">Pırlanta</a>
+        <a href="#" class="ft-link">Düğün Koleksiyonu</a>
+      </div>
+      <div class="ft-col">
+        <div class="ft-col-head">Hizmetler</div>
+        <a href="#" class="ft-link">Fiyat Hesapla</a>
+        <a href="#" class="ft-link">Randevu Al</a>
+        <a href="#" class="ft-link">Kişiye Özel Tasarım</a>
+        <a href="#" class="ft-link">Tamir & Bakım</a>
+        <a href="#" class="ft-link">Sertifika Sorgula</a>
+      </div>
+      <div class="ft-col">
+        <div class="ft-col-head">Kurumsal</div>
+        <a href="#" class="ft-link">Hakkımızda</a>
+        <a href="#" class="ft-link">Basın</a>
+        <a href="#" class="ft-link">Kariyer</a>
+        <a href="#" class="ft-link">İletişim</a>
+      </div>
+      <div class="ft-col">
+        <div class="ft-col-head">İletişim</div>
+        <div class="ft-contact-item">
+          <span class="ft-contact-label">Adres</span>
+          <span class="ft-contact-val">Altay Mah. Eczane Sok. No:26<br>Turgutlu, Manisa 45400</span>
+        </div>
+        <div class="ft-contact-item">
+          <span class="ft-contact-label">E-posta</span>
+          <span class="ft-contact-val">oztunakuyumculuk19@gmail.com</span>
+        </div>
+        <div class="ft-contact-item">
+          <span class="ft-contact-label">Çalışma Saatleri</span>
+          <span class="ft-contact-val">Haftaiçi 09:00 – 19:00<br>Cumartesi 10:00 – 17:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ft-divider"></div>
+  <div class="ft-bottom">
+    <div class="ft-copy">© 2026 Tuna Gold Kuyumculuk. Tüm Hakları Saklıdır.</div>
+    <div class="ft-legal">
+      <a href="#" class="ft-legal-link">KVKK</a>
+      <a href="#" class="ft-legal-link">Gizlilik Politikası</a>
+      <a href="#" class="ft-legal-link">Çerez Politikası</a>
+      <a href="#" class="ft-legal-link">Mesafeli Satış Sözleşmesi</a>
+    </div>
   </div>
 </footer>
 
