@@ -8,25 +8,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --g:      #C9A84C;
-      --g-mid:  #D4B560;
-      --g-lt:   #E8D5A3;
-      --g-pal:  #F7F0DC;
-      --t:      #0ABAB5;
-      --t-dk:   #089490;
-      --t-ddk:  #067A77;
-      --t-lt:   #D4F2F1;
-      --ink:    #0D0C09;
-      --ink-7:  #1C1A14;
-      --ink-5:  #3A3830;
-      --ink-3:  #71706A;
-      --ink-2:  #A9A7A0;
-      --ink-1:  #D4D2CC;
-      --cr:     #F8F5F0;
-      --w:      #FDFCF9;
-      --border: rgba(0,0,0,0.065);
-      --gbord:  rgba(201,168,76,0.18);
-      --tbord:  rgba(10,186,181,0.15);
+      --g:      #D4AF37;
+      --g-mid:  #E8C84A;
+      --g-lt:   #F5E070;
+      --g-pal:  #FBF7E0;
+      --t:      #C8982A;
+      --t-dk:   #A67B1C;
+      --t-ddk:  #18130A;
+      --t-lt:   #FFF4A8;
+      --ink:    #08070A;
+      --ink-7:  #11100A;
+      --ink-5:  #28260F;
+      --ink-3:  #60583A;
+      --ink-2:  #98906A;
+      --ink-1:  #CAC4A0;
+      --cr:     #F8F5E8;
+      --w:      #FDFCF5;
+      --border: rgba(0,0,0,0.07);
+      --gbord:  rgba(212,175,55,0.28);
+      --tbord:  rgba(200,152,42,0.2);
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
     html { scroll-behavior:smooth }
@@ -51,37 +51,53 @@
     /* ── TICKER ────────────────────────────────── */
     .ticker-wrap {
       background: #09090A;
-      height: 38px;
+      height: 44px;
       display: flex;
       overflow: hidden;
       flex-shrink: 0;
     }
     .ticker-badge {
-      background: var(--t);
-      color: #fff;
-      font: 500 8px/38px 'Jost', sans-serif;
-      letter-spacing: .24em;
-      padding: 0 18px;
+      background: linear-gradient(105deg,
+        #7B5510 0%,
+        #C8982A 12%,
+        #F0D875 22%,
+        #FFF4A8 28%,
+        #E2C04A 36%,
+        #D4AF37 45%,
+        #F5E070 52%,
+        #FFFBD0 56%,
+        #D4AF37 64%,
+        #C8982A 75%,
+        #F0D875 86%,
+        #7B5510 100%
+      );
+      background-size: 400% 100%;
+      animation: glitter-sweep 2.8s linear infinite, gold-pulse 3s ease-in-out infinite;
+      color: #080700;
+      font: 700 10px/44px 'Jost', sans-serif;
+      letter-spacing: .22em;
+      padding: 0 22px;
       white-space: nowrap;
       text-transform: uppercase;
       flex-shrink: 0;
       display: flex;
       align-items: center;
       gap: 8px;
+      position: relative;
     }
-    .t-dot { width:5px; height:5px; background:#fff; border-radius:50%; animation:pulse 1.4s ease-in-out infinite }
+    .t-dot { width:5px; height:5px; background:#080700; border-radius:50%; animation:pulse 1.4s ease-in-out infinite }
     .ticker-overflow { overflow:hidden; flex:1 }
     .ticker-track {
       display: flex;
       animation: tick 55s linear infinite;
       white-space: nowrap;
-      height: 38px;
+      height: 44px;
       align-items: center;
     }
     @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
     .ti {
-      font: 400 10px/1 'Courier New', monospace;
-      padding: 0 22px;
+      font: 400 12px/1 'Courier New', monospace;
+      padding: 0 24px;
       border-right: 1px solid rgba(255,255,255,0.04);
       height: 100%;
       display: flex;
@@ -89,14 +105,14 @@
       gap: 9px;
     }
     .ti .lbl { color:#474542; letter-spacing:.06em }
-    .ti .pr  { color:var(--g-lt); font-weight:700; letter-spacing:.02em }
-    .ti .up  { color:#4ADE80; font-size:9px }
-    .ti .dn  { color:#F87171; font-size:9px }
+    .ti .pr  { color:#F5E89A; font-weight:700; letter-spacing:.02em }
+    .ti .up  { color:#4ADE80; font-size:11px }
+    .ti .dn  { color:#F87171; font-size:11px }
 
     /* ── NAV ───────────────────────────────────── */
     nav {
       background: rgba(253,252,249,0.94);
-      height: 70px;
+      height: 82px;
       display: flex;
       align-items: center;
       padding: 0 52px;
@@ -115,8 +131,8 @@
     }
     .nr { justify-content: flex-end }
     .na {
-      font: 300 8.5px/1 'Jost', sans-serif;
-      letter-spacing: .2em;
+      font: 300 10px/1 'Jost', sans-serif;
+      letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--ink-3);
       text-decoration: none;
@@ -125,7 +141,7 @@
     .na:hover { color: var(--t) }
     .logo-wrap { flex: 0; padding: 0 52px; text-align: center }
     .logo-img {
-      height: 44px;
+      height: 58px;
       width: auto;
       display: block;
       object-fit: contain;
@@ -145,167 +161,248 @@
 
     /* ── HERO ──────────────────────────────────── */
     .hero {
-      min-height: 90vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
       overflow: hidden;
+      display: flex;
+      align-items: flex-end;
     }
-    .hero-l {
-      background: var(--cr);
+
+    /* Video / Fotoğraf arka plan */
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-media video,
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* Placeholder — görsel yüklenince kaldırılır */
+    .hero-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1710 0%, #2e2a1e 40%, #0e2e2d 100%);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 80px 80px 80px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-l::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 0.5px; height: 100%;
-      background: linear-gradient(to bottom,
-        transparent 0%,
-        rgba(201,168,76,.3) 35%,
-        rgba(201,168,76,.3) 65%,
-        transparent 100%);
-    }
-    .h-tag {
-      font: 300 8.5px/1 'Jost', sans-serif;
-      letter-spacing: .48em;
-      text-transform: uppercase;
-      color: var(--t);
-      margin-bottom: 22px;
-      display: flex;
       align-items: center;
+      justify-content: center;
       gap: 16px;
-      animation: fiu .7s .1s both;
     }
-    .h-tag::before {
-      content: '';
-      width: 28px;
-      height: 0.5px;
-      background: var(--t);
+    .hero-placeholder-icon {
+      width: 64px; height: 64px;
+      border: 1px dashed rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: rgba(255,255,255,.3);
+    }
+    .hero-placeholder-text {
+      font: 300 10px/1.7 'Jost', sans-serif;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.2);
+      text-align: center;
+    }
+    .hero-placeholder-sub {
+      font: 300 11px/1.5 'Jost', sans-serif;
+      color: rgba(255,255,255,.1);
+      letter-spacing: .08em;
+      text-align: center;
+    }
+
+    /* Gradient overlay — altta içerik okunabilsin */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to top,
+          rgba(13,12,9,.82) 0%,
+          rgba(13,12,9,.38) 45%,
+          rgba(13,12,9,.08) 100%);
+    }
+
+    /* İçerik */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 0 80px 72px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .hero-content-l { max-width: 600px; }
+    .hero-content-r {
       flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 18px;
+      padding-bottom: 6px;
     }
+
     .h-h1 {
-      font: 300 88px/1.0 'Cormorant Garamond', Georgia, serif;
-      letter-spacing: -.025em;
-      color: var(--ink);
-      margin-bottom: 28px;
-      animation: fiu .7s .22s both;
+      font: 300 96px/1.0 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: -.02em;
+      color: rgba(255,255,255,.96);
+      margin-bottom: 24px;
+      animation: fiu .9s .2s both;
     }
     .h-h1 em {
       font-style: italic;
-      color: var(--t-dk);
-      font-weight: 400;
+      color: var(--t-lt);
+      font-weight: 300;
     }
     .h-p {
-      font: 300 13.5px/1.92 'Jost', sans-serif;
-      color: var(--ink-3);
-      max-width: 340px;
-      margin-bottom: 46px;
-      animation: fiu .7s .34s both;
+      font: 300 13.5px/1.88 'Jost', sans-serif;
+      color: rgba(255,255,255,.48);
+      max-width: 380px;
+      margin-bottom: 36px;
+      animation: fiu .9s .35s both;
     }
     .h-btns {
       display: flex;
       gap: 12px;
-      animation: fiu .7s .46s both;
+      animation: fiu .9s .5s both;
     }
     .btn-p {
-      background: var(--ink);
-      color: var(--w);
+      background: rgba(255,255,255,.97);
+      color: var(--ink);
       border: none;
-      padding: 14px 38px;
+      padding: 15px 40px;
       font: 400 8px/1 'Jost', sans-serif;
       letter-spacing: .22em;
       text-transform: uppercase;
       cursor: pointer;
-      transition: background .22s;
+      transition: background .22s, color .22s;
     }
-    .btn-p:hover { background: var(--ink-5) }
+    .btn-p:hover { background: var(--t); color: #fff }
     .btn-s {
       background: transparent;
-      color: var(--ink);
-      border: 0.5px solid var(--ink-1);
-      padding: 14px 38px;
+      color: rgba(255,255,255,.85);
+      border: 0.5px solid rgba(255,255,255,.3);
+      padding: 15px 40px;
       font: 400 8px/1 'Jost', sans-serif;
       letter-spacing: .22em;
       text-transform: uppercase;
       cursor: pointer;
       transition: all .22s;
     }
-    .btn-s:hover { border-color: var(--t); color: var(--t) }
+    .btn-s:hover { border-color: var(--t-lt); color: var(--t-lt) }
+
+    /* Sağ — istatistikler */
     .hero-trust {
-      margin-top: 52px;
       display: flex;
-      align-items: center;
-      gap: 32px;
-      animation: fiu .7s .58s both;
-      padding-top: 34px;
-      border-top: 0.5px solid var(--border);
+      flex-direction: column;
+      gap: 20px;
+      animation: fiu .9s .65s both;
     }
-    .ht-line { width:0.5px; height:34px; background:var(--border) }
+    .ht-item { text-align: right }
     .ht-n {
-      font: 300 26px/1 'Cormorant Garamond', Georgia, serif;
-      color: var(--ink);
+      font: 300 32px/1 'Cormorant Garamond', Georgia, serif;
+      color: rgba(255,255,255,.88);
     }
     .ht-l {
       font: 300 8px/1 'Jost', sans-serif;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--ink-2);
+      color: rgba(255,255,255,.28);
       margin-top: 5px;
     }
-    .hero-r {
-      background: #F2EDE5;
+    .ht-line { width: 100%; height: 0.5px; background: rgba(255,255,255,.08) }
+
+    /* Scroll cue */
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 60px;
-      position: relative;
-      overflow: hidden;
+      gap: 8px;
+      animation: fiu 1s .9s both;
     }
-    /* Geometric circle ornament */
-    .hero-r::before {
-      content: '';
+    .hero-scroll-line {
+      width: 0.5px;
+      height: 44px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    .hero-scroll-lbl {
+      font: 300 7px/1 'Jost', sans-serif;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.28);
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: .4 }
+      50% { opacity: 1 }
+    }
+
+    /* Medya anahtar bilgi şeridi */
+    .hero-meta {
       position: absolute;
-      top: 56px; right: 56px;
-      width: 160px; height: 160px;
-      border: 0.5px solid var(--gbord);
-      border-radius: 50%;
+      top: 50%;
+      right: 44px;
+      transform: translateY(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      animation: fiu 1s .7s both;
     }
-    /* Corner square ornament */
-    .hero-r::after {
-      content: '';
-      position: absolute;
-      bottom: 44px; left: 44px;
-      width: 80px; height: 80px;
-      border: 0.5px solid var(--gbord);
-    }
-    .hero-jewel-wrap {
-      width: 100%;
-      max-width: 400px;
-      position: relative;
-      z-index: 1;
+    .hero-meta-item {
+      writing-mode: vertical-rl;
+      font: 300 7.5px/1 'Jost', sans-serif;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.2);
     }
 
     /* ── ANNOUNCEMENT BAND ─────────────────────── */
     .band {
-      background: var(--t);
-      padding: 13px 24px;
+      background: linear-gradient(105deg,
+        #7B5510 0%,
+        #C8982A 12%,
+        #F0D875 22%,
+        #FFF4A8 28%,
+        #E2C04A 36%,
+        #D4AF37 45%,
+        #F5E070 52%,
+        #FFFBD0 56%,
+        #D4AF37 64%,
+        #C8982A 75%,
+        #F0D875 86%,
+        #7B5510 100%
+      );
+      background-size: 400% 100%;
+      animation: glitter-sweep 3.5s linear infinite;
+      padding: 16px 24px;
       text-align: center;
-      font: 300 7.5px/1 'Jost', sans-serif;
-      letter-spacing: .52em;
+      font: 600 10px/1 'Jost', sans-serif;
+      letter-spacing: .45em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.9);
+      color: #080700;
+      position: relative;
+      overflow: hidden;
     }
 
     /* ── MARQUEE ───────────────────────────────── */
     .marquee-sec {
       border-top: 0.5px solid var(--border);
       border-bottom: 0.5px solid var(--border);
-      padding: 20px 0;
+      padding: 22px 0;
       overflow: hidden;
       background: var(--cr);
     }
@@ -316,8 +413,8 @@
       align-items: center;
     }
     .mq-item {
-      font: 200 8.5px/1 'Jost', sans-serif;
-      letter-spacing: .38em;
+      font: 200 11px/1 'Jost', sans-serif;
+      letter-spacing: .32em;
       text-transform: uppercase;
       color: var(--ink-2);
       padding: 0 36px;
@@ -337,14 +434,14 @@
       margin-bottom: 76px;
     }
     .sec-eye {
-      font: 300 8px/1 'Jost', sans-serif;
-      letter-spacing: .48em;
+      font: 300 10.5px/1 'Jost', sans-serif;
+      letter-spacing: .42em;
       text-transform: uppercase;
       color: var(--t);
       margin-bottom: 14px;
     }
     .sec-ttl {
-      font: 300 48px/1.06 'Cormorant Garamond', Georgia, serif;
+      font: 300 54px/1.06 'Cormorant Garamond', Georgia, serif;
       color: var(--ink);
     }
     .sec-sep { width:36px; height:0.5px; background:var(--g); margin:22px auto 0; opacity:.55 }
@@ -379,44 +476,44 @@
       top: 16px; left: 0;
       background: var(--ink);
       color: var(--w);
-      font: 400 6.5px/1 'Jost', sans-serif;
-      letter-spacing: .2em;
+      font: 400 8.5px/1 'Jost', sans-serif;
+      letter-spacing: .18em;
       text-transform: uppercase;
-      padding: 5px 11px;
+      padding: 6px 13px;
     }
     .pinfo {
       padding: 26px 28px 30px;
       border-top: 0.5px solid var(--border);
     }
     .pkr {
-      font: 300 7.5px/1 'Jost', sans-serif;
-      letter-spacing: .3em;
+      font: 300 9.5px/1 'Jost', sans-serif;
+      letter-spacing: .28em;
       text-transform: uppercase;
       color: var(--g);
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
     .pnm {
-      font: 400 16px/1.2 'Cormorant Garamond', Georgia, serif;
+      font: 400 20px/1.2 'Cormorant Garamond', Georgia, serif;
       color: var(--ink);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
     .pwt {
-      font: 300 11px/1 'Jost', sans-serif;
+      font: 300 13px/1 'Jost', sans-serif;
       color: var(--ink-2);
       margin-bottom: 20px;
     }
     .ppr { display:flex; justify-content:space-between; align-items:baseline }
     .pprice {
-      font: 300 24px/1 'Cormorant Garamond', Georgia, serif;
+      font: 300 28px/1 'Cormorant Garamond', Georgia, serif;
       color: var(--ink);
     }
     .pprice sup {
-      font: 300 11px/1 'Jost', sans-serif;
+      font: 300 13px/1 'Jost', sans-serif;
       color: var(--ink-3);
       vertical-align: super;
     }
     .plive {
-      font: 300 7px/1 'Jost', sans-serif;
+      font: 300 9px/1 'Jost', sans-serif;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--t-dk);
@@ -462,19 +559,19 @@
       border-right: 0.5px solid rgba(255,255,255,.05);
     }
     .ab-eye {
-      font: 300 8.5px/1 'Jost', sans-serif;
-      letter-spacing: .45em;
+      font: 300 10.5px/1 'Jost', sans-serif;
+      letter-spacing: .4em;
       text-transform: uppercase;
       color: var(--t);
       margin-bottom: 22px;
     }
     .ab-h {
-      font: 300 54px/1.08 'Cormorant Garamond', Georgia, serif;
+      font: 300 58px/1.08 'Cormorant Garamond', Georgia, serif;
       color: rgba(255,255,255,.95);
       margin-bottom: 28px;
     }
     .ab-p {
-      font: 300 13.5px/1.9 'Jost', sans-serif;
+      font: 300 15px/1.9 'Jost', sans-serif;
       color: rgba(255,255,255,.34);
       max-width: 400px;
       margin-bottom: 52px;
@@ -492,12 +589,12 @@
     }
     .ab-stat:last-child { border-right: none; margin-right: 0 }
     .ab-n {
-      font: 300 40px/1 'Cormorant Garamond', Georgia, serif;
+      font: 300 44px/1 'Cormorant Garamond', Georgia, serif;
       color: var(--g-lt);
       margin-bottom: 7px;
     }
     .ab-l {
-      font: 300 8px/1 'Jost', sans-serif;
+      font: 300 10px/1 'Jost', sans-serif;
       letter-spacing: .2em;
       text-transform: uppercase;
       color: rgba(255,255,255,.2);
@@ -515,8 +612,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+        linear-gradient(rgba(212,175,55,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,.05) 1px, transparent 1px);
       background-size: 44px 44px;
     }
     /* Diagonal accent line */
@@ -551,15 +648,15 @@
       display: block;
     }
     .ab-since {
-      font: 200 7.5px/1 'Jost', sans-serif;
-      letter-spacing: .55em;
+      font: 200 9.5px/1 'Jost', sans-serif;
+      letter-spacing: .5em;
       text-transform: uppercase;
       color: rgba(255,255,255,.3);
       margin-top: 14px;
     }
     .ab-turgutlu {
-      font: 300 7.5px/1 'Jost', sans-serif;
-      letter-spacing: .32em;
+      font: 300 9.5px/1 'Jost', sans-serif;
+      letter-spacing: .3em;
       text-transform: uppercase;
       color: rgba(232,213,163,.55);
       margin-top: 8px;
@@ -580,23 +677,23 @@
     }
     .cs-div { background: var(--border) }
     .cs-icon {
-      font-size: 20px;
+      font-size: 22px;
       color: var(--t);
       margin-bottom: 4px;
       line-height: 1;
     }
     .cs-label {
-      font: 300 7.5px/1 'Jost', sans-serif;
-      letter-spacing: .3em;
+      font: 300 10px/1 'Jost', sans-serif;
+      letter-spacing: .28em;
       text-transform: uppercase;
       color: var(--ink-2);
     }
     .cs-val {
-      font: 400 15px/1.3 'Cormorant Garamond', Georgia, serif;
+      font: 400 18px/1.3 'Cormorant Garamond', Georgia, serif;
       color: var(--ink);
     }
     .cs-sub {
-      font: 300 12px/1.55 'Jost', sans-serif;
+      font: 300 13.5px/1.55 'Jost', sans-serif;
       color: var(--ink-3);
     }
 
@@ -615,6 +712,54 @@
       transition: opacity .8s cubic-bezier(.23,1,.32,1), transform .8s cubic-bezier(.23,1,.32,1);
     }
     .ai.v { opacity:1; transform:translateY(0) }
+
+    /* ── SPARKLING GOLD SYSTEM ─────────────────── */
+    @keyframes sparkle {
+      0%,100% { opacity:0; transform:scale(0) rotate(0deg) }
+      50%      { opacity:1; transform:scale(1) rotate(180deg) }
+    }
+    @keyframes sparkle2 {
+      0%,100% { opacity:0; transform:scale(0) rotate(45deg) }
+      50%      { opacity:.8; transform:scale(1.2) rotate(225deg) }
+    }
+    @keyframes glitter-sweep {
+      0%   { background-position: -200% center }
+      100% { background-position: 300% center }
+    }
+    @keyframes gold-pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(240,216,117,0); filter: brightness(1) }
+      50%      { box-shadow: 0 0 22px 4px rgba(240,216,117,.35); filter: brightness(1.12) }
+    }
+
+    /* Sparkling wrapper — wraps ticker badge & band */
+    .spark-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .spark {
+      position: absolute;
+      width: 6px; height: 6px;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .spark::before, .spark::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      clip-path: polygon(50% 0%,52% 48%,100% 50%,52% 52%,50% 100%,48% 52%,0% 50%,48% 48%);
+    }
+    .spark::after { background: #F0D875; transform: rotate(45deg) scale(.6); }
+    .spark-1  { top:20%; left:8%;   animation: sparkle 2.1s .0s infinite }
+    .spark-2  { top:70%; left:15%;  animation: sparkle 1.8s .4s infinite }
+    .spark-3  { top:30%; left:82%;  animation: sparkle 2.4s .2s infinite }
+    .spark-4  { top:65%; left:91%;  animation: sparkle2 1.9s .7s infinite }
+    .spark-5  { top:10%; left:45%;  animation: sparkle2 2.2s .1s infinite }
+    .spark-6  { top:80%; left:55%;  animation: sparkle 1.7s .9s infinite }
+    .spark-7  { top:50%; left:28%;  animation: sparkle2 2.0s .5s infinite }
+    .spark-8  { top:40%; left:68%;  animation: sparkle 2.3s .3s infinite }
+    .spark-9  { top:85%; left:38%;  animation: sparkle2 1.6s .8s infinite }
+    .spark-10 { top:15%; left:72%;  animation: sparkle 2.5s .6s infinite }
 
     /* ── CATEGORY GRID ─────────────────────────── */
     .cat-sec { background: var(--w); padding: 80px 80px 0; }
@@ -731,7 +876,7 @@
       background: var(--ink-7);
       margin-top: 80px;
       padding: 0;
-      border-top: 0.5px solid rgba(201,168,76,.10);
+      border-top: 0.5px solid rgba(212,175,55,.2);
     }
     .ft-top {
       display: grid;
@@ -775,14 +920,14 @@
     }
     .ft-col { display: flex; flex-direction: column; gap: 12px }
     .ft-col-head {
-      font: 400 8px/1 'Jost', sans-serif;
-      letter-spacing: .28em;
+      font: 400 10px/1 'Jost', sans-serif;
+      letter-spacing: .25em;
       text-transform: uppercase;
       color: rgba(255,255,255,.45);
       margin-bottom: 6px;
     }
     .ft-link {
-      font: 300 13px/1 'Jost', sans-serif;
+      font: 300 14px/1 'Jost', sans-serif;
       color: rgba(255,255,255,.22);
       text-decoration: none;
       transition: color .2s;
@@ -795,13 +940,13 @@
       margin-bottom: 12px;
     }
     .ft-contact-label {
-      font: 300 7.5px/1 'Jost', sans-serif;
-      letter-spacing: .22em;
+      font: 300 9.5px/1 'Jost', sans-serif;
+      letter-spacing: .2em;
       text-transform: uppercase;
       color: rgba(255,255,255,.2);
     }
     .ft-contact-val {
-      font: 300 12px/1.6 'Jost', sans-serif;
+      font: 300 13.5px/1.6 'Jost', sans-serif;
       color: rgba(255,255,255,.38);
     }
     .ft-divider { height: 0.5px; background: rgba(255,255,255,.04); }
@@ -812,15 +957,15 @@
       padding: 24px 80px;
     }
     .ft-copy {
-      font: 300 10px/1 'Jost', sans-serif;
+      font: 300 11.5px/1 'Jost', sans-serif;
       letter-spacing: .07em;
       color: rgba(255,255,255,.16);
     }
     .ft-legal { display: flex; gap: 28px }
     .ft-legal-link {
-      font: 300 9.5px/1 'Jost', sans-serif;
+      font: 300 11px/1 'Jost', sans-serif;
       letter-spacing: .05em;
-      color: rgba(201,168,76,.35);
+      color: rgba(212,175,55,.5);
       text-decoration: none;
       transition: color .2s;
     }
@@ -841,10 +986,14 @@
       nav { padding: 0 20px }
       .nl, .nr { display: none }
       .logo-wrap { padding: 0; flex: 1; text-align: center }
-      .hero { grid-template-columns: 1fr; min-height: auto }
-      .hero-l { padding: 56px 32px }
-      .hero-r { padding: 40px 32px; min-height: 380px }
-      .h-h1 { font-size: 60px }
+      .hero { height: 100svh; min-height: 500px }
+      .hero-content { padding: 0 28px 52px; flex-direction: column; align-items: flex-start; gap: 28px }
+      .hero-content-r { align-items: flex-start }
+      .hero-trust { flex-direction: row; gap: 20px }
+      .ht-item { text-align: left }
+      .ht-line { width: 0.5px; height: 30px }
+      .h-h1 { font-size: 58px }
+      .hero-meta { display: none }
       .prod-grid { grid-template-columns: repeat(2, 1fr) }
       .prod-sec { padding: 72px 24px }
       .about { grid-template-columns: 1fr }
@@ -864,7 +1013,11 @@
 
 <!-- ═══ TICKER ════════════════════════════════════════════════ -->
 <div class="ticker-wrap">
-  <div class="ticker-badge">
+  <div class="ticker-badge spark-wrap">
+    <span class="spark spark-1"></span>
+    <span class="spark spark-2"></span>
+    <span class="spark spark-3"></span>
+    <span class="spark spark-4"></span>
     <span class="t-dot"></span>
     Canlı Fiyat
   </div>
@@ -898,102 +1051,81 @@
 
 <!-- ═══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-l">
-    <h1 class="h-h1">İnce İşçilik,<br><em>Sonsuz</em><br>Değer</h1>
-    <p class="h-p">Tuna Gold olarak 1995'ten bu yana geleneksel ustalığı modern zarafetle harmanlayarak en seçkin altın ve pırlanta takıları sunuyoruz.</p>
-    <div class="h-btns">
-      <button class="btn-p">Koleksiyonu Keşfet</button>
-      <button class="btn-s">Randevu Al</button>
+
+  <!-- ── MEDYA ALANI ──────────────────────────────────────────
+       Video için: <video> etiketini açın, src="video.mp4" ekleyin
+       Fotoğraf için: <img> etiketini açın, src="hero.jpg" ekleyin
+  ─────────────────────────────────────────────────────────── -->
+  <div class="hero-media">
+
+    <!-- FOTOĞRAF KULLANMAK İÇİN: aşağıdaki satırı yorumdan çıkarın -->
+    <!-- <img src="hero.jpg" alt="Tuna Gold Hero"> -->
+
+    <!-- VİDEO KULLANMAK İÇİN: aşağıdaki bloğu yorumdan çıkarın -->
+    <!--
+    <video autoplay muted loop playsinline>
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+    -->
+
+    <!-- Görsel yükleyene kadar gösterilen placeholder -->
+    <div class="hero-placeholder">
+      <div class="hero-placeholder-icon">▶</div>
+      <div class="hero-placeholder-text">Video veya Fotoğraf Alanı</div>
+      <div class="hero-placeholder-sub">
+        Fotoğraf için: src="hero.jpg" &nbsp;|&nbsp; Video için: src="hero.mp4"<br>
+        Önerilen boyut: 1920×1080px veya üzeri
+      </div>
     </div>
-    <div class="hero-trust">
-      <div class="ht-item">
-        <div class="ht-n">27+</div>
-        <div class="ht-l">Yıl Deneyim</div>
+
+  </div>
+
+  <!-- Karartma overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Yan bilgi çubuğu -->
+  <div class="hero-meta">
+    <span class="hero-meta-item">Est. 1995</span>
+    <span class="hero-meta-item">Turgutlu · Manisa</span>
+    <span class="hero-meta-item">GIA Sertifikalı</span>
+  </div>
+
+  <!-- Ana içerik -->
+  <div class="hero-content">
+    <div class="hero-content-l">
+      <h1 class="h-h1">İnce İşçilik,<br><em>Sonsuz</em><br>Değer</h1>
+      <p class="h-p">Tuna Gold olarak 1995'ten bu yana geleneksel ustalığı modern zarafetle harmanlayarak en seçkin altın ve pırlanta takıları sunuyoruz.</p>
+      <div class="h-btns">
+        <button class="btn-p">Koleksiyonu Keşfet</button>
+        <button class="btn-s">Randevu Al</button>
       </div>
-      <div class="ht-line"></div>
-      <div class="ht-item">
-        <div class="ht-n">8K+</div>
-        <div class="ht-l">Mutlu Müşteri</div>
-      </div>
-      <div class="ht-line"></div>
-      <div class="ht-item">
-        <div class="ht-n">%100</div>
-        <div class="ht-l">Sertifikalı Altın</div>
+    </div>
+    <div class="hero-content-r">
+      <div class="hero-trust">
+        <div class="ht-item">
+          <div class="ht-n">27+</div>
+          <div class="ht-l">Yıl Deneyim</div>
+        </div>
+        <div class="ht-line"></div>
+        <div class="ht-item">
+          <div class="ht-n">8K+</div>
+          <div class="ht-l">Mutlu Müşteri</div>
+        </div>
+        <div class="ht-line"></div>
+        <div class="ht-item">
+          <div class="ht-n">%100</div>
+          <div class="ht-l">Sertifikalı Altın</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="hero-r">
-    <div class="hero-jewel-wrap">
-      <svg viewBox="0 0 440 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;display:block">
-        <ellipse cx="220" cy="415" rx="175" ry="52" fill="#D6F4F3" opacity=".55"/>
-        <ellipse cx="220" cy="415" rx="105" ry="30" fill="#B2EEEC" opacity=".35"/>
-        <ellipse cx="220" cy="374" rx="72" ry="18" fill="rgba(0,0,0,.07)"/>
-        <path d="M148 272 C148 328 176 372 220 382 C264 372 292 328 292 272" fill="none" stroke="#9A7020" stroke-width="30" stroke-linecap="round"/>
-        <path d="M148 272 C148 328 176 372 220 382 C264 372 292 328 292 272" fill="none" stroke="#C9A84C" stroke-width="22" stroke-linecap="round"/>
-        <path d="M162 278 C162 326 186 362 220 370 C254 362 278 326 278 278" fill="none" stroke="#D4B560" stroke-width="10" stroke-linecap="round"/>
-        <path d="M174 285 C174 326 194 355 220 363" fill="none" stroke="#EDD272" stroke-width="4" stroke-linecap="round" opacity=".65"/>
-        <ellipse cx="220" cy="222" rx="74" ry="19" fill="#9A7020"/>
-        <ellipse cx="220" cy="218" rx="71" ry="17" fill="#C9A84C"/>
-        <ellipse cx="220" cy="214" rx="66" ry="14" fill="#D4B560"/>
-        <polygon points="220,290 162,222 278,222" fill="#033E3D" opacity=".88"/>
-        <polygon points="162,222 180,216 220,230 198,272" fill="#044D4B" opacity=".75"/>
-        <polygon points="278,222 260,216 220,230 242,272" fill="#033E3D" opacity=".75"/>
-        <polygon points="198,272 220,230 242,272 220,290" fill="#022928" opacity=".9"/>
-        <polygon points="142,218 170,196 220,186 270,196 298,218 278,222 162,222" fill="#0ABAB5" opacity=".92"/>
-        <polygon points="182,206 220,194 258,206 258,218 220,226 182,218" fill="#B8EFED"/>
-        <polygon points="142,218 170,196 174,206 158,222" fill="#089490" opacity=".82"/>
-        <polygon points="298,218 270,196 246,206 262,222" fill="#067A77" opacity=".82"/>
-        <polygon points="170,196 220,186 222,194 182,206" fill="#E0FFFD" opacity=".96"/>
-        <polygon points="220,186 270,196 258,206 218,194" fill="#C4F8F6" opacity=".88"/>
-        <polygon points="182,206 182,218 162,222 170,196" fill="#089490" opacity=".55"/>
-        <polygon points="258,206 258,218 278,222 270,196" fill="#067A77" opacity=".55"/>
-        <polygon points="187,208 202,200 212,206 202,212" fill="white" opacity=".9"/>
-        <polygon points="230,193 245,199 240,207" fill="white" opacity=".75"/>
-        <polygon points="166,217 174,211 178,218" fill="white" opacity=".55"/>
-        <polygon points="260,212 266,218 255,219" fill="white" opacity=".4"/>
-        <g stroke="#C9A84C" stroke-linecap="round" fill="none">
-          <line x1="162" y1="220" x2="155" y2="244" stroke-width="7"/>
-          <line x1="278" y1="220" x2="285" y2="244" stroke-width="7"/>
-          <line x1="148" y1="214" x2="141" y2="236" stroke-width="5"/>
-          <line x1="292" y1="214" x2="299" y2="236" stroke-width="5"/>
-          <line x1="220" y1="226" x2="220" y2="248" stroke-width="6"/>
-          <line x1="220" y1="186" x2="220" y2="172" stroke-width="5" stroke="#D4B560" opacity=".6"/>
-        </g>
-        <ellipse cx="336" cy="374" rx="32" ry="10" fill="#E8D5A3" opacity=".38" transform="rotate(-18,336,374)"/>
-        <ellipse cx="114" cy="390" rx="24" ry="7" fill="#E8D5A3" opacity=".28" transform="rotate(14,114,390)"/>
-        <ellipse cx="355" cy="300" rx="16" ry="5" fill="#0ABAB5" opacity=".22" transform="rotate(-28,355,300)"/>
-        <ellipse cx="82" cy="312" rx="12" ry="4" fill="#0ABAB5" opacity=".16" transform="rotate(22,82,312)"/>
-        <g transform="translate(365,166)" opacity=".7">
-          <line x1="0" y1="-14" x2="0" y2="14" stroke="#C9A84C" stroke-width="1.4"/>
-          <line x1="-14" y1="0" x2="14" y2="0" stroke="#C9A84C" stroke-width="1.4"/>
-          <line x1="-8" y1="-8" x2="8" y2="8" stroke="#C9A84C" stroke-width=".5" opacity=".4"/>
-          <line x1="8" y1="-8" x2="-8" y2="8" stroke="#C9A84C" stroke-width=".5" opacity=".4"/>
-        </g>
-        <g transform="translate(70,200)" opacity=".44">
-          <line x1="0" y1="-9" x2="0" y2="9" stroke="#C9A84C" stroke-width="1"/>
-          <line x1="-9" y1="0" x2="9" y2="0" stroke="#C9A84C" stroke-width="1"/>
-        </g>
-        <g transform="translate(306,122)" opacity=".84">
-          <line x1="0" y1="-8" x2="0" y2="8" stroke="white" stroke-width="1.6"/>
-          <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="1.6"/>
-          <line x1="-5" y1="-5" x2="5" y2="5" stroke="white" stroke-width=".6" opacity=".4"/>
-          <line x1="5" y1="-5" x2="-5" y2="5" stroke="white" stroke-width=".6" opacity=".4"/>
-        </g>
-        <g transform="translate(136,145)" opacity=".35">
-          <line x1="0" y1="-6" x2="0" y2="6" stroke="#0ABAB5" stroke-width=".9"/>
-          <line x1="-6" y1="0" x2="6" y2="0" stroke="#0ABAB5" stroke-width=".9"/>
-        </g>
-        <rect x="24" y="438" width="392" height="50" rx="0" fill="rgba(10,186,181,.07)" stroke="rgba(10,186,181,.18)" stroke-width=".5"/>
-        <text x="44" y="458" fill="#089490" font-size="7.5" font-family="'Jost',sans-serif" letter-spacing="2.5" font-weight="300">CANLI FİYAT · 14 AYAR SOLİTAİRE YÜZÜK</text>
-        <text x="44" y="477" fill="#15140E" font-size="15" font-family="'Cormorant Garamond',Georgia,serif" id="hero-price-svg">Hesaplanıyor...</text>
-        <circle cx="402" cy="462" r="4.5" fill="#0ABAB5">
-          <animate attributeName="opacity" values="1;0.2;1" dur="1.4s" repeatCount="indefinite"/>
-          <animate attributeName="r" values="4.5;3;4.5" dur="1.4s" repeatCount="indefinite"/>
-        </circle>
-      </svg>
-    </div>
+  <!-- Scroll işareti -->
+  <div class="hero-scroll">
+    <span class="hero-scroll-lbl">Keşfet</span>
+    <div class="hero-scroll-line"></div>
   </div>
+
 </section>
 
 <!-- ═══ MARQUEE ═══════════════════════════════════════════════ -->
@@ -1002,7 +1134,14 @@
 </div>
 
 <!-- ═══ BAND ═════════════════════════════════════════════════ -->
-<div class="band">— Turgutlu Kuyumcular Derneği Borsası ile Entegre &nbsp;·&nbsp; Anlık Fiyat Güncellemesi Her 10 Dakikada &nbsp;·&nbsp; 1995'ten Beri Güven ve Kalite —</div>
+<div class="band spark-wrap">
+  <span class="spark spark-1"></span><span class="spark spark-2"></span>
+  <span class="spark spark-3"></span><span class="spark spark-4"></span>
+  <span class="spark spark-5"></span><span class="spark spark-6"></span>
+  <span class="spark spark-7"></span><span class="spark spark-8"></span>
+  <span class="spark spark-9"></span><span class="spark spark-10"></span>
+  — Turgutlu Kuyumcular Derneği Borsası ile Entegre &nbsp;·&nbsp; Anlık Fiyat Güncellemesi Her 10 Dakikada &nbsp;·&nbsp; 1995'ten Beri Güven ve Kalite —
+</div>
 
 <!-- ═══ PRODUCTS ══════════════════════════════════════════════ -->
 <section class="prod-sec">
@@ -1019,19 +1158,19 @@
         <span class="ptag">Yeni</span>
         <button class="pc-wishlist" title="Favorilere Ekle">♡</button>
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:68%;height:68%">
-          <circle cx="100" cy="104" r="55" fill="none" stroke="#9A7020" stroke-width="20"/>
-          <circle cx="100" cy="104" r="55" fill="none" stroke="#C9A84C" stroke-width="16"/>
-          <circle cx="100" cy="104" r="55" fill="none" stroke="#D4B560" stroke-width="8"/>
-          <circle cx="100" cy="104" r="55" fill="none" stroke="#EDD272" stroke-width="3" stroke-dasharray="80 265"/>
-          <polygon points="100,38 116,54 100,61 84,54" fill="#C4F8F6"/>
-          <polygon points="84,54 100,61 100,74 76,66" fill="#0ABAB5" opacity=".78"/>
-          <polygon points="116,54 100,61 100,74 124,66" fill="#089490" opacity=".78"/>
-          <polygon points="76,66 100,74 124,66 100,80" fill="#055E5C" opacity=".7"/>
+          <circle cx="100" cy="104" r="55" fill="none" stroke="#C8982A" stroke-width="20"/>
+          <circle cx="100" cy="104" r="55" fill="none" stroke="#D4AF37" stroke-width="16"/>
+          <circle cx="100" cy="104" r="55" fill="none" stroke="#D4AF37" stroke-width="8"/>
+          <circle cx="100" cy="104" r="55" fill="none" stroke="#D4AF37" stroke-width="3" stroke-dasharray="80 265"/>
+          <polygon points="100,38 116,54 100,61 84,54" fill="#D4AF37"/>
+          <polygon points="84,54 100,61 100,74 76,66" fill="#D4AF37" opacity=".78"/>
+          <polygon points="116,54 100,61 100,74 124,66" fill="#C8982A" opacity=".78"/>
+          <polygon points="76,66 100,74 124,66 100,80" fill="#2A2710" opacity=".7"/>
           <polygon points="100,38 116,54 100,46" fill="white" opacity=".75"/>
           <polygon points="86,54 100,48 109,54 100,59" fill="white" opacity=".6"/>
-          <line x1="84" y1="57" x2="78" y2="67" stroke="#C9A84C" stroke-width="4" stroke-linecap="round"/>
-          <line x1="116" y1="57" x2="122" y2="67" stroke="#C9A84C" stroke-width="4" stroke-linecap="round"/>
-          <line x1="100" y1="74" x2="100" y2="84" stroke="#C9A84C" stroke-width="4" stroke-linecap="round"/>
+          <line x1="84" y1="57" x2="78" y2="67" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
+          <line x1="116" y1="57" x2="122" y2="67" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
+          <line x1="100" y1="74" x2="100" y2="84" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
         </svg>
       </div>
       <div class="pinfo">
@@ -1049,20 +1188,20 @@
     <div class="pc ai">
       <div class="pi">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:68%;height:68%">
-          <path d="M28 68 Q100 22 172 68 Q172 136 100 158 Q28 136 28 68" fill="none" stroke="#9A7020" stroke-width="3.5"/>
-          <path d="M28 68 Q100 22 172 68 Q172 136 100 158 Q28 136 28 68" fill="none" stroke="#C9A84C" stroke-width="2" stroke-dasharray="5 4"/>
-          <path d="M34 72 Q100 28 166 72" fill="none" stroke="#EDD272" stroke-width="1" stroke-dasharray="2 6" opacity=".7"/>
-          <ellipse cx="62" cy="54" rx="5" ry="3" fill="none" stroke="#C9A84C" stroke-width="1.2" opacity=".6"/>
-          <ellipse cx="138" cy="54" rx="5" ry="3" fill="none" stroke="#C9A84C" stroke-width="1.2" opacity=".6"/>
-          <ellipse cx="28" cy="85" rx="3" ry="5" fill="none" stroke="#C9A84C" stroke-width="1.2" opacity=".5"/>
-          <ellipse cx="172" cy="85" rx="3" ry="5" fill="none" stroke="#C9A84C" stroke-width="1.2" opacity=".5"/>
-          <path d="M100,132 Q88,148 88,158 Q88,172 100,176 Q112,172 112,158 Q112,148 100,132" fill="#C9A84C"/>
-          <path d="M100,132 Q90,146 90,157 Q90,169 100,172 Q110,169 110,157 Q110,146 100,132" fill="#D4B560"/>
-          <polygon points="100,136 93,148 100,157 107,148" fill="#B8EFED"/>
+          <path d="M28 68 Q100 22 172 68 Q172 136 100 158 Q28 136 28 68" fill="none" stroke="#C8982A" stroke-width="3.5"/>
+          <path d="M28 68 Q100 22 172 68 Q172 136 100 158 Q28 136 28 68" fill="none" stroke="#D4AF37" stroke-width="2" stroke-dasharray="5 4"/>
+          <path d="M34 72 Q100 28 166 72" fill="none" stroke="#D4AF37" stroke-width="1" stroke-dasharray="2 6" opacity=".7"/>
+          <ellipse cx="62" cy="54" rx="5" ry="3" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity=".6"/>
+          <ellipse cx="138" cy="54" rx="5" ry="3" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity=".6"/>
+          <ellipse cx="28" cy="85" rx="3" ry="5" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity=".5"/>
+          <ellipse cx="172" cy="85" rx="3" ry="5" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity=".5"/>
+          <path d="M100,132 Q88,148 88,158 Q88,172 100,176 Q112,172 112,158 Q112,148 100,132" fill="#D4AF37"/>
+          <path d="M100,132 Q90,146 90,157 Q90,169 100,172 Q110,169 110,157 Q110,146 100,132" fill="#D4AF37"/>
+          <polygon points="100,136 93,148 100,157 107,148" fill="#F5E89A"/>
           <polygon points="100,136 93,148 100,143" fill="white" opacity=".75"/>
           <polygon points="100,136 107,148 100,143" fill="#E0FFFE" opacity=".5"/>
-          <rect x="95" y="122" width="10" height="14" rx="3" fill="none" stroke="#C9A84C" stroke-width="2"/>
-          <line x1="100" y1="120" x2="100" y2="132" stroke="#C9A84C" stroke-width="2.5"/>
+          <rect x="95" y="122" width="10" height="14" rx="3" fill="none" stroke="#D4AF37" stroke-width="2"/>
+          <line x1="100" y1="120" x2="100" y2="132" stroke="#D4AF37" stroke-width="2.5"/>
         </svg>
       </div>
       <div class="pinfo">
@@ -1082,21 +1221,21 @@
         <span class="ptag">Bestseller</span>
         <button class="pc-wishlist" title="Favorilere Ekle">♡</button>
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:68%;height:68%">
-          <circle cx="68" cy="52" r="9" fill="#C9A84C" stroke="#D4B560" stroke-width="2"/>
-          <circle cx="68" cy="52" r="5" fill="#EDD272"/>
-          <line x1="68" y1="61" x2="68" y2="84" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M52,84 Q52,126 68,146 Q84,126 84,84 Z" fill="#9A7020"/>
-          <path d="M56,84 Q56,122 68,138 Q80,122 80,84 Z" fill="#C9A84C"/>
-          <path d="M60,84 Q60,118 68,130 Q76,118 76,84 Z" fill="#D4B560"/>
-          <polygon points="68,92 60,106 68,116 76,106" fill="#B8EFED"/>
+          <circle cx="68" cy="52" r="9" fill="#D4AF37" stroke="#D4AF37" stroke-width="2"/>
+          <circle cx="68" cy="52" r="5" fill="#D4AF37"/>
+          <line x1="68" y1="61" x2="68" y2="84" stroke="#D4AF37" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M52,84 Q52,126 68,146 Q84,126 84,84 Z" fill="#C8982A"/>
+          <path d="M56,84 Q56,122 68,138 Q80,122 80,84 Z" fill="#D4AF37"/>
+          <path d="M60,84 Q60,118 68,130 Q76,118 76,84 Z" fill="#D4AF37"/>
+          <polygon points="68,92 60,106 68,116 76,106" fill="#F5E89A"/>
           <polygon points="68,92 60,106 68,100" fill="white" opacity=".8"/>
-          <circle cx="132" cy="52" r="9" fill="#C9A84C" stroke="#D4B560" stroke-width="2"/>
-          <circle cx="132" cy="52" r="5" fill="#EDD272"/>
-          <line x1="132" y1="61" x2="132" y2="84" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M116,84 Q116,126 132,146 Q148,126 148,84 Z" fill="#9A7020"/>
-          <path d="M120,84 Q120,122 132,138 Q144,122 144,84 Z" fill="#C9A84C"/>
-          <path d="M124,84 Q124,118 132,130 Q140,118 140,84 Z" fill="#D4B560"/>
-          <polygon points="132,92 124,106 132,116 140,106" fill="#B8EFED"/>
+          <circle cx="132" cy="52" r="9" fill="#D4AF37" stroke="#D4AF37" stroke-width="2"/>
+          <circle cx="132" cy="52" r="5" fill="#D4AF37"/>
+          <line x1="132" y1="61" x2="132" y2="84" stroke="#D4AF37" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M116,84 Q116,126 132,146 Q148,126 148,84 Z" fill="#C8982A"/>
+          <path d="M120,84 Q120,122 132,138 Q144,122 144,84 Z" fill="#D4AF37"/>
+          <path d="M124,84 Q124,118 132,130 Q140,118 140,84 Z" fill="#D4AF37"/>
+          <polygon points="132,92 124,106 132,116 140,106" fill="#F5E89A"/>
           <polygon points="132,92 124,106 132,100" fill="white" opacity=".8"/>
         </svg>
       </div>
@@ -1116,15 +1255,15 @@
       <div class="pi">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:68%;height:68%">
           <ellipse cx="100" cy="118" rx="70" ry="18" fill="rgba(0,0,0,.06)"/>
-          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#9A7020" stroke-width="20"/>
-          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#C9A84C" stroke-width="16"/>
-          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#D4B560" stroke-width="8"/>
-          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#EDD272" stroke-width="3.5" stroke-dasharray="55 230"/>
-          <ellipse cx="100" cy="100" rx="56" ry="28" fill="none" stroke="#9A7020" stroke-width="1" stroke-dasharray="4 5" opacity=".5"/>
-          <rect x="132" y="89" width="16" height="22" rx="2" fill="#C9A84C" stroke="#D4B560" stroke-width="1.5"/>
-          <rect x="135" y="93" width="10" height="14" rx="1" fill="#9A7020"/>
-          <line x1="141" y1="96" x2="141" y2="104" stroke="#EDD272" stroke-width="1.5" stroke-linecap="round"/>
-          <polygon points="100,72 93,82 100,88 107,82" fill="#B8EFED" stroke="#0ABAB5" stroke-width=".5"/>
+          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#C8982A" stroke-width="20"/>
+          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#D4AF37" stroke-width="16"/>
+          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#D4AF37" stroke-width="8"/>
+          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#D4AF37" stroke-width="3.5" stroke-dasharray="55 230"/>
+          <ellipse cx="100" cy="100" rx="56" ry="28" fill="none" stroke="#C8982A" stroke-width="1" stroke-dasharray="4 5" opacity=".5"/>
+          <rect x="132" y="89" width="16" height="22" rx="2" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"/>
+          <rect x="135" y="93" width="10" height="14" rx="1" fill="#C8982A"/>
+          <line x1="141" y1="96" x2="141" y2="104" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+          <polygon points="100,72 93,82 100,88 107,82" fill="#F5E89A" stroke="#D4AF37" stroke-width=".5"/>
           <polygon points="100,72 93,82 100,79" fill="white" opacity=".8"/>
         </svg>
       </div>
@@ -1193,7 +1332,7 @@
     <span class="cs-icon">◇</span>
     <span class="cs-label">İletişim</span>
     <span class="cs-val">Randevu & Bilgi</span>
-    <span class="cs-sub">oztunakuyumculuk19@gmail.com</span>
+    <span class="cs-sub">oztunakuyumculuk1997@gmail.com</span>
   </div>
 </div>
 
@@ -1239,18 +1378,6 @@
   </div>
 </section>
 
-<!-- ═══ EDITORIAL BANNER ═══════════════════════════════════════ -->
-<section class="editorial-sec ai">
-  <div class="ed-img ed-img--placeholder">
-    <div class="ph-label ph-label--lg">Öne Çıkan Kampanya Görseli<br><span>Buraya geniş format görsel yükleyin (önerilen: 1600×700px)</span></div>
-  </div>
-  <div class="ed-content">
-    <div class="ed-tag">Özel Koleksiyon</div>
-    <h2 class="ed-h">Pırlantanın<br><em>Işığında</em></h2>
-    <p class="ed-p">GIA sertifikalı pırlantalarımızla hazırladığımız özel tasarımlar, her özel anı kalıcı kılar.</p>
-    <button class="btn-p" style="margin-top:0">Keşfet</button>
-  </div>
-</section>
 
 <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
 <footer class="ft-mega">
@@ -1303,7 +1430,7 @@
         </div>
         <div class="ft-contact-item">
           <span class="ft-contact-label">E-posta</span>
-          <span class="ft-contact-val">oztunakuyumculuk19@gmail.com</span>
+          <span class="ft-contact-val">oztunakuyumculuk1997@gmail.com</span>
         </div>
         <div class="ft-contact-item">
           <span class="ft-contact-label">Çalışma Saatleri</span>
