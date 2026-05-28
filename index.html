@@ -555,23 +555,36 @@
     .spark-9  { top:85%; left:38%;  animation: sparkle2 1.6s .8s infinite }
     .spark-10 { top:15%; left:72%;  animation: sparkle 2.5s .6s infinite }
 
-    /* ── GOOGLE MAPs ───────────────────────────── */
+    /* ── GOOGLE MAPs (YENİ ESTETİK GÖRÜNÜM) ───────────────────── */
     .map-wrap {
       width: 100%;
-      line-height: 0;
+      padding: 60px 80px; /* Haritayı köşelerden kurtarıp nefes aldırıyoruz */
+      background: var(--w);
       border-top: 0.5px solid var(--border);
     }
-    .map-wrap iframe { display: block; }
-    .cs-map-link {
-      font: 300 10px/1 'Jost', sans-serif;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--t);
-      text-decoration: none;
-      margin-top: 6px;
-      transition: color .2s;
+    .map-container {
+      width: 100%;
+      height: 450px;
+      position: relative;
+      border: 0.5px solid var(--gbord); /* İnce altın rengi çerçeve */
+      overflow: hidden;
     }
-    .cs-map-link:hover { color: var(--t-dk) }
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      /* Sitenin renk paletine uyan lüks, mat/mimari görünüm filtresi */
+      filter: grayscale(1) contrast(1.15) brightness(0.95) sepia(0.12);
+      transition: filter 0.6s cubic-bezier(.25, .46, .45, .94);
+    }
+    /* Fareyle üzerine gelince orijinal renklerine pürüzsüz geçiş yapar */
+    .map-container:hover iframe {
+      filter: grayscale(0) contrast(1) brightness(1) sepia(0);
+    }
+    @media (max-width: 900px) {
+      .map-wrap { padding: 40px 20px; }
+      .map-container { height: 320px; }
+    }
 
     /* ── WHATSAPP SABİT BUTON ──────────────────── */
     .wa-btn {
@@ -867,8 +880,11 @@
 
 <!-- ═══ HARİTA ════════════════════════════════════════════════ -->
 <!-- ═══ GOOGLE MAPS HARİTA ALANI (DÜZELTİLDİ) ═════════════════════ -->
+<!-- ═══ GOOGLE MAPS HARİTA ALANI (YENİLENDİ) ═════════════════════ -->
 <div class="map-wrap">
-  <iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=450&amp;hl=tr&amp;q=Tuna%20Gold,%20Altay,%20Eczane%20Sk.%20No:26,%2045400%20Turgutlu/Manisa+(Tuna%20Gold)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+  <div class="map-container">
+    <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=450&amp;hl=tr&amp;q=Tuna%20Gold,%20Altay,%20Eczane%20Sk.%20No:26,%2045400%20Turgutlu/Manisa+(Tuna%20Gold)&amp;t=&amp;z=19&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+  </div>
 </div>
 
 <!-- ═══ KATEGORİLER ══════════════════════════════════════════ -->
