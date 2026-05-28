@@ -48,67 +48,6 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* ── TICKER ────────────────────────────────── */
-    .ticker-wrap {
-      background: #09090A;
-      height: 44px;
-      display: flex;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .ticker-badge {
-      background: linear-gradient(105deg,
-        #7B5510 0%,
-        #C8982A 12%,
-        #F0D875 22%,
-        #FFF4A8 28%,
-        #E2C04A 36%,
-        #D4AF37 45%,
-        #F5E070 52%,
-        #FFFBD0 56%,
-        #D4AF37 64%,
-        #C8982A 75%,
-        #F0D875 86%,
-        #7B5510 100%
-      );
-      background-size: 400% 100%;
-      animation: glitter-sweep 2.8s linear infinite, gold-pulse 3s ease-in-out infinite;
-      color: #080700;
-      font: 700 10px/44px 'Jost', sans-serif;
-      letter-spacing: .22em;
-      padding: 0 22px;
-      white-space: nowrap;
-      text-transform: uppercase;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      position: relative;
-    }
-    .t-dot { width:5px; height:5px; background:#080700; border-radius:50%; animation:pulse 1.4s ease-in-out infinite }
-    .ticker-overflow { overflow:hidden; flex:1 }
-    .ticker-track {
-      display: flex;
-      animation: tick 55s linear infinite;
-      white-space: nowrap;
-      height: 44px;
-      align-items: center;
-    }
-    @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    .ti {
-      font: 400 12px/1 'Courier New', monospace;
-      padding: 0 24px;
-      border-right: 1px solid rgba(255,255,255,0.04);
-      height: 100%;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-    .ti .lbl { color:#474542; letter-spacing:.06em }
-    .ti .pr  { color:#F5E89A; font-weight:700; letter-spacing:.02em }
-    .ti .up  { color:#4ADE80; font-size:11px }
-    .ti .dn  { color:#F87171; font-size:11px }
-
     /* ── NAV ───────────────────────────────────── */
     nav {
       background: rgba(253,252,249,0.94);
@@ -169,8 +108,6 @@
       display: flex;
       align-items: flex-end;
     }
-
-    /* Video / Fotoğraf arka plan */
     .hero-media {
       position: absolute;
       inset: 0;
@@ -184,12 +121,10 @@
       object-position: center;
       display: block;
     }
-
-    /* Placeholder — görsel yüklenince kaldırılır */
     .hero-placeholder {
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #1a1710 0%, #2e2a1e 40%, #0e2e2d 100%);
+      background: linear-gradient(135deg, #1a1710 0%, #2e2a1e 40%, #18130A 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -216,20 +151,12 @@
       letter-spacing: .08em;
       text-align: center;
     }
-
-    /* Gradient overlay — altta içerik okunabilsin */
     .hero-overlay {
       position: absolute;
       inset: 0;
       z-index: 1;
-      background:
-        linear-gradient(to top,
-          rgba(13,12,9,.82) 0%,
-          rgba(13,12,9,.38) 45%,
-          rgba(13,12,9,.08) 100%);
+      background: linear-gradient(to top, rgba(13,12,9,.82) 0%, rgba(13,12,9,.38) 45%, rgba(13,12,9,.08) 100%);
     }
-
-    /* İçerik */
     .hero-content {
       position: relative;
       z-index: 2;
@@ -249,7 +176,6 @@
       gap: 18px;
       padding-bottom: 6px;
     }
-
     .h-h1 {
       font: 300 96px/1.0 'Cormorant Garamond', Georgia, serif;
       letter-spacing: -.02em;
@@ -257,11 +183,7 @@
       margin-bottom: 24px;
       animation: fiu .9s .2s both;
     }
-    .h-h1 em {
-      font-style: italic;
-      color: var(--t-lt);
-      font-weight: 300;
-    }
+    .h-h1 em { font-style: italic; color: var(--t-lt); font-weight: 300; }
     .h-p {
       font: 300 13.5px/1.88 'Jost', sans-serif;
       color: rgba(255,255,255,.48);
@@ -298,8 +220,6 @@
       transition: all .22s;
     }
     .btn-s:hover { border-color: var(--t-lt); color: var(--t-lt) }
-
-    /* Sağ — istatistikler */
     .hero-trust {
       display: flex;
       flex-direction: column;
@@ -319,8 +239,6 @@
       margin-top: 5px;
     }
     .ht-line { width: 100%; height: 0.5px; background: rgba(255,255,255,.08) }
-
-    /* Scroll cue */
     .hero-scroll {
       position: absolute;
       bottom: 36px;
@@ -345,12 +263,7 @@
       text-transform: uppercase;
       color: rgba(255,255,255,.28);
     }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: .4 }
-      50% { opacity: 1 }
-    }
-
-    /* Medya anahtar bilgi şeridi */
+    @keyframes scrollPulse { 0%, 100% { opacity: .4 } 50% { opacity: 1 } }
     .hero-meta {
       position: absolute;
       top: 50%;
@@ -368,34 +281,6 @@
       letter-spacing: .24em;
       text-transform: uppercase;
       color: rgba(255,255,255,.2);
-    }
-
-    /* ── ANNOUNCEMENT BAND ─────────────────────── */
-    .band {
-      background: linear-gradient(105deg,
-        #7B5510 0%,
-        #C8982A 12%,
-        #F0D875 22%,
-        #FFF4A8 28%,
-        #E2C04A 36%,
-        #D4AF37 45%,
-        #F5E070 52%,
-        #FFFBD0 56%,
-        #D4AF37 64%,
-        #C8982A 75%,
-        #F0D875 86%,
-        #7B5510 100%
-      );
-      background-size: 400% 100%;
-      animation: glitter-sweep 3.5s linear infinite;
-      padding: 16px 24px;
-      text-align: center;
-      font: 600 10px/1 'Jost', sans-serif;
-      letter-spacing: .45em;
-      text-transform: uppercase;
-      color: #080700;
-      position: relative;
-      overflow: hidden;
     }
 
     /* ── MARQUEE ───────────────────────────────── */
@@ -425,14 +310,8 @@
     .mq-sep { width:3px; height:3px; background:var(--g); border-radius:50%; opacity:.45; flex-shrink:0 }
 
     /* ── PRODUCTS ──────────────────────────────── */
-    .prod-sec {
-      padding: 116px 80px;
-      background: var(--w);
-    }
-    .sec-head {
-      text-align: center;
-      margin-bottom: 76px;
-    }
+    .prod-sec { padding: 116px 80px; background: var(--w); }
+    .sec-head { text-align: center; margin-bottom: 76px; }
     .sec-eye {
       font: 300 10.5px/1 'Jost', sans-serif;
       letter-spacing: .42em;
@@ -469,8 +348,14 @@
       position: relative;
       overflow: hidden;
     }
-    .pi svg { transition: transform .55s cubic-bezier(.25,.46,.45,.94) }
-    .pc:hover .pi svg { transform: scale(1.07) }
+    .pi img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .55s cubic-bezier(.25,.46,.45,.94);
+    }
+    .pc:hover .pi img { transform: scale(1.07) }
     .ptag {
       position: absolute;
       top: 16px; left: 0;
@@ -480,11 +365,9 @@
       letter-spacing: .18em;
       text-transform: uppercase;
       padding: 6px 13px;
+      z-index: 2;
     }
-    .pinfo {
-      padding: 26px 28px 30px;
-      border-top: 0.5px solid var(--border);
-    }
+    .pinfo { padding: 26px 28px 30px; border-top: 0.5px solid var(--border); }
     .pkr {
       font: 300 9.5px/1 'Jost', sans-serif;
       letter-spacing: .28em;
@@ -497,52 +380,13 @@
       color: var(--ink);
       margin-bottom: 5px;
     }
-    .pwt {
-      font: 300 13px/1 'Jost', sans-serif;
-      color: var(--ink-2);
-      margin-bottom: 20px;
-    }
-    .ppr { display:flex; justify-content:space-between; align-items:baseline }
+    .pwt { font: 300 13px/1 'Jost', sans-serif; color: var(--ink-2); margin-bottom: 20px; }
+    .ppr { display:flex; justify-content:space-between; align-items:center; gap: 10px; }
     .pprice {
       font: 300 28px/1 'Cormorant Garamond', Georgia, serif;
       color: var(--ink);
     }
-    .pprice sup {
-      font: 300 13px/1 'Jost', sans-serif;
-      color: var(--ink-3);
-      vertical-align: super;
-    }
-    .plive {
-      font: 300 9px/1 'Jost', sans-serif;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--t-dk);
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .ldot {
-      width: 4px; height: 4px;
-      background: var(--t);
-      border-radius: 50%;
-      animation: pulse 1.6s ease-in-out infinite;
-    }
-    .pc-wishlist {
-      position: absolute;
-      top: 14px; right: 14px;
-      background: rgba(253,252,249,.92);
-      border: 0.5px solid var(--border);
-      width: 30px; height: 30px;
-      cursor: pointer;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity .22s;
-    }
-    .pc:hover .pc-wishlist { opacity: 1 }
-    .pc-wishlist:hover { background: var(--t); color: var(--w); border-color: var(--t) }
+    .pprice sup { font: 300 13px/1 'Jost', sans-serif; color: var(--ink-3); vertical-align: super; }
 
     /* ── ABOUT ─────────────────────────────────── */
     .about {
@@ -582,11 +426,7 @@
       border-top: 0.5px solid rgba(255,255,255,.07);
       padding-top: 38px;
     }
-    .ab-stat {
-      padding-right: 24px;
-      border-right: 0.5px solid rgba(255,255,255,.07);
-      margin-right: 24px;
-    }
+    .ab-stat { padding-right: 24px; border-right: 0.5px solid rgba(255,255,255,.07); margin-right: 24px; }
     .ab-stat:last-child { border-right: none; margin-right: 0 }
     .ab-n {
       font: 300 44px/1 'Cormorant Garamond', Georgia, serif;
@@ -616,51 +456,24 @@
         linear-gradient(90deg, rgba(212,175,55,.05) 1px, transparent 1px);
       background-size: 44px 44px;
     }
-    /* Diagonal accent line */
     .about-r::after {
       content: '';
       position: absolute;
-      top: 0; bottom: 0;
-      left: -1px;
+      top: 0; bottom: 0; left: -1px;
       width: 0.5px;
       background: linear-gradient(to bottom, transparent, rgba(255,255,255,.15), transparent);
     }
-    .ab-badge {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-    .ab-badge-frame {
-      border: 0.5px solid rgba(255,255,255,.14);
-      padding: 52px 60px;
-      position: relative;
-    }
-    .ab-badge-frame::before {
-      content: '';
-      position: absolute;
-      inset: 7px;
-      border: 0.5px solid rgba(255,255,255,.06);
-    }
+    .ab-badge { position: relative; z-index: 1; text-align: center; }
+    .ab-badge-frame { border: 0.5px solid rgba(255,255,255,.14); padding: 52px 60px; position: relative; }
+    .ab-badge-frame::before { content: ''; position: absolute; inset: 7px; border: 0.5px solid rgba(255,255,255,.06); }
     .ab-year {
       font: 300 100px/1 'Cormorant Garamond', Georgia, serif;
       color: rgba(255,255,255,.88);
       letter-spacing: -.03em;
       display: block;
     }
-    .ab-since {
-      font: 200 9.5px/1 'Jost', sans-serif;
-      letter-spacing: .5em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.3);
-      margin-top: 14px;
-    }
-    .ab-turgutlu {
-      font: 300 9.5px/1 'Jost', sans-serif;
-      letter-spacing: .3em;
-      text-transform: uppercase;
-      color: rgba(232,213,163,.55);
-      margin-top: 8px;
-    }
+    .ab-since { font: 200 9.5px/1 'Jost', sans-serif; letter-spacing: .5em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-top: 14px; }
+    .ab-turgutlu { font: 300 9.5px/1 'Jost', sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(232,213,163,.55); margin-top: 8px; }
 
     /* ── CONTACT STRIP ─────────────────────────── */
     .contact-strip {
@@ -669,86 +482,67 @@
       display: grid;
       grid-template-columns: 1fr 0.5px 1fr 0.5px 1fr;
     }
-    .cs-col {
-      padding: 46px 52px;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
+    .cs-col { padding: 46px 52px; display: flex; flex-direction: column; gap: 9px; }
     .cs-div { background: var(--border) }
-    .cs-icon {
-      font-size: 22px;
-      color: var(--t);
-      margin-bottom: 4px;
-      line-height: 1;
-    }
-    .cs-label {
-      font: 300 10px/1 'Jost', sans-serif;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--ink-2);
-    }
-    .cs-val {
-      font: 400 18px/1.3 'Cormorant Garamond', Georgia, serif;
-      color: var(--ink);
-    }
-    .cs-sub {
-      font: 300 13.5px/1.55 'Jost', sans-serif;
-      color: var(--ink-3);
-    }
+    .cs-icon { font-size: 22px; color: var(--t); margin-bottom: 4px; line-height: 1; }
+    .cs-label { font: 300 10px/1 'Jost', sans-serif; letter-spacing: .28em; text-transform: uppercase; color: var(--ink-2); }
+    .cs-val { font: 400 18px/1.3 'Cormorant Garamond', Georgia, serif; color: var(--ink); }
+    .cs-sub { font: 300 13.5px/1.55 'Jost', sans-serif; color: var(--ink-3); }
 
+    /* ── CATEGORY GRID ─────────────────────────── */
+    .cat-sec { background: var(--w); padding: 80px 80px 0; }
+    .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .cat-item { position: relative; overflow: hidden; cursor: pointer; }
+    .cat-img { aspect-ratio: 3/4; position: relative; overflow: hidden; background: var(--cr); }
+    .cat-img--placeholder { display: flex; align-items: center; justify-content: center; border: 1px dashed var(--ink-1); }
+    .ph-label { font: 300 10px/1.7 'Jost', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); text-align: center; }
+    .ph-label span { font-size: 9px; color: var(--ink-1); display: block; margin-top: 4px; letter-spacing:.06em; text-transform:none }
+    .cat-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,12,9,.72) 0%, transparent 55%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 28px 24px; opacity: 0; transition: opacity .35s;
+    }
+    .cat-item:hover .cat-overlay { opacity: 1 }
+    .cat-name { font: 300 22px/1 'Cormorant Garamond', Georgia, serif; color: #fff; display: block; margin-bottom: 8px; }
+    .cat-cta { font: 300 7.5px/1 'Jost', sans-serif; letter-spacing: .28em; text-transform: uppercase; color: var(--t-lt); display: flex; align-items: center; gap: 8px; }
+    .cat-cta::after { content: '→' }
+
+    /* ── MEGA FOOTER ───────────────────────────── */
+    .ft-mega { background: var(--ink-7); margin-top: 80px; padding: 0; border-top: 0.5px solid rgba(212,175,55,.2); }
+    .ft-top { display: grid; grid-template-columns: 300px 1fr; gap: 80px; padding: 80px; border-bottom: 0.5px solid rgba(255,255,255,.05); }
+    .ft-logo-img { height: 40px; width: auto; object-fit: contain; margin-bottom: 24px; display: block; filter: brightness(0) invert(1); opacity: .7; }
+    .ft-brand-desc { font: 300 12.5px/1.88 'Jost', sans-serif; color: rgba(255,255,255,.28); margin-bottom: 32px; max-width: 220px; }
+    .ft-social { display: flex; gap: 14px }
+    .ft-soc-link { width: 34px; height: 34px; border: 0.5px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.3); text-decoration: none; transition: all .22s; }
+    .ft-soc-link:hover { border-color: var(--t); color: var(--t) }
+    .ft-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; }
+    .ft-col { display: flex; flex-direction: column; gap: 12px }
+    .ft-col-head { font: 400 10px/1 'Jost', sans-serif; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 6px; }
+    .ft-link { font: 300 14px/1 'Jost', sans-serif; color: rgba(255,255,255,.22); text-decoration: none; transition: color .2s; }
+    .ft-link:hover { color: var(--t) }
+    .ft-contact-item { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+    .ft-contact-label { font: 300 9.5px/1 'Jost', sans-serif; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.2); }
+    .ft-contact-val { font: 300 13.5px/1.6 'Jost', sans-serif; color: rgba(255,255,255,.38); }
+    .ft-divider { height: 0.5px; background: rgba(255,255,255,.04); }
+    .ft-bottom { display: flex; justify-content: space-between; align-items: center; padding: 24px 80px; }
+    .ft-copy { font: 300 11.5px/1 'Jost', sans-serif; letter-spacing: .07em; color: rgba(255,255,255,.16); }
+    .ft-legal { display: flex; gap: 28px }
+    .ft-legal-link { font: 300 11px/1 'Jost', sans-serif; letter-spacing: .05em; color: rgba(212,175,55,.5); text-decoration: none; transition: color .2s; }
+    .ft-legal-link:hover { color: var(--g) }
 
     /* ── ANIMATIONS ────────────────────────────── */
-    @keyframes fiu {
-      from { opacity:0; transform:translateY(20px) }
-      to   { opacity:1; transform:translateY(0) }
-    }
-    @keyframes pulse {
-      0%,100% { opacity:1 } 50% { opacity:.18 }
-    }
-    .ai {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .8s cubic-bezier(.23,1,.32,1), transform .8s cubic-bezier(.23,1,.32,1);
-    }
+    @keyframes fiu { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
+    @keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:.18 } }
+    @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    @keyframes glitter-sweep { 0% { background-position: -200% center } 100% { background-position: 300% center } }
+    @keyframes sparkle { 0%,100% { opacity:0; transform:scale(0) rotate(0deg) } 50% { opacity:1; transform:scale(1) rotate(180deg) } }
+    @keyframes sparkle2 { 0%,100% { opacity:0; transform:scale(0) rotate(45deg) } 50% { opacity:.8; transform:scale(1.2) rotate(225deg) } }
+    .ai { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.23,1,.32,1), transform .8s cubic-bezier(.23,1,.32,1); }
     .ai.v { opacity:1; transform:translateY(0) }
-
-    /* ── SPARKLING GOLD SYSTEM ─────────────────── */
-    @keyframes sparkle {
-      0%,100% { opacity:0; transform:scale(0) rotate(0deg) }
-      50%      { opacity:1; transform:scale(1) rotate(180deg) }
-    }
-    @keyframes sparkle2 {
-      0%,100% { opacity:0; transform:scale(0) rotate(45deg) }
-      50%      { opacity:.8; transform:scale(1.2) rotate(225deg) }
-    }
-    @keyframes glitter-sweep {
-      0%   { background-position: -200% center }
-      100% { background-position: 300% center }
-    }
-    @keyframes gold-pulse {
-      0%,100% { box-shadow: 0 0 0 0 rgba(240,216,117,0); filter: brightness(1) }
-      50%      { box-shadow: 0 0 22px 4px rgba(240,216,117,.35); filter: brightness(1.12) }
-    }
-
-    /* Sparkling wrapper — wraps ticker badge & band */
-    .spark-wrap {
-      position: relative;
-      overflow: hidden;
-    }
-    .spark {
-      position: absolute;
-      width: 6px; height: 6px;
-      pointer-events: none;
-      z-index: 10;
-    }
-    .spark::before, .spark::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: #fff;
-      clip-path: polygon(50% 0%,52% 48%,100% 50%,52% 52%,50% 100%,48% 52%,0% 50%,48% 48%);
-    }
+    .spark-wrap { position: relative; overflow: hidden; }
+    .spark { position: absolute; width: 6px; height: 6px; pointer-events: none; z-index: 10; }
+    .spark::before, .spark::after { content: ''; position: absolute; inset: 0; background: #fff; clip-path: polygon(50% 0%,52% 48%,100% 50%,52% 52%,50% 100%,48% 52%,0% 50%,48% 48%); }
     .spark::after { background: #F0D875; transform: rotate(45deg) scale(.6); }
     .spark-1  { top:20%; left:8%;   animation: sparkle 2.1s .0s infinite }
     .spark-2  { top:70%; left:15%;  animation: sparkle 1.8s .4s infinite }
@@ -761,228 +555,53 @@
     .spark-9  { top:85%; left:38%;  animation: sparkle2 1.6s .8s infinite }
     .spark-10 { top:15%; left:72%;  animation: sparkle 2.5s .6s infinite }
 
-    /* ── CATEGORY GRID ─────────────────────────── */
-    .cat-sec { background: var(--w); padding: 80px 80px 0; }
-    .cat-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+    /* ── GOOGLE MAPs ───────────────────────────── */
+    .map-wrap {
+      width: 100%;
+      line-height: 0;
+      border-top: 0.5px solid var(--border);
     }
-    .cat-item { position: relative; overflow: hidden; cursor: pointer; }
-    .cat-img {
-      aspect-ratio: 3/4;
-      position: relative;
-      overflow: hidden;
-      background: var(--cr);
-    }
-    .cat-img--placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px dashed var(--ink-1);
-    }
-    .ph-label {
-      font: 300 10px/1.7 'Jost', sans-serif;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--ink-2);
-      text-align: center;
-    }
-    .ph-label span { font-size: 9px; color: var(--ink-1); display: block; margin-top: 4px; letter-spacing:.06em; text-transform:none }
-    .ph-label--lg { font-size: 13px }
-    .cat-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(13,12,9,.72) 0%, transparent 55%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 28px 24px;
-      opacity: 0;
-      transition: opacity .35s;
-    }
-    .cat-item:hover .cat-overlay { opacity: 1 }
-    .cat-name {
-      font: 300 22px/1 'Cormorant Garamond', Georgia, serif;
-      color: #fff;
-      display: block;
-      margin-bottom: 8px;
-    }
-    .cat-cta {
-      font: 300 7.5px/1 'Jost', sans-serif;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--t-lt);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .cat-cta::after { content: '→' }
-
-    /* ── EDITORIAL BANNER ──────────────────────── */
-    .editorial-sec {
-      margin: 80px 80px 0;
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      min-height: 560px;
-      overflow: hidden;
-      border: 0.5px solid var(--border);
-    }
-    .ed-img {
-      position: relative;
-      overflow: hidden;
-      background: #EAE4DA;
-      min-height: 400px;
-    }
-    .ed-img--placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-right: 1px dashed var(--ink-1);
-    }
-    .ed-content {
-      background: var(--ink);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 72px 60px;
-    }
-    .ed-tag {
-      font: 300 7.5px/1 'Jost', sans-serif;
-      letter-spacing: .48em;
+    .map-wrap iframe { display: block; }
+    .cs-map-link {
+      font: 300 10px/1 'Jost', sans-serif;
+      letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--t);
-      margin-bottom: 22px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .ed-tag::before { content:''; width:22px; height:0.5px; background:var(--t); flex-shrink:0 }
-    .ed-h {
-      font: 300 62px/1.0 'Cormorant Garamond', Georgia, serif;
-      color: rgba(255,255,255,.94);
-      margin-bottom: 24px;
-    }
-    .ed-h em { font-style:italic; color:var(--t-lt) }
-    .ed-p {
-      font: 300 13px/1.85 'Jost', sans-serif;
-      color: rgba(255,255,255,.38);
-      margin-bottom: 40px;
-      max-width: 280px;
-    }
-
-    /* ── MEGA FOOTER ───────────────────────────── */
-    .ft-mega {
-      background: var(--ink-7);
-      margin-top: 80px;
-      padding: 0;
-      border-top: 0.5px solid rgba(212,175,55,.2);
-    }
-    .ft-top {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 80px;
-      padding: 80px;
-      border-bottom: 0.5px solid rgba(255,255,255,.05);
-    }
-    .ft-brand {}
-    .ft-logo-img {
-      height: 40px;
-      width: auto;
-      object-fit: contain;
-      margin-bottom: 24px;
-      display: block;
-      filter: brightness(0) invert(1);
-      opacity: .7;
-    }
-    .ft-brand-desc {
-      font: 300 12.5px/1.88 'Jost', sans-serif;
-      color: rgba(255,255,255,.28);
-      margin-bottom: 32px;
-      max-width: 220px;
-    }
-    .ft-social { display: flex; gap: 14px }
-    .ft-soc-link {
-      width: 34px; height: 34px;
-      border: 0.5px solid rgba(255,255,255,.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,.3);
       text-decoration: none;
-      transition: all .22s;
-    }
-    .ft-soc-link:hover { border-color: var(--t); color: var(--t) }
-    .ft-cols {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 48px;
-    }
-    .ft-col { display: flex; flex-direction: column; gap: 12px }
-    .ft-col-head {
-      font: 400 10px/1 'Jost', sans-serif;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.45);
-      margin-bottom: 6px;
-    }
-    .ft-link {
-      font: 300 14px/1 'Jost', sans-serif;
-      color: rgba(255,255,255,.22);
-      text-decoration: none;
+      margin-top: 6px;
       transition: color .2s;
     }
-    .ft-link:hover { color: var(--t) }
-    .ft-contact-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 12px;
-    }
-    .ft-contact-label {
-      font: 300 9.5px/1 'Jost', sans-serif;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.2);
-    }
-    .ft-contact-val {
-      font: 300 13.5px/1.6 'Jost', sans-serif;
-      color: rgba(255,255,255,.38);
-    }
-    .ft-divider { height: 0.5px; background: rgba(255,255,255,.04); }
-    .ft-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 80px;
-    }
-    .ft-copy {
-      font: 300 11.5px/1 'Jost', sans-serif;
-      letter-spacing: .07em;
-      color: rgba(255,255,255,.16);
-    }
-    .ft-legal { display: flex; gap: 28px }
-    .ft-legal-link {
-      font: 300 11px/1 'Jost', sans-serif;
-      letter-spacing: .05em;
-      color: rgba(212,175,55,.5);
-      text-decoration: none;
-      transition: color .2s;
-    }
-    .ft-legal-link:hover { color: var(--g) }
+    .cs-map-link:hover { color: var(--t-dk) }
 
-    /* ── MOBILE UPDATES ────────────────────────── */
+    /* ── WHATSAPP SABİT BUTON ──────────────────── */
+    .wa-btn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      padding: 13px 20px 13px 16px;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(37,211,102,.35);
+      font: 500 11px/1 'Jost', sans-serif;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37,211,102,.45);
+    }
+    .wa-btn svg { flex-shrink: 0 }
     @media (max-width: 900px) {
-      .cat-sec { padding: 48px 20px 0 }
-      .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 8px }
-      .editorial-sec { margin: 48px 20px 0; grid-template-columns: 1fr }
-      .ed-img { min-height: 260px }
-      .ed-content { padding: 48px 32px }
-      .ed-h { font-size: 44px }
-      .ft-top { grid-template-columns: 1fr; gap: 40px; padding: 48px 28px }
-      .ft-cols { grid-template-columns: repeat(2, 1fr); gap: 32px }
-      .ft-bottom { flex-direction: column; gap: 16px; padding: 20px 28px }
-      .ft-legal { flex-wrap: wrap; justify-content: center; gap: 16px }
+      .wa-btn { bottom: 20px; right: 20px; padding: 12px 16px 12px 14px; font-size: 10px; }
+    }
+    @media (max-width: 900px) {
       nav { padding: 0 20px }
       .nl, .nr { display: none }
       .logo-wrap { padding: 0; flex: 1; text-align: center }
@@ -1003,28 +622,18 @@
       .contact-strip { grid-template-columns: 1fr }
       .cs-div { display: none }
       .cs-col { padding: 32px 28px }
+      .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 8px }
+      .cat-sec { padding: 48px 20px 0 }
+      .ft-top { grid-template-columns: 1fr; gap: 40px; padding: 48px 28px }
+      .ft-cols { grid-template-columns: repeat(2, 1fr); gap: 32px }
+      .ft-bottom { flex-direction: column; gap: 16px; padding: 20px 28px }
+      .ft-legal { flex-wrap: wrap; justify-content: center; gap: 16px }
     }
   </style>
 </head>
 <body>
 
-<!-- Grain overlay -->
 <div class="grain" aria-hidden="true"></div>
-
-<!-- ═══ TICKER ════════════════════════════════════════════════ -->
-<div class="ticker-wrap">
-  <div class="ticker-badge spark-wrap">
-    <span class="spark spark-1"></span>
-    <span class="spark spark-2"></span>
-    <span class="spark spark-3"></span>
-    <span class="spark spark-4"></span>
-    <span class="t-dot"></span>
-    Canlı Fiyat
-  </div>
-  <div class="ticker-overflow">
-    <div class="ticker-track" id="ticker-track"></div>
-  </div>
-</div>
 
 <!-- ═══ NAV ══════════════════════════════════════════════════ -->
 <nav>
@@ -1044,57 +653,37 @@
     <div class="nav-ico">
       <button class="ico" title="Ara">⌕</button>
       <button class="ico" title="Favoriler">♡</button>
-      <button class="ico" title="Sepet">⊡</button>
     </div>
   </div>
 </nav>
 
 <!-- ═══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero">
-
-  <!-- ── MEDYA ALANI ──────────────────────────────────────────
-       Video için: <video> etiketini açın, src="video.mp4" ekleyin
-       Fotoğraf için: <img> etiketini açın, src="hero.jpg" ekleyin
-  ─────────────────────────────────────────────────────────── -->
   <div class="hero-media">
-
-    <!-- FOTOĞRAF KULLANMAK İÇİN: aşağıdaki satırı yorumdan çıkarın -->
+    <!-- FOTOĞRAF: src="hero.jpg" yaz -->
     <!-- <img src="hero.jpg" alt="Tuna Gold Hero"> -->
-
-    <!-- VİDEO KULLANMAK İÇİN: aşağıdaki bloğu yorumdan çıkarın -->
+    <!-- VİDEO: aşağıdaki bloğu yorumdan çıkar -->
     <!--
     <video autoplay muted loop playsinline>
       <source src="hero.mp4" type="video/mp4">
     </video>
     -->
-
-    <!-- Görsel yükleyene kadar gösterilen placeholder -->
     <div class="hero-placeholder">
       <div class="hero-placeholder-icon">▶</div>
       <div class="hero-placeholder-text">Video veya Fotoğraf Alanı</div>
-      <div class="hero-placeholder-sub">
-        Fotoğraf için: src="hero.jpg" &nbsp;|&nbsp; Video için: src="hero.mp4"<br>
-        Önerilen boyut: 1920×1080px veya üzeri
-      </div>
+      <div class="hero-placeholder-sub">Fotoğraf: src="hero.jpg" &nbsp;|&nbsp; Video: src="hero.mp4"<br>Önerilen: 1920×1080px</div>
     </div>
-
   </div>
-
-  <!-- Karartma overlay -->
   <div class="hero-overlay"></div>
-
-  <!-- Yan bilgi çubuğu -->
   <div class="hero-meta">
     <span class="hero-meta-item">Est. 1995</span>
     <span class="hero-meta-item">Turgutlu · Manisa</span>
-    <span class="hero-meta-item">GIA Sertifikalı</span>
+    <span class="hero-meta-item">Sertifikalı Altın</span>
   </div>
-
-  <!-- Ana içerik -->
   <div class="hero-content">
     <div class="hero-content-l">
       <h1 class="h-h1">İnce İşçilik,<br><em>Sonsuz</em><br>Değer</h1>
-      <p class="h-p">Tuna Gold olarak 1995'ten bu yana geleneksel ustalığı modern zarafetle harmanlayarak en seçkin altın ve pırlanta takıları sunuyoruz.</p>
+      <p class="h-p">Tuna Gold olarak 1995'ten bu yana geleneksel ustalığı modern zarafetle harmanlayarak en seçkin altın takıları sunuyoruz.</p>
       <div class="h-btns">
         <button class="btn-p">Koleksiyonu Keşfet</button>
         <button class="btn-s">Randevu Al</button>
@@ -1102,30 +691,18 @@
     </div>
     <div class="hero-content-r">
       <div class="hero-trust">
-        <div class="ht-item">
-          <div class="ht-n">27+</div>
-          <div class="ht-l">Yıl Deneyim</div>
-        </div>
+        <div class="ht-item"><div class="ht-n">27+</div><div class="ht-l">Yıl Deneyim</div></div>
         <div class="ht-line"></div>
-        <div class="ht-item">
-          <div class="ht-n">8K+</div>
-          <div class="ht-l">Mutlu Müşteri</div>
-        </div>
+        <div class="ht-item"><div class="ht-n">8K+</div><div class="ht-l">Mutlu Müşteri</div></div>
         <div class="ht-line"></div>
-        <div class="ht-item">
-          <div class="ht-n">%100</div>
-          <div class="ht-l">Sertifikalı Altın</div>
-        </div>
+        <div class="ht-item"><div class="ht-n">%100</div><div class="ht-l">Sertifikalı Altın</div></div>
       </div>
     </div>
   </div>
-
-  <!-- Scroll işareti -->
   <div class="hero-scroll">
     <span class="hero-scroll-lbl">Keşfet</span>
     <div class="hero-scroll-line"></div>
   </div>
-
 </section>
 
 <!-- ═══ MARQUEE ═══════════════════════════════════════════════ -->
@@ -1133,15 +710,6 @@
   <div class="marquee-track" id="marquee-track"></div>
 </div>
 
-<!-- ═══ BAND ═════════════════════════════════════════════════ -->
-<div class="band spark-wrap">
-  <span class="spark spark-1"></span><span class="spark spark-2"></span>
-  <span class="spark spark-3"></span><span class="spark spark-4"></span>
-  <span class="spark spark-5"></span><span class="spark spark-6"></span>
-  <span class="spark spark-7"></span><span class="spark spark-8"></span>
-  <span class="spark spark-9"></span><span class="spark spark-10"></span>
-  — Turgutlu Kuyumcular Derneği Borsası ile Entegre &nbsp;·&nbsp; Anlık Fiyat Güncellemesi Her 10 Dakikada &nbsp;·&nbsp; 1995'ten Beri Güven ve Kalite —
-</div>
 
 <!-- ═══ PRODUCTS ══════════════════════════════════════════════ -->
 <section class="prod-sec">
@@ -1150,133 +718,102 @@
     <h2 class="sec-ttl">Seçkin Koleksiyonumuz</h2>
     <div class="sec-sep"></div>
   </div>
+  <div class="prod-grid" id="prod-grid">
+    <!-- ── ÜRÜN EKLEMEK İÇİN ŞABLON ─────────────────────────────
+         Aşağıdaki bloğu kopyala, bilgileri doldur.
+         foto: Görsel dosya adı (örn: yuzuk1.jpg) — index.html ile aynı klasörde olmalı
+         shopierLink: Shopier ürün sayfasının tam URL'si
+         etiket: "Yeni" / "Bestseller" / "" (boş bırakırsan etiket çıkmaz)
+    ──────────────────────────────────────────────────────────── -->
 
-  <div class="prod-grid">
-    <!-- P1: 14K Pırlanta Yüzük -->
+    <!-- ÖRNEK ÜRÜN 1 -->
     <div class="pc ai">
       <div class="pi">
         <span class="ptag">Yeni</span>
-        <button class="pc-wishlist" title="Favorilere Ekle">♡</button>
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:68%;height:68%">
-          <circle cx="100" cy="104" r="55" fill="none" stroke="#C8982A" stroke-width="20"/>
-          <circle cx="100" cy="104" r="55" fill="none" stroke="#D4AF37" stroke-width="16"/>
-          <circle cx="100" cy="104" r="55" fill="none" stroke="#D4AF37" stroke-width="8"/>
-          <circle cx="100" cy="104" r="55" fill="none" stroke="#D4AF37" stroke-width="3" stroke-dasharray="80 265"/>
-          <polygon points="100,38 116,54 100,61 84,54" fill="#D4AF37"/>
-          <polygon points="84,54 100,61 100,74 76,66" fill="#D4AF37" opacity=".78"/>
-          <polygon points="116,54 100,61 100,74 124,66" fill="#C8982A" opacity=".78"/>
-          <polygon points="76,66 100,74 124,66 100,80" fill="#2A2710" opacity=".7"/>
-          <polygon points="100,38 116,54 100,46" fill="white" opacity=".75"/>
-          <polygon points="86,54 100,48 109,54 100,59" fill="white" opacity=".6"/>
-          <line x1="84" y1="57" x2="78" y2="67" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
-          <line x1="116" y1="57" x2="122" y2="67" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
-          <line x1="100" y1="74" x2="100" y2="84" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="pinfo">
-        <div class="pkr">14 Ayar · Pırlanta</div>
-        <div class="pnm">Solitaire Yüzük</div>
-        <div class="pwt">3.5 gr · 0.25 ct</div>
-        <div class="ppr">
-          <div class="pprice"><sup>₺</sup><span id="p1-price">–</span></div>
-          <div class="plive"><span class="ldot"></span>Canlı</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- P2: 22K Altın Kolye -->
-    <div class="pc ai">
-      <div class="pi">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:68%;height:68%">
-          <path d="M28 68 Q100 22 172 68 Q172 136 100 158 Q28 136 28 68" fill="none" stroke="#C8982A" stroke-width="3.5"/>
-          <path d="M28 68 Q100 22 172 68 Q172 136 100 158 Q28 136 28 68" fill="none" stroke="#D4AF37" stroke-width="2" stroke-dasharray="5 4"/>
-          <path d="M34 72 Q100 28 166 72" fill="none" stroke="#D4AF37" stroke-width="1" stroke-dasharray="2 6" opacity=".7"/>
-          <ellipse cx="62" cy="54" rx="5" ry="3" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity=".6"/>
-          <ellipse cx="138" cy="54" rx="5" ry="3" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity=".6"/>
-          <ellipse cx="28" cy="85" rx="3" ry="5" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity=".5"/>
-          <ellipse cx="172" cy="85" rx="3" ry="5" fill="none" stroke="#D4AF37" stroke-width="1.2" opacity=".5"/>
-          <path d="M100,132 Q88,148 88,158 Q88,172 100,176 Q112,172 112,158 Q112,148 100,132" fill="#D4AF37"/>
-          <path d="M100,132 Q90,146 90,157 Q90,169 100,172 Q110,169 110,157 Q110,146 100,132" fill="#D4AF37"/>
-          <polygon points="100,136 93,148 100,157 107,148" fill="#F5E89A"/>
-          <polygon points="100,136 93,148 100,143" fill="white" opacity=".75"/>
-          <polygon points="100,136 107,148 100,143" fill="#E0FFFE" opacity=".5"/>
-          <rect x="95" y="122" width="10" height="14" rx="3" fill="none" stroke="#D4AF37" stroke-width="2"/>
-          <line x1="100" y1="120" x2="100" y2="132" stroke="#D4AF37" stroke-width="2.5"/>
-        </svg>
-      </div>
-      <div class="pinfo">
-        <div class="pkr">22 Ayar · Altın</div>
-        <div class="pnm">İnce Zincir Kolye</div>
-        <div class="pwt">8.2 gr · 45 cm</div>
-        <div class="ppr">
-          <div class="pprice"><sup>₺</sup><span id="p2-price">–</span></div>
-          <div class="plive"><span class="ldot"></span>Canlı</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- P3: 18K Pırlanta Küpe -->
-    <div class="pc ai">
-      <div class="pi">
-        <span class="ptag">Bestseller</span>
-        <button class="pc-wishlist" title="Favorilere Ekle">♡</button>
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:68%;height:68%">
-          <circle cx="68" cy="52" r="9" fill="#D4AF37" stroke="#D4AF37" stroke-width="2"/>
-          <circle cx="68" cy="52" r="5" fill="#D4AF37"/>
-          <line x1="68" y1="61" x2="68" y2="84" stroke="#D4AF37" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M52,84 Q52,126 68,146 Q84,126 84,84 Z" fill="#C8982A"/>
-          <path d="M56,84 Q56,122 68,138 Q80,122 80,84 Z" fill="#D4AF37"/>
-          <path d="M60,84 Q60,118 68,130 Q76,118 76,84 Z" fill="#D4AF37"/>
-          <polygon points="68,92 60,106 68,116 76,106" fill="#F5E89A"/>
-          <polygon points="68,92 60,106 68,100" fill="white" opacity=".8"/>
-          <circle cx="132" cy="52" r="9" fill="#D4AF37" stroke="#D4AF37" stroke-width="2"/>
-          <circle cx="132" cy="52" r="5" fill="#D4AF37"/>
-          <line x1="132" y1="61" x2="132" y2="84" stroke="#D4AF37" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M116,84 Q116,126 132,146 Q148,126 148,84 Z" fill="#C8982A"/>
-          <path d="M120,84 Q120,122 132,138 Q144,122 144,84 Z" fill="#D4AF37"/>
-          <path d="M124,84 Q124,118 132,130 Q140,118 140,84 Z" fill="#D4AF37"/>
-          <polygon points="132,92 124,106 132,116 140,106" fill="#F5E89A"/>
-          <polygon points="132,92 124,106 132,100" fill="white" opacity=".8"/>
-        </svg>
-      </div>
-      <div class="pinfo">
-        <div class="pkr">18 Ayar · Pırlanta</div>
-        <div class="pnm">Damla Küpe Çifti</div>
-        <div class="pwt">1.2 gr · 0.10 ct</div>
-        <div class="ppr">
-          <div class="pprice"><sup>₺</sup><span id="p3-price">–</span></div>
-          <div class="plive"><span class="ldot"></span>Canlı</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- P4: 14K Altın Bilezik -->
-    <div class="pc ai">
-      <div class="pi">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:68%;height:68%">
-          <ellipse cx="100" cy="118" rx="70" ry="18" fill="rgba(0,0,0,.06)"/>
-          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#C8982A" stroke-width="20"/>
-          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#D4AF37" stroke-width="16"/>
-          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#D4AF37" stroke-width="8"/>
-          <ellipse cx="100" cy="100" rx="72" ry="42" fill="none" stroke="#D4AF37" stroke-width="3.5" stroke-dasharray="55 230"/>
-          <ellipse cx="100" cy="100" rx="56" ry="28" fill="none" stroke="#C8982A" stroke-width="1" stroke-dasharray="4 5" opacity=".5"/>
-          <rect x="132" y="89" width="16" height="22" rx="2" fill="#D4AF37" stroke="#D4AF37" stroke-width="1.5"/>
-          <rect x="135" y="93" width="10" height="14" rx="1" fill="#C8982A"/>
-          <line x1="141" y1="96" x2="141" y2="104" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
-          <polygon points="100,72 93,82 100,88 107,82" fill="#F5E89A" stroke="#D4AF37" stroke-width=".5"/>
-          <polygon points="100,72 93,82 100,79" fill="white" opacity=".8"/>
+        <!-- Fotoğraf varsa: <img src="yuzuk1.jpg" alt="Solitaire Yüzük"> -->
+        <!-- Fotoğraf yoksa SVG placeholder görünür -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.35">
+          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#CAC4A0" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line x1="60" y1="60" x2="140" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
+          <line x1="140" y1="60" x2="60" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
+          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#CAC4A0" letter-spacing="2">FOTOĞRAF</text>
         </svg>
       </div>
       <div class="pinfo">
         <div class="pkr">14 Ayar · Altın</div>
-        <div class="pnm">Klasik Bilezik</div>
-        <div class="pwt">12.5 gr · 18 cm</div>
+        <div class="pnm">Ürün Adı</div>
+        <div class="pwt">— gr</div>
         <div class="ppr">
-          <div class="pprice"><sup>₺</sup><span id="p4-price">–</span></div>
-          <div class="plive"><span class="ldot"></span>Canlı</div>
+          <div class="pprice"><sup>₺</sup>—</div>
+          
         </div>
       </div>
     </div>
+
+    <!-- ÖRNEK ÜRÜN 2 -->
+    <div class="pc ai">
+      <div class="pi">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.35">
+          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#CAC4A0" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line x1="60" y1="60" x2="140" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
+          <line x1="140" y1="60" x2="60" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
+          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#CAC4A0" letter-spacing="2">FOTOĞRAF</text>
+        </svg>
+      </div>
+      <div class="pinfo">
+        <div class="pkr">22 Ayar · Altın</div>
+        <div class="pnm">Ürün Adı</div>
+        <div class="pwt">— gr</div>
+        <div class="ppr">
+          <div class="pprice"><sup>₺</sup>—</div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- ÖRNEK ÜRÜN 3 -->
+    <div class="pc ai">
+      <div class="pi">
+        <span class="ptag">Bestseller</span>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.35">
+          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#CAC4A0" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line x1="60" y1="60" x2="140" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
+          <line x1="140" y1="60" x2="60" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
+          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#CAC4A0" letter-spacing="2">FOTOĞRAF</text>
+        </svg>
+      </div>
+      <div class="pinfo">
+        <div class="pkr">18 Ayar · Altın</div>
+        <div class="pnm">Ürün Adı</div>
+        <div class="pwt">— gr</div>
+        <div class="ppr">
+          <div class="pprice"><sup>₺</sup>—</div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- ÖRNEK ÜRÜN 4 -->
+    <div class="pc ai">
+      <div class="pi">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.35">
+          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#CAC4A0" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line x1="60" y1="60" x2="140" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
+          <line x1="140" y1="60" x2="60" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
+          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#CAC4A0" letter-spacing="2">FOTOĞRAF</text>
+        </svg>
+      </div>
+      <div class="pinfo">
+        <div class="pkr">14 Ayar · Altın</div>
+        <div class="pnm">Ürün Adı</div>
+        <div class="pwt">— gr</div>
+        <div class="ppr">
+          <div class="pprice"><sup>₺</sup>—</div>
+          
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1285,20 +822,11 @@
   <div class="about-l">
     <div class="ab-eye ai">Hakkımızda</div>
     <h2 class="ab-h ai">Güvenin ve<br>Zarafetin<br>Adresi</h2>
-    <p class="ab-p ai">Tuna Gold, 1995 yılından itibaren Turgutlu'da en seçkin altın ve pırlanta takıları müşterilerimize sunmaktadır. Her parça, geleneksel Anadolu ustalık anlayışı ile modern estetik bir araya getirilerek titizlikle işlenmektedir. Vizyonumuz; kalıcı değerler taşıyan, nesiller boyu hatırlanacak takılar yaratmaktır.</p>
+    <p class="ab-p ai">Tuna Gold, 1995 yılından itibaren Turgutlu'da en seçkin altın takıları müşterilerimize sunmaktadır. Her parça, geleneksel Anadolu ustalık anlayışı ile modern estetik bir araya getirilerek titizlikle işlenmektedir.</p>
     <div class="ab-stats ai">
-      <div class="ab-stat">
-        <div class="ab-n">27+</div>
-        <div class="ab-l">Yıllık Deneyim</div>
-      </div>
-      <div class="ab-stat">
-        <div class="ab-n">8K+</div>
-        <div class="ab-l">Mutlu Müşteri</div>
-      </div>
-      <div class="ab-stat">
-        <div class="ab-n">1.200+</div>
-        <div class="ab-l">Özgün Tasarım</div>
-      </div>
+      <div class="ab-stat"><div class="ab-n">27+</div><div class="ab-l">Yıllık Deneyim</div></div>
+      <div class="ab-stat"><div class="ab-n">8K+</div><div class="ab-l">Mutlu Müşteri</div></div>
+      <div class="ab-stat"><div class="ab-n">1.200+</div><div class="ab-l">Özgün Tasarım</div></div>
     </div>
   </div>
   <div class="about-r">
@@ -1319,6 +847,7 @@
     <span class="cs-label">Adres</span>
     <span class="cs-val">Turgutlu, Manisa</span>
     <span class="cs-sub">Altay Mah. Eczane Sok. No:26,<br>Turgutlu, Manisa 45400</span>
+    <a href="https://maps.app.goo.gl/vccQKXc3Fcqyd3Tp8" target="_blank" class="cs-map-link">Haritada Gör →</a>
   </div>
   <div class="cs-div"></div>
   <div class="cs-col">
@@ -1336,63 +865,56 @@
   </div>
 </div>
 
-<!-- ═══ EDITORIAL CATEGORIES ══════════════════════════════════ -->
+<!-- ═══ HARİTA ════════════════════════════════════════════════ -->
+<div class="map-wrap">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3!2d27.6996!3d38.5003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDMwJzAwLjAiTiAyN8KwNDEnNTguMCJF!5e0!3m2!1str!2str!4v1234567890!5m2!1str!2str"
+    width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- ═══ KATEGORİLER ══════════════════════════════════════════ -->
 <section class="cat-sec">
   <div class="cat-grid">
     <div class="cat-item ai">
       <div class="cat-img cat-img--placeholder">
         <div class="ph-label">Yüzük Görseli<br><span>Buraya yükleyin</span></div>
-        <div class="cat-overlay">
-          <span class="cat-name">Yüzükler</span>
-          <span class="cat-cta">Koleksiyonu Gör</span>
-        </div>
+        <div class="cat-overlay"><span class="cat-name">Yüzükler</span><span class="cat-cta">Koleksiyonu Gör</span></div>
       </div>
     </div>
     <div class="cat-item ai" style="transition-delay:.08s">
       <div class="cat-img cat-img--placeholder">
         <div class="ph-label">Kolye Görseli<br><span>Buraya yükleyin</span></div>
-        <div class="cat-overlay">
-          <span class="cat-name">Kolyeler</span>
-          <span class="cat-cta">Koleksiyonu Gör</span>
-        </div>
+        <div class="cat-overlay"><span class="cat-name">Kolyeler</span><span class="cat-cta">Koleksiyonu Gör</span></div>
       </div>
     </div>
     <div class="cat-item ai" style="transition-delay:.16s">
       <div class="cat-img cat-img--placeholder">
         <div class="ph-label">Küpe Görseli<br><span>Buraya yükleyin</span></div>
-        <div class="cat-overlay">
-          <span class="cat-name">Küpeler</span>
-          <span class="cat-cta">Koleksiyonu Gör</span>
-        </div>
+        <div class="cat-overlay"><span class="cat-name">Küpeler</span><span class="cat-cta">Koleksiyonu Gör</span></div>
       </div>
     </div>
     <div class="cat-item ai" style="transition-delay:.24s">
       <div class="cat-img cat-img--placeholder">
         <div class="ph-label">Bilezik Görseli<br><span>Buraya yükleyin</span></div>
-        <div class="cat-overlay">
-          <span class="cat-name">Bilezikler</span>
-          <span class="cat-cta">Koleksiyonu Gör</span>
-        </div>
+        <div class="cat-overlay"><span class="cat-name">Bilezikler</span><span class="cat-cta">Koleksiyonu Gör</span></div>
       </div>
     </div>
   </div>
 </section>
-
 
 <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
 <footer class="ft-mega">
   <div class="ft-top">
     <div class="ft-brand">
       <img src="logo.png" alt="Tuna Gold" class="ft-logo-img">
-      <p class="ft-brand-desc">1995'ten bu yana Turgutlu'dan dünyaya, geleneksel ustalık ve modern zarafetin buluştuğu adres.</p>
+      <p class="ft-brand-desc">1995'ten bu yana Turgutlu'dan, geleneksel ustalık ve modern zarafetin buluştuğu adres.</p>
       <div class="ft-social">
-        <a href="#" class="ft-soc-link" aria-label="Instagram">
+        <a href="https://www.instagram.com/tuna_gold/" target="_blank" class="ft-soc-link" aria-label="Instagram">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         </a>
-        <a href="#" class="ft-soc-link" aria-label="Facebook">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-        </a>
-        <a href="#" class="ft-soc-link" aria-label="WhatsApp">
+        <a href="https://wa.me/905XXXXXXXXX" target="_blank" class="ft-soc-link" aria-label="WhatsApp">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         </a>
       </div>
@@ -1404,22 +926,17 @@
         <a href="#" class="ft-link">Kolyeler</a>
         <a href="#" class="ft-link">Küpeler</a>
         <a href="#" class="ft-link">Bilezikler</a>
-        <a href="#" class="ft-link">Pırlanta</a>
         <a href="#" class="ft-link">Düğün Koleksiyonu</a>
       </div>
       <div class="ft-col">
         <div class="ft-col-head">Hizmetler</div>
-        <a href="#" class="ft-link">Fiyat Hesapla</a>
         <a href="#" class="ft-link">Randevu Al</a>
         <a href="#" class="ft-link">Kişiye Özel Tasarım</a>
         <a href="#" class="ft-link">Tamir & Bakım</a>
-        <a href="#" class="ft-link">Sertifika Sorgula</a>
       </div>
       <div class="ft-col">
         <div class="ft-col-head">Kurumsal</div>
         <a href="#" class="ft-link">Hakkımızda</a>
-        <a href="#" class="ft-link">Basın</a>
-        <a href="#" class="ft-link">Kariyer</a>
         <a href="#" class="ft-link">İletişim</a>
       </div>
       <div class="ft-col">
@@ -1446,78 +963,17 @@
       <a href="#" class="ft-legal-link">KVKK</a>
       <a href="#" class="ft-legal-link">Gizlilik Politikası</a>
       <a href="#" class="ft-legal-link">Çerez Politikası</a>
-      <a href="#" class="ft-legal-link">Mesafeli Satış Sözleşmesi</a>
     </div>
   </div>
 </footer>
 
-<!-- ═══ JAVASCRIPT ════════════════════════════════════════════ -->
 <script>
-  let goldPrices = {
-    has:    { label:'Has Altın', unitLabel:'gr', price:4823.40, change:+12.80, pct:'+0.27%', up:true },
-    ayar22: { label:'22 Ayar',  unitLabel:'gr', price:4421.15, change:+11.70, pct:'+0.27%', up:true },
-    ayar18: { label:'18 Ayar',  unitLabel:'gr', price:3614.55, change:+9.56,  pct:'+0.27%', up:true },
-    ayar14: { label:'14 Ayar',  unitLabel:'gr', price:2811.98, change:+7.44,  pct:'+0.27%', up:true },
-    ons:    { label:'Ons ($)',  unitLabel:'oz', price:3452.70, change:-4.30,  pct:'-0.12%', up:false },
-    usdtry: { label:'USD/TRY', unitLabel:'',   price:38.47,   change:+0.14,  pct:'+0.36%', up:true },
-  };
-
-  const products = [
-    { elId:'p1-price', grams:3.5,  karat:'14', labor:750,  laborType:'fixed' },
-    { elId:'p2-price', grams:8.2,  karat:'22', labor:950,  laborType:'fixed' },
-    { elId:'p3-price', grams:1.2,  karat:'18', labor:480,  laborType:'fixed' },
-    { elId:'p4-price', grams:12.5, karat:'14', labor:1400, laborType:'fixed' },
-  ];
-
-  function getKaratPrice(karat) {
-    const map = { '14':goldPrices.ayar14.price, '18':goldPrices.ayar18.price, '22':goldPrices.ayar22.price, 'has':goldPrices.has.price };
-    return map[karat] || goldPrices.ayar14.price;
-  }
-
-  function formatTRY(n) {
-    return Math.round(n).toLocaleString('tr-TR');
-  }
-
-  function calcAllPrices() {
-    products.forEach(p => {
-      const el = document.getElementById(p.elId);
-      if (!el) return;
-      let price = p.grams * getKaratPrice(p.karat);
-      if (p.laborType === 'fixed') price += p.labor;
-      else price *= (1 + p.labor / 100);
-      el.textContent = formatTRY(price);
-    });
-    const heroEl = document.getElementById('hero-price-svg');
-    if (heroEl) {
-      const total = 3.5 * goldPrices.ayar14.price + 750;
-      heroEl.textContent = `₺${formatTRY(total)} · 14K · 3.5 gr`;
-    }
-  }
-
-  function buildTicker() {
-    const items = Object.values(goldPrices);
-    let html = '';
-    for (let i = 0; i < 2; i++) {
-      items.forEach(d => {
-        const chSign = d.up ? '+' : '';
-        const suffix = d.unitLabel ? ` ₺/${d.unitLabel}` : ' ₺';
-        html += `<div class="ti">
-          <span class="lbl">${d.label}</span>
-          <span class="pr">${d.price.toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2})}${suffix}</span>
-          <span class="${d.up ? 'up' : 'dn'}">${chSign}${d.pct}</span>
-        </div>`;
-      });
-    }
-    document.getElementById('ticker-track').innerHTML = html;
-  }
-
   function buildMarquee() {
     const msgs = [
       'Turgutlu Kuyumcular Derneği Onaylı',
       'Has Altın Sertifikası',
       'Ücretsiz Kargo – Türkiye Geneli',
       '1995\'ten Beri Güvenilir Kuyumculuk',
-      'Pırlanta GIA Sertifikalı',
       'Kişiselleştirilmiş Tasarım',
       'İndirimli Düğün Paketi',
     ];
@@ -1527,19 +983,7 @@
         html += `<div class="mq-item">${m}<span class="mq-sep"></span></div>`;
       });
     }
-    const el = document.getElementById('marquee-track');
-    if (el) el.innerHTML = html;
-  }
-
-  function simulateLive() {
-    Object.keys(goldPrices).forEach(k => {
-      const d = goldPrices[k];
-      const fl = (Math.random() - 0.49) * (k === 'ons' ? 1.5 : k === 'usdtry' ? 0.05 : 0.8);
-      d.price = parseFloat(Math.max(0.01, d.price + fl).toFixed(2));
-      d.up = fl >= 0;
-    });
-    buildTicker();
-    calcAllPrices();
+    document.getElementById('marquee-track').innerHTML = html;
   }
 
   function initAnim() {
@@ -1554,31 +998,19 @@
     document.querySelectorAll('.ai').forEach(el => obs.observe(el));
   }
 
-  document.addEventListener('click', e => {
-    if (e.target.classList.contains('pc-wishlist')) {
-      const btn = e.target;
-      if (btn.dataset.active === '1') {
-        btn.textContent = '♡';
-        btn.style.background = '';
-        btn.style.color = '';
-        btn.style.borderColor = '';
-        delete btn.dataset.active;
-      } else {
-        btn.textContent = '♥';
-        btn.style.background = 'var(--t)';
-        btn.style.color = 'white';
-        btn.style.borderColor = 'var(--t)';
-        btn.dataset.active = '1';
-      }
-    }
-  });
-
-  buildTicker();
   buildMarquee();
-  calcAllPrices();
   initAnim();
-
-  setInterval(simulateLive, 10000);
 </script>
+<!-- ═══ WHATSAPP SABİT BUTON ═════════════════════════════════ -->
+<!-- Telefon numaranızı yazın: wa.me/90 + numara (başında 0 olmadan) -->
+<!-- Örnek: 0532 123 45 67 → wa.me/905321234567 -->
+<a href="https://wa.me/905XXXXXXXXX?text=Merhaba%2C%20takılarınız%20hakkında%20bilgi%20almak%20istiyorum." 
+   class="wa-btn" target="_blank" aria-label="WhatsApp ile iletişim">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  Bilgi Al
+</a>
+
 </body>
 </html>
