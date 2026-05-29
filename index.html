@@ -8,50 +8,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --g:      #D4AF37;
-      --g-mid:  #E8C84A;
-      --g-lt:   #F5E070;
-      --g-pal:  #FBF7E0;
-      --t:      #C8982A;
-      --t-dk:   #A67B1C;
-      --t-ddk:  #18130A;
-      --t-lt:   #FFF4A8;
-      --ink:    #c0c9bb;
-      --ink-7:  #11100A;
-      --ink-5:  #28260F;
-      --ink-3:  #60583A;
-      --ink-2:  #98906A;
-      --ink-1:  #CAC4A0;
-      --cr:     #f2e9df; /* Kutu ve kayan yazı arkaplanları için ana rengin uyumlu bir tonu */
-      --w:      #faf3ec; /* YENİ ANA ARKAPLAN RENGİN */
-      --border: rgba(0,0,0,0.07);
-      --gbord:  rgba(212,175,55,0.28);
-      --tbord:  rgba(200,152,42,0.2);
+      /* ── PALETTE: Petrol & Zümrüt ── */
+      --bg:       #F5F0E8;   /* krem pudra — ana arka plan */
+      --bg-2:     #EDE8DF;   /* biraz daha koyu krem — kartlar */
+      --bg-3:     #E2DDD3;   /* marquee / contact arka plan */
+      --ink:      #2C3B35;   /* koyu petrol — ana metin */
+      --ink-2:    #4A6359;   /* orta petrol — ikincil metin */
+      --ink-3:    #7A9189;   /* açık petrol — üçüncül */
+      --ink-4:    #A8BDB5;   /* soluk adaçayı */
+      --g:        #C4B882;   /* altın bej — vurgu */
+      --g-lt:     #DDD5A8;   /* açık altın */
+      --t:        #4A6359;   /* petrol — buton/hover */
+      --t-lt:     #A8BDB5;   /* açık adaçayı — hero accent */
+      --t-ddk:    #2C3B35;   /* koyu petrol */
+      --border:   rgba(74,99,89,0.12);
+      --gbord:    rgba(196,184,130,0.22);
+      --nav-bg:   rgba(245,240,232,0.96);
+      --w:        #F5F0E8;
+      --cr:       #EDE8DF;
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
     html { scroll-behavior:smooth }
     body {
       font-family: 'Jost', 'Helvetica Neue', sans-serif;
-      background: var(--w);
+      background: var(--bg);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    /* ── GRAIN TEXTURE OVERLAY ─────────────────── */
     .grain {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      pointer-events: none;
-      opacity: 0.028;
+      position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+      opacity: 0.022;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* ── NAV ───────────────────────────────────── */
+    /* ── NAV ── */
     nav {
-      background: rgba(253,252,249,0.94);
-      height: 82px;
+      background: var(--nav-bg);
+      height: 88px;
       display: flex;
       align-items: center;
       padding: 0 52px;
@@ -59,561 +54,270 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
-    .nl, .nr {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
+    .nl, .nr { flex: 1; display: flex; align-items: center; gap: 32px; }
     .nr { justify-content: flex-end }
     .na {
-      font: 300 10px/1 'Jost', sans-serif;
+      font: 300 11px/1 'Jost', sans-serif;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--ink-3);
+      color: var(--ink-2);
       text-decoration: none;
       transition: color .22s;
     }
-    .na:hover { color: var(--t) }
-    .logo-wrap { flex: 0; padding: 0 52px; text-align: center }
-    .logo-img {
-      height: 58px;
-      width: auto;
-      display: block;
-      object-fit: contain;
-    }
+    .na:hover { color: var(--ink) }
+    .logo-wrap { flex: 0; padding: 0 48px; text-align: center }
+    .logo-img { height: 70px; width: auto; display: block; object-fit: contain; }
     .nav-ico { display:flex; gap:10px; margin-left:8px }
     .ico {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--ink-3);
-      font-size: 19px;
-      transition: color .2s;
-      line-height: 1;
-      padding: 5px;
+      background: none; border: none; cursor: pointer;
+      color: var(--ink-2); font-size: 20px; transition: color .2s;
+      line-height: 1; padding: 5px;
     }
-    .ico:hover { color: var(--t) }
+    .ico:hover { color: var(--ink) }
 
-    /* ── HERO ──────────────────────────────────── */
+    /* ── HERO ── */
     .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      min-height: 600px;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
+      position: relative; width: 100%; height: 100vh;
+      min-height: 600px; overflow: hidden; display: flex; align-items: flex-end;
     }
-    .hero-media {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .hero-media video,
-    .hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
+    .hero-media { position: absolute; inset: 0; z-index: 0; }
+    .hero-media video, .hero-media img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
     }
     .hero-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #1a1710 0%, #2e2a1e 40%, #18130A 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #2C3B35 0%, #4A6359 50%, #3A5048 100%);
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 16px;
     }
     .hero-placeholder-icon {
       width: 64px; height: 64px;
-      border: 1px dashed rgba(255,255,255,.2);
-      border-radius: 50%;
+      border: 1px dashed rgba(245,240,232,.3); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 22px; color: rgba(255,255,255,.3);
+      font-size: 22px; color: rgba(245,240,232,.4);
     }
     .hero-placeholder-text {
-      font: 300 10px/1.7 'Jost', sans-serif;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.2);
-      text-align: center;
+      font: 300 10px/1.7 'Jost', sans-serif; letter-spacing: .28em;
+      text-transform: uppercase; color: rgba(245,240,232,.3); text-align: center;
     }
     .hero-placeholder-sub {
-      font: 300 11px/1.5 'Jost', sans-serif;
-      color: rgba(255,255,255,.1);
-      letter-spacing: .08em;
-      text-align: center;
+      font: 300 11px/1.5 'Jost', sans-serif; color: rgba(245,240,232,.15);
+      letter-spacing: .08em; text-align: center;
     }
     .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(to top, rgba(13,12,9,.82) 0%, rgba(13,12,9,.38) 45%, rgba(13,12,9,.08) 100%);
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top, rgba(44,59,53,.88) 0%, rgba(44,59,53,.42) 45%, rgba(44,59,53,.08) 100%);
     }
     .hero-content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      padding: 0 80px 72px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 40px;
+      position: relative; z-index: 2; width: 100%;
+      padding: 0 80px 80px;
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 40px;
     }
-    .hero-content-l { max-width: 600px; }
-    .hero-content-r {
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 18px;
-      padding-bottom: 6px;
-    }
+    .hero-content-l { max-width: 620px; }
+    .hero-content-r { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 18px; padding-bottom: 6px; }
     .h-h1 {
-      font: 300 96px/1.0 'Cormorant Garamond', Georgia, serif;
-      letter-spacing: -.02em;
-      color: rgba(255,255,255,.96);
-      margin-bottom: 24px;
-      animation: fiu .9s .2s both;
+      font: 300 100px/1.0 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: -.02em; color: rgba(245,240,232,.96);
+      margin-bottom: 24px; animation: fiu .9s .2s both;
     }
     .h-h1 em { font-style: italic; color: var(--t-lt); font-weight: 300; }
     .h-p {
-      font: 300 13.5px/1.88 'Jost', sans-serif;
-      color: rgba(255,255,255,.48);
-      max-width: 380px;
-      margin-bottom: 36px;
-      animation: fiu .9s .35s both;
+      font: 300 14px/1.9 'Jost', sans-serif; color: rgba(245,240,232,.5);
+      max-width: 380px; margin-bottom: 36px; animation: fiu .9s .35s both;
     }
-    .h-btns {
-      display: flex;
-      gap: 12px;
-      animation: fiu .9s .5s both;
-    }
+    .h-btns { display: flex; gap: 12px; animation: fiu .9s .5s both; }
     .btn-p {
-      background: rgba(255,255,255,.97);
-      color: var(--ink);
-      border: none;
-      padding: 15px 40px;
-      font: 400 8px/1 'Jost', sans-serif;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background .22s, color .22s;
+      background: rgba(245,240,232,.95); color: var(--ink);
+      border: none; padding: 16px 44px;
+      font: 400 9px/1 'Jost', sans-serif; letter-spacing: .22em;
+      text-transform: uppercase; cursor: pointer; transition: background .22s, color .22s;
     }
-    .btn-p:hover { background: var(--t); color: #fff }
+    .btn-p:hover { background: var(--g); color: var(--ink) }
     .btn-s {
-      background: transparent;
-      color: rgba(255,255,255,.85);
-      border: 0.5px solid rgba(255,255,255,.3);
-      padding: 15px 40px;
-      font: 400 8px/1 'Jost', sans-serif;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all .22s;
+      background: transparent; color: rgba(245,240,232,.85);
+      border: 0.5px solid rgba(245,240,232,.3); padding: 16px 44px;
+      font: 400 9px/1 'Jost', sans-serif; letter-spacing: .22em;
+      text-transform: uppercase; cursor: pointer; transition: all .22s;
     }
     .btn-s:hover { border-color: var(--t-lt); color: var(--t-lt) }
-    .hero-trust {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      animation: fiu .9s .65s both;
-    }
+    .hero-trust { display: flex; flex-direction: column; gap: 22px; animation: fiu .9s .65s both; }
     .ht-item { text-align: right }
-    .ht-n {
-      font: 300 32px/1 'Cormorant Garamond', Georgia, serif;
-      color: rgba(255,255,255,.88);
-    }
-    .ht-l {
-      font: 300 8px/1 'Jost', sans-serif;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.28);
-      margin-top: 5px;
-    }
-    .ht-line { width: 100%; height: 0.5px; background: rgba(255,255,255,.08) }
+    .ht-n { font: 300 34px/1 'Cormorant Garamond', Georgia, serif; color: rgba(245,240,232,.88); }
+    .ht-l { font: 300 9px/1 'Jost', sans-serif; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,240,232,.3); margin-top: 5px; }
+    .ht-line { width: 100%; height: 0.5px; background: rgba(245,240,232,.1) }
     .hero-scroll {
-      position: absolute;
-      bottom: 36px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      animation: fiu 1s .9s both;
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      z-index: 3; display: flex; flex-direction: column; align-items: center;
+      gap: 8px; animation: fiu 1s .9s both;
     }
     .hero-scroll-line {
-      width: 0.5px;
-      height: 44px;
-      background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent);
+      width: 0.5px; height: 44px;
+      background: linear-gradient(to bottom, rgba(245,240,232,.5), transparent);
       animation: scrollPulse 2s ease-in-out infinite;
     }
-    .hero-scroll-lbl {
-      font: 300 7px/1 'Jost', sans-serif;
-      letter-spacing: .32em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.28);
-    }
+    .hero-scroll-lbl { font: 300 7px/1 'Jost', sans-serif; letter-spacing: .32em; text-transform: uppercase; color: rgba(245,240,232,.3); }
     @keyframes scrollPulse { 0%, 100% { opacity: .4 } 50% { opacity: 1 } }
     .hero-meta {
-      position: absolute;
-      top: 50%;
-      right: 44px;
-      transform: translateY(-50%);
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+      position: absolute; top: 50%; right: 44px; transform: translateY(-50%);
+      z-index: 3; display: flex; flex-direction: column; gap: 20px;
       animation: fiu 1s .7s both;
     }
     .hero-meta-item {
-      writing-mode: vertical-rl;
-      font: 300 7.5px/1 'Jost', sans-serif;
-      letter-spacing: .24em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.2);
+      writing-mode: vertical-rl; font: 300 7.5px/1 'Jost', sans-serif;
+      letter-spacing: .24em; text-transform: uppercase; color: rgba(245,240,232,.22);
     }
 
-    /* ── MARQUEE ───────────────────────────────── */
+    /* ── MARQUEE ── */
     .marquee-sec {
-      border-top: 0.5px solid var(--border);
-      border-bottom: 0.5px solid var(--border);
-      padding: 22px 0;
-      overflow: hidden;
-      background: var(--cr);
+      border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border);
+      padding: 22px 0; overflow: hidden; background: var(--bg-3);
     }
-    .marquee-track {
-      display: flex;
-      animation: tick 30s linear infinite;
-      white-space: nowrap;
-      align-items: center;
-    }
+    .marquee-track { display: flex; animation: tick 30s linear infinite; white-space: nowrap; align-items: center; }
     .mq-item {
-      font: 200 11px/1 'Jost', sans-serif;
-      letter-spacing: .32em;
-      text-transform: uppercase;
-      color: var(--ink-2);
-      padding: 0 36px;
-      display: flex;
-      align-items: center;
-      gap: 36px;
+      font: 200 12px/1 'Jost', sans-serif; letter-spacing: .32em; text-transform: uppercase;
+      color: var(--ink-3); padding: 0 36px; display: flex; align-items: center; gap: 36px;
     }
-    .mq-sep { width:3px; height:3px; background:var(--g); border-radius:50%; opacity:.45; flex-shrink:0 }
+    .mq-sep { width:3px; height:3px; background:var(--g); border-radius:50%; opacity:.5; flex-shrink:0 }
 
-    /* ── PRODUCTS ──────────────────────────────── */
-    .prod-sec { padding: 116px 80px; background: var(--w); }
-    .sec-head { text-align: center; margin-bottom: 76px; }
-    .sec-eye {
-      font: 300 10.5px/1 'Jost', sans-serif;
-      letter-spacing: .42em;
-      text-transform: uppercase;
-      color: var(--t);
-      margin-bottom: 14px;
-    }
-    .sec-ttl {
-      font: 300 54px/1.06 'Cormorant Garamond', Georgia, serif;
-      color: var(--ink);
-    }
-    .sec-sep { width:36px; height:0.5px; background:var(--g); margin:22px auto 0; opacity:.55 }
-    .prod-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border: 0.5px solid var(--border);
-    }
+    /* ── PRODUCTS ── */
+    .prod-sec { padding: 120px 80px; background: var(--bg); }
+    .sec-head { text-align: center; margin-bottom: 80px; }
+    .sec-eye { font: 300 11px/1 'Jost', sans-serif; letter-spacing: .42em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 14px; }
+    .sec-ttl { font: 300 56px/1.06 'Cormorant Garamond', Georgia, serif; color: var(--ink); }
+    .sec-sep { width:36px; height:0.5px; background:var(--g); margin:22px auto 0; opacity:.6 }
+    .prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 0.5px solid var(--border); }
     .pc {
-      background: var(--w);
-      cursor: pointer;
-      transition: background .3s;
-      position: relative;
-      overflow: hidden;
-      border-right: 0.5px solid var(--border);
+      background: var(--bg); cursor: pointer; transition: background .3s;
+      position: relative; overflow: hidden; border-right: 0.5px solid var(--border);
     }
     .pc:last-child { border-right: none }
-    .pc:hover { background: #FDFAF4 }
+    .pc:hover { background: var(--bg-2) }
     .pi {
-      aspect-ratio: 1;
-      background: var(--cr);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+      aspect-ratio: 1; background: var(--bg-2);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
     }
-    .pi img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform .55s cubic-bezier(.25,.46,.45,.94);
-    }
+    .pi img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .55s cubic-bezier(.25,.46,.45,.94); }
     .pc:hover .pi img { transform: scale(1.07) }
     .ptag {
-      position: absolute;
-      top: 16px; left: 0;
-      background: var(--ink);
-      color: var(--w);
-      font: 400 8.5px/1 'Jost', sans-serif;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      padding: 6px 13px;
-      z-index: 2;
+      position: absolute; top: 16px; left: 0;
+      background: var(--ink); color: var(--bg);
+      font: 400 8.5px/1 'Jost', sans-serif; letter-spacing: .18em;
+      text-transform: uppercase; padding: 6px 13px; z-index: 2;
     }
     .pinfo { padding: 26px 28px 30px; border-top: 0.5px solid var(--border); }
-    .pkr {
-      font: 300 9.5px/1 'Jost', sans-serif;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--g);
-      margin-bottom: 8px;
-    }
-    .pnm {
-      font: 400 20px/1.2 'Cormorant Garamond', Georgia, serif;
-      color: var(--ink);
-      margin-bottom: 5px;
-    }
-    .pwt { font: 300 13px/1 'Jost', sans-serif; color: var(--ink-2); margin-bottom: 20px; }
-    .ppr { display:flex; justify-content:space-between; align-items:center; gap: 10px; }
-    .pprice {
-      font: 300 28px/1 'Cormorant Garamond', Georgia, serif;
-      color: var(--ink);
-    }
-    .pprice sup { font: 300 13px/1 'Jost', sans-serif; color: var(--ink-3); vertical-align: super; }
+    .pkr { font: 300 10px/1 'Jost', sans-serif; letter-spacing: .28em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 8px; }
+    .pnm { font: 400 21px/1.2 'Cormorant Garamond', Georgia, serif; color: var(--ink); margin-bottom: 5px; }
+    .pwt { font: 300 13px/1 'Jost', sans-serif; color: var(--ink-3); margin-bottom: 20px; }
+    .ppr { display:flex; justify-content:flex-start; align-items:baseline; }
+    .pprice { font: 300 30px/1 'Cormorant Garamond', Georgia, serif; color: var(--ink); }
+    .pprice sup { font: 300 14px/1 'Jost', sans-serif; color: var(--ink-3); vertical-align: super; }
 
-    /* ── ABOUT ─────────────────────────────────── */
-    .about {
-      background: var(--ink);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 580px;
-    }
-    .about-l {
-      padding: 96px 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-right: 0.5px solid rgba(255,255,255,.05);
-    }
-    .ab-eye {
-      font: 300 10.5px/1 'Jost', sans-serif;
-      letter-spacing: .4em;
-      text-transform: uppercase;
-      color: var(--t);
-      margin-bottom: 22px;
-    }
-    .ab-h {
-      font: 300 58px/1.08 'Cormorant Garamond', Georgia, serif;
-      color: rgba(255,255,255,.95);
-      margin-bottom: 28px;
-    }
-    .ab-p {
-      font: 300 15px/1.9 'Jost', sans-serif;
-      color: rgba(255,255,255,.34);
-      max-width: 400px;
-      margin-bottom: 52px;
-    }
-    .ab-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 0.5px solid rgba(255,255,255,.07);
-      padding-top: 38px;
-    }
-    .ab-stat { padding-right: 24px; border-right: 0.5px solid rgba(255,255,255,.07); margin-right: 24px; }
+    /* ── ABOUT ── */
+    .about { background: var(--ink); display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; }
+    .about-l { padding: 96px 80px; display: flex; flex-direction: column; justify-content: center; border-right: 0.5px solid rgba(245,240,232,.06); }
+    .ab-eye { font: 300 11px/1 'Jost', sans-serif; letter-spacing: .4em; text-transform: uppercase; color: var(--g); margin-bottom: 22px; }
+    .ab-h { font: 300 60px/1.08 'Cormorant Garamond', Georgia, serif; color: rgba(245,240,232,.95); margin-bottom: 28px; }
+    .ab-p { font: 300 15px/1.9 'Jost', sans-serif; color: rgba(245,240,232,.35); max-width: 400px; margin-bottom: 52px; }
+    .ab-stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 0.5px solid rgba(245,240,232,.08); padding-top: 38px; }
+    .ab-stat { padding-right: 24px; border-right: 0.5px solid rgba(245,240,232,.08); margin-right: 24px; }
     .ab-stat:last-child { border-right: none; margin-right: 0 }
-    .ab-n {
-      font: 300 44px/1 'Cormorant Garamond', Georgia, serif;
-      color: var(--g-lt);
-      margin-bottom: 7px;
-    }
-    .ab-l {
-      font: 300 10px/1 'Jost', sans-serif;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.2);
-    }
+    .ab-n { font: 300 46px/1 'Cormorant Garamond', Georgia, serif; color: var(--g-lt); margin-bottom: 7px; }
+    .ab-l { font: 300 10px/1 'Jost', sans-serif; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,240,232,.22); }
     .about-r {
-      background: var(--t-ddk);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+      background: #3A5048;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
     }
     .about-r::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(212,175,55,.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212,175,55,.05) 1px, transparent 1px);
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(196,184,130,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(196,184,130,.05) 1px, transparent 1px);
       background-size: 44px 44px;
     }
-    .about-r::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0; left: -1px;
-      width: 0.5px;
-      background: linear-gradient(to bottom, transparent, rgba(255,255,255,.15), transparent);
-    }
+    .about-r::after { content: ''; position: absolute; top: 0; bottom: 0; left: -1px; width: 0.5px; background: linear-gradient(to bottom, transparent, rgba(245,240,232,.12), transparent); }
     .ab-badge { position: relative; z-index: 1; text-align: center; }
-    .ab-badge-frame { border: 0.5px solid rgba(255,255,255,.14); padding: 52px 60px; position: relative; }
-    .ab-badge-frame::before { content: ''; position: absolute; inset: 7px; border: 0.5px solid rgba(255,255,255,.06); }
-    .ab-year {
-      font: 300 100px/1 'Cormorant Garamond', Georgia, serif;
-      color: rgba(255,255,255,.88);
-      letter-spacing: -.03em;
-      display: block;
-    }
-    .ab-since { font: 200 9.5px/1 'Jost', sans-serif; letter-spacing: .5em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-top: 14px; }
-    .ab-turgutlu { font: 300 9.5px/1 'Jost', sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(232,213,163,.55); margin-top: 8px; }
+    .ab-badge-frame { border: 0.5px solid rgba(245,240,232,.16); padding: 52px 60px; position: relative; }
+    .ab-badge-frame::before { content: ''; position: absolute; inset: 7px; border: 0.5px solid rgba(245,240,232,.07); }
+    .ab-year { font: 300 100px/1 'Cormorant Garamond', Georgia, serif; color: rgba(245,240,232,.88); letter-spacing: -.03em; display: block; }
+    .ab-since { font: 200 9.5px/1 'Jost', sans-serif; letter-spacing: .5em; text-transform: uppercase; color: rgba(245,240,232,.32); margin-top: 14px; }
+    .ab-turgutlu { font: 300 9.5px/1 'Jost', sans-serif; letter-spacing: .3em; text-transform: uppercase; color: var(--g); opacity: .65; margin-top: 8px; }
 
-    /* ── CONTACT STRIP ─────────────────────────── */
-    .contact-strip {
-      background: var(--cr);
-      border-top: 0.5px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr 0.5px 1fr 0.5px 1fr;
-    }
-    .cs-col { padding: 46px 52px; display: flex; flex-direction: column; gap: 9px; }
+    /* ── CONTACT STRIP ── */
+    .contact-strip { background: var(--bg-3); border-top: 0.5px solid var(--border); display: grid; grid-template-columns: 1fr 0.5px 1fr 0.5px 1fr; }
+    .cs-col { padding: 48px 52px; display: flex; flex-direction: column; gap: 9px; }
     .cs-div { background: var(--border) }
-    .cs-icon { font-size: 22px; color: var(--t); margin-bottom: 4px; line-height: 1; }
-    .cs-label { font: 300 10px/1 'Jost', sans-serif; letter-spacing: .28em; text-transform: uppercase; color: var(--ink-2); }
-    .cs-val { font: 400 18px/1.3 'Cormorant Garamond', Georgia, serif; color: var(--ink); }
-    .cs-sub { font: 300 13.5px/1.55 'Jost', sans-serif; color: var(--ink-3); }
+    .cs-icon { font-size: 22px; color: var(--ink-2); margin-bottom: 4px; line-height: 1; }
+    .cs-label { font: 300 11px/1 'Jost', sans-serif; letter-spacing: .28em; text-transform: uppercase; color: var(--ink-3); }
+    .cs-val { font: 400 19px/1.3 'Cormorant Garamond', Georgia, serif; color: var(--ink); }
+    .cs-sub { font: 300 13.5px/1.55 'Jost', sans-serif; color: var(--ink-2); }
 
-    /* ── CATEGORY GRID ─────────────────────────── */
-    .cat-sec { background: var(--w); padding: 80px 80px 0; }
+    /* ── GOOGLE MAPS ── */
+    .map-wrap { width: 100%; padding: 60px 80px; background: var(--bg); border-top: 0.5px solid var(--border); }
+    .map-container { width: 100%; height: 450px; position: relative; border: 0.5px solid var(--gbord); overflow: hidden; }
+    .map-wrap iframe { display: block; width: 100%; height: 100%; filter: grayscale(1) contrast(1.1) brightness(0.95) sepia(0.08); transition: filter 0.6s ease; }
+    .map-container:hover iframe { filter: none; }
+    @media (max-width: 900px) { .map-wrap { padding: 40px 20px; } .map-container { height: 300px; } }
+
+    /* ── CATEGORY GRID ── */
+    .cat-sec { background: var(--bg); padding: 80px 80px 0; }
     .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
     .cat-item { position: relative; overflow: hidden; cursor: pointer; }
-    .cat-img { aspect-ratio: 3/4; position: relative; overflow: hidden; background: var(--cr); }
-    .cat-img--placeholder { display: flex; align-items: center; justify-content: center; border: 1px dashed var(--ink-1); }
-    .ph-label { font: 300 10px/1.7 'Jost', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); text-align: center; }
-    .ph-label span { font-size: 9px; color: var(--ink-1); display: block; margin-top: 4px; letter-spacing:.06em; text-transform:none }
-    .cat-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(13,12,9,.72) 0%, transparent 55%);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 28px 24px; opacity: 0; transition: opacity .35s;
-    }
+    .cat-img { aspect-ratio: 3/4; position: relative; overflow: hidden; background: var(--bg-2); }
+    .cat-img--placeholder { display: flex; align-items: center; justify-content: center; border: 1px dashed var(--ink-4); }
+    .ph-label { font: 300 10px/1.7 'Jost', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); text-align: center; }
+    .ph-label span { font-size: 9px; color: var(--ink-4); display: block; margin-top: 4px; letter-spacing:.06em; text-transform:none }
+    .cat-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(44,59,53,.8) 0%, transparent 55%); display: flex; flex-direction: column; justify-content: flex-end; padding: 28px 24px; opacity: 0; transition: opacity .35s; }
     .cat-item:hover .cat-overlay { opacity: 1 }
-    .cat-name { font: 300 22px/1 'Cormorant Garamond', Georgia, serif; color: #fff; display: block; margin-bottom: 8px; }
+    .cat-name { font: 300 22px/1 'Cormorant Garamond', Georgia, serif; color: var(--bg); display: block; margin-bottom: 8px; }
     .cat-cta { font: 300 7.5px/1 'Jost', sans-serif; letter-spacing: .28em; text-transform: uppercase; color: var(--t-lt); display: flex; align-items: center; gap: 8px; }
     .cat-cta::after { content: '→' }
 
-    /* ── MEGA FOOTER ───────────────────────────── */
-    .ft-mega { background: var(--ink-7); margin-top: 80px; padding: 0; border-top: 0.5px solid rgba(212,175,55,.2); }
-    .ft-top { display: grid; grid-template-columns: 300px 1fr; gap: 80px; padding: 80px; border-bottom: 0.5px solid rgba(255,255,255,.05); }
-    .ft-logo-img { height: 40px; width: auto; object-fit: contain; margin-bottom: 24px; display: block; filter: brightness(0) invert(1); opacity: .7; }
-    .ft-brand-desc { font: 300 12.5px/1.88 'Jost', sans-serif; color: rgba(255,255,255,.28); margin-bottom: 32px; max-width: 220px; }
+    /* ── MEGA FOOTER ── */
+    .ft-mega { background: var(--ink); margin-top: 80px; padding: 0; border-top: 0.5px solid rgba(196,184,130,.2); }
+    .ft-top { display: grid; grid-template-columns: 300px 1fr; gap: 80px; padding: 80px; border-bottom: 0.5px solid rgba(245,240,232,.05); }
+    .ft-logo-img { height: 48px; width: auto; object-fit: contain; margin-bottom: 24px; display: block; filter: brightness(0) invert(1); opacity: .65; }
+    .ft-brand-desc { font: 300 13px/1.9 'Jost', sans-serif; color: rgba(245,240,232,.28); margin-bottom: 32px; max-width: 220px; }
     .ft-social { display: flex; gap: 14px }
-    .ft-soc-link { width: 34px; height: 34px; border: 0.5px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.3); text-decoration: none; transition: all .22s; }
-    .ft-soc-link:hover { border-color: var(--t); color: var(--t) }
+    .ft-soc-link { width: 36px; height: 36px; border: 0.5px solid rgba(245,240,232,.1); display: flex; align-items: center; justify-content: center; color: rgba(245,240,232,.3); text-decoration: none; transition: all .22s; }
+    .ft-soc-link:hover { border-color: var(--g); color: var(--g) }
     .ft-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; }
-    .ft-col { display: flex; flex-direction: column; gap: 12px }
-    .ft-col-head { font: 400 10px/1 'Jost', sans-serif; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 6px; }
-    .ft-link { font: 300 14px/1 'Jost', sans-serif; color: rgba(255,255,255,.22); text-decoration: none; transition: color .2s; }
-    .ft-link:hover { color: var(--t) }
+    .ft-col { display: flex; flex-direction: column; gap: 13px }
+    .ft-col-head { font: 400 10px/1 'Jost', sans-serif; letter-spacing: .25em; text-transform: uppercase; color: rgba(245,240,232,.4); margin-bottom: 6px; }
+    .ft-link { font: 300 14px/1 'Jost', sans-serif; color: rgba(245,240,232,.22); text-decoration: none; transition: color .2s; }
+    .ft-link:hover { color: var(--g) }
     .ft-contact-item { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
-    .ft-contact-label { font: 300 9.5px/1 'Jost', sans-serif; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.2); }
-    .ft-contact-val { font: 300 13.5px/1.6 'Jost', sans-serif; color: rgba(255,255,255,.38); }
-    .ft-divider { height: 0.5px; background: rgba(255,255,255,.04); }
+    .ft-contact-label { font: 300 9.5px/1 'Jost', sans-serif; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,240,232,.2); }
+    .ft-contact-val { font: 300 13.5px/1.6 'Jost', sans-serif; color: rgba(245,240,232,.38); }
+    .ft-divider { height: 0.5px; background: rgba(245,240,232,.04); }
     .ft-bottom { display: flex; justify-content: space-between; align-items: center; padding: 24px 80px; }
-    .ft-copy { font: 300 11.5px/1 'Jost', sans-serif; letter-spacing: .07em; color: rgba(255,255,255,.16); }
+    .ft-copy { font: 300 11.5px/1 'Jost', sans-serif; letter-spacing: .07em; color: rgba(245,240,232,.16); }
     .ft-legal { display: flex; gap: 28px }
-    .ft-legal-link { font: 300 11px/1 'Jost', sans-serif; letter-spacing: .05em; color: rgba(212,175,55,.5); text-decoration: none; transition: color .2s; }
+    .ft-legal-link { font: 300 11px/1 'Jost', sans-serif; letter-spacing: .05em; color: rgba(196,184,130,.45); text-decoration: none; transition: color .2s; }
     .ft-legal-link:hover { color: var(--g) }
 
-    /* ── ANIMATIONS ────────────────────────────── */
+    /* ── ANIMATIONS ── */
     @keyframes fiu { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
-    @keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:.18 } }
     @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    @keyframes glitter-sweep { 0% { background-position: -200% center } 100% { background-position: 300% center } }
-    @keyframes sparkle { 0%,100% { opacity:0; transform:scale(0) rotate(0deg) } 50% { opacity:1; transform:scale(1) rotate(180deg) } }
-    @keyframes sparkle2 { 0%,100% { opacity:0; transform:scale(0) rotate(45deg) } 50% { opacity:.8; transform:scale(1.2) rotate(225deg) } }
     .ai { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.23,1,.32,1), transform .8s cubic-bezier(.23,1,.32,1); }
     .ai.v { opacity:1; transform:translateY(0) }
-    .spark-wrap { position: relative; overflow: hidden; }
-    .spark { position: absolute; width: 6px; height: 6px; pointer-events: none; z-index: 10; }
-    .spark::before, .spark::after { content: ''; position: absolute; inset: 0; background: #fff; clip-path: polygon(50% 0%,52% 48%,100% 50%,52% 52%,50% 100%,48% 52%,0% 50%,48% 48%); }
-    .spark::after { background: #F0D875; transform: rotate(45deg) scale(.6); }
-    .spark-1  { top:20%; left:8%;   animation: sparkle 2.1s .0s infinite }
-    .spark-2  { top:70%; left:15%;  animation: sparkle 1.8s .4s infinite }
-    .spark-3  { top:30%; left:82%;  animation: sparkle 2.4s .2s infinite }
-    .spark-4  { top:65%; left:91%;  animation: sparkle2 1.9s .7s infinite }
-    .spark-5  { top:10%; left:45%;  animation: sparkle2 2.2s .1s infinite }
-    .spark-6  { top:80%; left:55%;  animation: sparkle 1.7s .9s infinite }
-    .spark-7  { top:50%; left:28%;  animation: sparkle2 2.0s .5s infinite }
-    .spark-8  { top:40%; left:68%;  animation: sparkle 2.3s .3s infinite }
-    .spark-9  { top:85%; left:38%;  animation: sparkle2 1.6s .8s infinite }
-    .spark-10 { top:15%; left:72%;  animation: sparkle 2.5s .6s infinite }
 
-    /* ── GOOGLE MAPs (YENİ ESTETİK GÖRÜNÜM) ───────────────────── */
-    .map-wrap {
-      width: 100%;
-      padding: 60px 80px; /* Haritayı köşelerden kurtarıp nefes aldırıyoruz */
-      background: var(--w);
-      border-top: 0.5px solid var(--border);
-    }
-    .map-container {
-      width: 100%;
-      height: 450px;
-      position: relative;
-      border: 0.5px solid var(--gbord); /* İnce altın rengi çerçeve */
-      overflow: hidden;
-    }
-    .map-wrap iframe {
-      display: block;
-      width: 100%;
-      height: 100%;
-      /* Sitenin renk paletine uyan lüks, mat/mimari görünüm filtresi */
-      filter: grayscale(1) contrast(1.15) brightness(0.95) sepia(0.12);
-      transition: filter 0.6s cubic-bezier(.25, .46, .45, .94);
-    }
-    /* Fareyle üzerine gelince orijinal renklerine pürüzsüz geçiş yapar */
-    .map-container:hover iframe {
-      filter: grayscale(0) contrast(1) brightness(1) sepia(0);
-    }
-    @media (max-width: 900px) {
-      .map-wrap { padding: 40px 20px; }
-      .map-container { height: 320px; }
-    }
-
-    /* ── WHATSAPP SABİT BUTON ──────────────────── */
+    /* ── WHATSAPP ── */
     .wa-btn {
-      position: fixed;
-      bottom: 32px;
-      right: 32px;
-      z-index: 9000;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #25D366;
-      color: #fff;
-      text-decoration: none;
-      padding: 13px 20px 13px 16px;
-      border-radius: 50px;
-      box-shadow: 0 4px 20px rgba(37,211,102,.35);
-      font: 500 11px/1 'Jost', sans-serif;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      position: fixed; bottom: 32px; right: 32px; z-index: 9000;
+      display: flex; align-items: center; gap: 10px;
+      background: #25D366; color: #fff; text-decoration: none;
+      padding: 14px 22px 14px 18px; border-radius: 50px;
+      box-shadow: 0 4px 22px rgba(37,211,102,.32);
+      font: 500 11px/1 'Jost', sans-serif; letter-spacing: .12em; text-transform: uppercase;
       transition: transform .2s, box-shadow .2s;
     }
-    .wa-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(37,211,102,.45);
-    }
+    .wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,.45); }
     .wa-btn svg { flex-shrink: 0 }
-    @media (max-width: 900px) {
-      .wa-btn { bottom: 20px; right: 20px; padding: 12px 16px 12px 14px; font-size: 10px; }
-    }
+
+    /* ── MOBILE ── */
     @media (max-width: 900px) {
       nav { padding: 0 20px }
       .nl, .nr { display: none }
@@ -624,7 +328,7 @@
       .hero-trust { flex-direction: row; gap: 20px }
       .ht-item { text-align: left }
       .ht-line { width: 0.5px; height: 30px }
-      .h-h1 { font-size: 58px }
+      .h-h1 { font-size: 60px }
       .hero-meta { display: none }
       .prod-grid { grid-template-columns: repeat(2, 1fr) }
       .prod-sec { padding: 72px 24px }
@@ -641,6 +345,7 @@
       .ft-cols { grid-template-columns: repeat(2, 1fr); gap: 32px }
       .ft-bottom { flex-direction: column; gap: 16px; padding: 20px 28px }
       .ft-legal { flex-wrap: wrap; justify-content: center; gap: 16px }
+      .wa-btn { bottom: 20px; right: 20px; padding: 12px 16px 12px 14px; font-size: 10px; }
     }
   </style>
 </head>
@@ -661,8 +366,8 @@
     <img src="logo.png" alt="Tuna Gold" class="logo-img">
   </div>
   <div class="nr">
-    <a href="#" class="na">Hakkımızda</a>
-    <a href="#" class="na">Fiyat Hesapla</a>
+    <a href="#about" class="na">Hakkımızda</a>
+    <a href="#" class="na">İletişim</a>
     <div class="nav-ico">
       <button class="ico" title="Ara">⌕</button>
       <button class="ico" title="Favoriler">♡</button>
@@ -673,9 +378,7 @@
 <!-- ═══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-media">
-    <!-- FOTOĞRAF: src="hero.jpg" yaz -->
     <!-- <img src="hero.jpg" alt="Tuna Gold Hero"> -->
-    <!-- VİDEO: aşağıdaki bloğu yorumdan çıkar -->
     <!--
     <video autoplay muted loop playsinline>
       <source src="hero.mp4" type="video/mp4">
@@ -699,7 +402,6 @@
       <p class="h-p">Tuna Gold olarak 1995'ten bu yana geleneksel ustalığı modern zarafetle harmanlayarak en seçkin altın takıları sunuyoruz.</p>
       <div class="h-btns">
         <button class="btn-p">Koleksiyonu Keşfet</button>
-        <button class="btn-s">Randevu Al</button>
       </div>
     </div>
     <div class="hero-content-r">
@@ -723,7 +425,6 @@
   <div class="marquee-track" id="marquee-track"></div>
 </div>
 
-
 <!-- ═══ PRODUCTS ══════════════════════════════════════════════ -->
 <section class="prod-sec">
   <div class="sec-head ai">
@@ -732,98 +433,77 @@
     <div class="sec-sep"></div>
   </div>
   <div class="prod-grid" id="prod-grid">
-    <!-- ── ÜRÜN EKLEMEK İÇİN ŞABLON ─────────────────────────────
-         Aşağıdaki bloğu kopyala, bilgileri doldur.
-         foto: Görsel dosya adı (örn: yuzuk1.jpg) — index.html ile aynı klasörde olmalı
-         shopierLink: Shopier ürün sayfasının tam URL'si
-         etiket: "Yeni" / "Bestseller" / "" (boş bırakırsan etiket çıkmaz)
-    ──────────────────────────────────────────────────────────── -->
 
-    <!-- ÖRNEK ÜRÜN 1 -->
+    <!-- ÜRÜN EKLEMEK: Bu bloğu kopyala, fotoğraf ve bilgileri doldur -->
+
     <div class="pc ai">
       <div class="pi">
         <span class="ptag">Yeni</span>
-        <!-- Fotoğraf varsa: <img src="yuzuk1.jpg" alt="Solitaire Yüzük"> -->
-        <!-- Fotoğraf yoksa SVG placeholder görünür -->
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.35">
-          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#CAC4A0" stroke-width="1.5" stroke-dasharray="6 4"/>
-          <line x1="60" y1="60" x2="140" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
-          <line x1="140" y1="60" x2="60" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
-          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#CAC4A0" letter-spacing="2">FOTOĞRAF</text>
+        <!-- <img src="urun1.jpg" alt="Ürün Adı"> -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.25">
+          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#4A6359" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line x1="60" y1="60" x2="140" y2="140" stroke="#4A6359" stroke-width="1" opacity=".5"/>
+          <line x1="140" y1="60" x2="60" y2="140" stroke="#4A6359" stroke-width="1" opacity=".5"/>
+          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#4A6359" letter-spacing="2">FOTOĞRAF</text>
         </svg>
       </div>
       <div class="pinfo">
         <div class="pkr">14 Ayar · Altın</div>
         <div class="pnm">Ürün Adı</div>
         <div class="pwt">— gr</div>
-        <div class="ppr">
-          <div class="pprice"><sup>₺</sup>—</div>
-          
-        </div>
+        <div class="ppr"><div class="pprice"><sup>₺</sup>—</div></div>
       </div>
     </div>
 
-    <!-- ÖRNEK ÜRÜN 2 -->
     <div class="pc ai">
       <div class="pi">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.35">
-          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#CAC4A0" stroke-width="1.5" stroke-dasharray="6 4"/>
-          <line x1="60" y1="60" x2="140" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
-          <line x1="140" y1="60" x2="60" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
-          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#CAC4A0" letter-spacing="2">FOTOĞRAF</text>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.25">
+          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#4A6359" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line x1="60" y1="60" x2="140" y2="140" stroke="#4A6359" stroke-width="1" opacity=".5"/>
+          <line x1="140" y1="60" x2="60" y2="140" stroke="#4A6359" stroke-width="1" opacity=".5"/>
+          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#4A6359" letter-spacing="2">FOTOĞRAF</text>
         </svg>
       </div>
       <div class="pinfo">
         <div class="pkr">22 Ayar · Altın</div>
         <div class="pnm">Ürün Adı</div>
         <div class="pwt">— gr</div>
-        <div class="ppr">
-          <div class="pprice"><sup>₺</sup>—</div>
-          
-        </div>
+        <div class="ppr"><div class="pprice"><sup>₺</sup>—</div></div>
       </div>
     </div>
 
-    <!-- ÖRNEK ÜRÜN 3 -->
     <div class="pc ai">
       <div class="pi">
         <span class="ptag">Bestseller</span>
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.35">
-          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#CAC4A0" stroke-width="1.5" stroke-dasharray="6 4"/>
-          <line x1="60" y1="60" x2="140" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
-          <line x1="140" y1="60" x2="60" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
-          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#CAC4A0" letter-spacing="2">FOTOĞRAF</text>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.25">
+          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#4A6359" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line x1="60" y1="60" x2="140" y2="140" stroke="#4A6359" stroke-width="1" opacity=".5"/>
+          <line x1="140" y1="60" x2="60" y2="140" stroke="#4A6359" stroke-width="1" opacity=".5"/>
+          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#4A6359" letter-spacing="2">FOTOĞRAF</text>
         </svg>
       </div>
       <div class="pinfo">
         <div class="pkr">18 Ayar · Altın</div>
         <div class="pnm">Ürün Adı</div>
         <div class="pwt">— gr</div>
-        <div class="ppr">
-          <div class="pprice"><sup>₺</sup>—</div>
-          
-        </div>
+        <div class="ppr"><div class="pprice"><sup>₺</sup>—</div></div>
       </div>
     </div>
 
-    <!-- ÖRNEK ÜRÜN 4 -->
     <div class="pc ai">
       <div class="pi">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.35">
-          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#CAC4A0" stroke-width="1.5" stroke-dasharray="6 4"/>
-          <line x1="60" y1="60" x2="140" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
-          <line x1="140" y1="60" x2="60" y2="140" stroke="#CAC4A0" stroke-width="1" opacity=".5"/>
-          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#CAC4A0" letter-spacing="2">FOTOĞRAF</text>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.25">
+          <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#4A6359" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line x1="60" y1="60" x2="140" y2="140" stroke="#4A6359" stroke-width="1" opacity=".5"/>
+          <line x1="140" y1="60" x2="60" y2="140" stroke="#4A6359" stroke-width="1" opacity=".5"/>
+          <text x="100" y="158" text-anchor="middle" font-family="Jost" font-size="9" fill="#4A6359" letter-spacing="2">FOTOĞRAF</text>
         </svg>
       </div>
       <div class="pinfo">
         <div class="pkr">14 Ayar · Altın</div>
         <div class="pnm">Ürün Adı</div>
         <div class="pwt">— gr</div>
-        <div class="ppr">
-          <div class="pprice"><sup>₺</sup>—</div>
-          
-        </div>
+        <div class="ppr"><div class="pprice"><sup>₺</sup>—</div></div>
       </div>
     </div>
 
@@ -860,7 +540,6 @@
     <span class="cs-label">Adres</span>
     <span class="cs-val">Turgutlu, Manisa</span>
     <span class="cs-sub">Altay Mah. Eczane Sok. No:26,<br>Turgutlu, Manisa 45400</span>
-    <a href="https://maps.app.goo.gl/pqfisxTnB2pHpsCD6" target="_blank" class="cs-map-link">Haritada Gör →</a>
   </div>
   <div class="cs-div"></div>
   <div class="cs-col">
@@ -873,17 +552,17 @@
   <div class="cs-col">
     <span class="cs-icon">◇</span>
     <span class="cs-label">İletişim</span>
-    <span class="cs-val">Randevu & Bilgi</span>
+    <span class="cs-val">Bilgi & İletişim</span>
     <span class="cs-sub">oztunakuyumculuk1997@gmail.com</span>
   </div>
 </div>
 
 <!-- ═══ HARİTA ════════════════════════════════════════════════ -->
-<!-- ═══ GOOGLE MAPS HARİTA ALANI (DÜZELTİLDİ) ═════════════════════ -->
-<!-- ═══ GOOGLE MAPS HARİTA ALANI (YENİLENDİ) ═════════════════════ -->
 <div class="map-wrap">
   <div class="map-container">
-    <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=450&amp;hl=tr&amp;q=Tuna%20Gold,%20Altay,%20Eczane%20Sk.%20No:26,%2045400%20Turgutlu/Manisa+(Tuna%20Gold)&amp;t=&amp;z=19&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+    <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+      src="https://maps.google.com/maps?width=100%25&height=450&hl=tr&q=Tuna+Gold,+Altay,+Eczane+Sk.+No:26,+45400+Turgutlu/Manisa+(Tuna+Gold)&t=&z=19&ie=UTF8&iwloc=B&output=embed">
+    </iframe>
   </div>
 </div>
 
@@ -927,12 +606,9 @@
         <a href="https://www.instagram.com/tuna_gold/" target="_blank" class="ft-soc-link" aria-label="Instagram">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         </a>
-<a href="https://wa.me/905337144284?text=Merhaba,%20bilgi%20almak%20istiyorum." class="wa-btn" target="_blank" rel="noopener noreferrer">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.487-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#fff"/>
-  </svg>
-  WhatsApp
-</a>
+        <a href="https://wa.me/905337144284?text=Merhaba%2C%20takılarınız%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="ft-soc-link" aria-label="WhatsApp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
       </div>
     </div>
     <div class="ft-cols">
@@ -946,13 +622,12 @@
       </div>
       <div class="ft-col">
         <div class="ft-col-head">Hizmetler</div>
-        <a href="#" class="ft-link">Randevu Al</a>
         <a href="#" class="ft-link">Kişiye Özel Tasarım</a>
         <a href="#" class="ft-link">Tamir & Bakım</a>
       </div>
       <div class="ft-col">
         <div class="ft-col-head">Kurumsal</div>
-        <a href="#" class="ft-link">Hakkımızda</a>
+        <a href="#about" class="ft-link">Hakkımızda</a>
         <a href="#" class="ft-link">İletişim</a>
       </div>
       <div class="ft-col">
@@ -983,13 +658,22 @@
   </div>
 </footer>
 
+<!-- ═══ WHATSAPP SABİT BUTON ═════════════════════════════════ -->
+<a href="https://wa.me/905337144284?text=Merhaba%2C%20takılarınız%20hakkında%20bilgi%20almak%20istiyorum."
+   class="wa-btn" target="_blank" aria-label="WhatsApp ile iletişim">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  Bilgi Al
+</a>
+
 <script>
   function buildMarquee() {
     const msgs = [
       'Turgutlu Kuyumcular Derneği Onaylı',
       'Has Altın Sertifikası',
       'Ücretsiz Kargo – Türkiye Geneli',
-      '1995\'ten Beri Güvenilir Kuyumculuk',
+      "1995'ten Beri Güvenilir Kuyumculuk",
       'Kişiselleştirilmiş Tasarım',
       'İndirimli Düğün Paketi',
     ];
@@ -1017,16 +701,5 @@
   buildMarquee();
   initAnim();
 </script>
-<!-- ═══ WHATSAPP SABİT BUTON ═════════════════════════════════ -->
-<!-- Telefon numaranızı yazın: wa.me/90 + numara (başında 0 olmadan) -->
-<!-- Örnek: 0533 714 42 84 → wa.me/905337144284 -->
-<a href="https://wa.me/905337144284?text=Merhaba%2C%20takılarınız%20hakkında%20bilgi%20almak%20istiyorum." 
-   class="wa-btn" target="_blank" aria-label="WhatsApp ile iletişim">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-  Bilgi Al
-</a>
-
 </body>
 </html>
