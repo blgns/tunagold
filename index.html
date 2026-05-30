@@ -3,7 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tuna Gold — Est. 1995 · Turgutlu</title>
+  <title>Tuna Gold Kuyumculuk — Turgutlu'nun Güvenilir Altın Markası | Est. 1995</title>
+
+  <!-- SEO Meta Etiketleri -->
+  <meta name="description" content="Tuna Gold Kuyumculuk, 1995'ten bu yana Turgutlu'da 14, 18 ve 22 ayar altın yüzük, kolye, küpe ve bilezik koleksiyonlarıyla hizmet vermektedir. Sertifikalı altın, kişiye özel tasarım.">
+  <meta name="keywords" content="tuna gold, turgutlu kuyumcu, altın takı, yüzük, kolye, küpe, bilezik, 14 ayar, 18 ayar, 22 ayar, manisa kuyumcu, özel tasarım takı">
+  <meta name="author" content="Tuna Gold Kuyumculuk">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2C3B35">
+  <link rel="canonical" href="https://www.tunagold.com.tr/">
+
+  <!-- Open Graph (Sosyal Medya Paylaşımı) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.tunagold.com.tr/">
+  <meta property="og:title" content="Tuna Gold Kuyumculuk — Turgutlu | Est. 1995">
+  <meta property="og:description" content="1995'ten bu yana Turgutlu'da geleneksel ustalık ve modern zarafetle altın takı. Sertifikalı 14–22 ayar yüzük, kolye, küpe ve bilezik koleksiyonları.">
+  <meta property="og:image" content="arkaplan.jpg">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:site_name" content="Tuna Gold Kuyumculuk">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tuna Gold Kuyumculuk — Turgutlu | Est. 1995">
+  <meta name="twitter:description" content="1995'ten bu yana Turgutlu'da sertifikalı altın takı koleksiyonları.">
+  <meta name="twitter:image" content="arkaplan.jpg">
+
+  <!-- Yerel İşletme Yapılandırılmış Veri (Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JewelryStore",
+    "name": "Tuna Gold Kuyumculuk",
+    "description": "1995'ten bu yana Turgutlu'da sertifikalı altın takı koleksiyonları.",
+    "foundingDate": "1995",
+    "url": "https://www.tunagold.com.tr/",
+    "logo": "logo.png",
+    "image": "arkaplan.jpg",
+    "telephone": ["+902363120940", "+905337144284", "+905559855374"],
+    "email": "oztunakuyumculuk1997@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Altay Mah. Eczane Sok. No:26",
+      "addressLocality": "Turgutlu",
+      "addressRegion": "Manisa",
+      "postalCode": "45400",
+      "addressCountry": "TR"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "17:00" }
+    ],
+    "sameAs": ["https://www.instagram.com/tuna_gold/"]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -75,6 +128,100 @@
       line-height: 1; padding: 5px;
     }
     .ico:hover { color: var(--ink) }
+
+    /* ── MOBİL HAMBURGER MENÜ ── */
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; z-index: 200;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--ink-2); transition: all .3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 150;
+      background: var(--bg); flex-direction: column;
+      align-items: center; justify-content: center; gap: 0;
+      opacity: 0; pointer-events: none; transition: opacity .35s ease;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mm-link {
+      font: 300 36px/1 'Cormorant Garamond', Georgia, serif;
+      color: var(--ink); text-decoration: none; padding: 16px 40px;
+      letter-spacing: .04em; border-bottom: 0.5px solid var(--border);
+      width: 100%; text-align: center; transition: color .2s, background .2s;
+    }
+    .mm-link:last-of-type { border-bottom: none; }
+    .mm-link:hover { color: var(--ink-2); background: var(--bg-2); }
+    .mm-contact {
+      margin-top: 32px; display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+    }
+    .mm-contact a {
+      font: 400 13px/1 'Jost', sans-serif; letter-spacing: .12em;
+      color: var(--ink-3); text-decoration: none;
+    }
+    .mm-logo {
+      position: absolute; top: 24px; left: 50%; transform: translateX(-50%);
+      height: 52px; width: auto; object-fit: contain;
+    }
+
+    /* ── INSTAGRAM FEED ── */
+    .ig-sec { padding: 100px 80px; background: var(--bg-2); border-top: 0.5px solid var(--border); }
+    .ig-head { text-align: center; margin-bottom: 48px; }
+    .ig-eye { font: 400 11px/1 'Jost', sans-serif; letter-spacing: .42em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 14px; }
+    .ig-ttl { font: 500 48px/1.06 'Cormorant Garamond', Georgia, serif; color: var(--ink); }
+    .ig-handle {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 16px;
+      font: 400 12px/1 'Jost', sans-serif; letter-spacing: .18em; color: var(--ink-3);
+      text-decoration: none; transition: color .2s;
+    }
+    .ig-handle:hover { color: var(--ink) }
+    .ig-sep { width:36px; height:0.5px; background:var(--g); margin:18px auto 0; opacity:.6 }
+    .ig-grid {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px;
+    }
+    .ig-item {
+      aspect-ratio: 1; overflow: hidden; position: relative;
+      background: var(--bg-3); cursor: pointer;
+    }
+    .ig-item img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s cubic-bezier(.25,.46,.45,.94); }
+    .ig-item:hover img { transform: scale(1.08); }
+    .ig-item-overlay {
+      position: absolute; inset: 0;
+      background: rgba(44,59,53,.55);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .3s;
+    }
+    .ig-item:hover .ig-item-overlay { opacity: 1; }
+    .ig-item-overlay svg { color: rgba(245,240,232,.9); }
+    .ig-placeholder {
+      width:100%; height:100%;
+      display:flex; align-items:center; justify-content:center;
+      background: var(--bg-3);
+    }
+    .ig-ph-inner { text-align:center; }
+    .ig-ph-num {
+      font: 500 28px/1 'Cormorant Garamond', Georgia, serif;
+      color: var(--ink-4);
+    }
+    .ig-ph-lbl {
+      font: 400 8px/1 'Jost', sans-serif; letter-spacing:.2em;
+      text-transform:uppercase; color: var(--ink-4); margin-top:6px; display:block;
+    }
+    .ig-btn-wrap { text-align: center; margin-top: 40px; }
+    .ig-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 0.5px solid var(--border); padding: 15px 36px;
+      font: 400 10px/1 'Jost', sans-serif; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--ink-2); text-decoration: none;
+      transition: all .25s;
+    }
+    .ig-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
     .hero {
       position: relative; width: 100%; height: 100vh;
@@ -313,6 +460,8 @@
       nav { padding: 0 20px }
       .nl, .nr { display: none }
       .logo-wrap { padding: 0; flex: 1; text-align: center }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
       .hero { height: 100svh; min-height: 500px }
       .hero-content { padding: 0 28px 52px; flex-direction: column; align-items: flex-start; gap: 28px }
       .hero-content-r { align-items: flex-start }
@@ -332,6 +481,8 @@
       .cs-col { padding: 32px 28px }
       .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 8px }
       .cat-sec { padding: 48px 20px 0 }
+      .ig-sec { padding: 72px 20px; }
+      .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
       .ft-top { grid-template-columns: 1fr; gap: 40px; padding: 48px 28px }
       .ft-cols { grid-template-columns: repeat(2, 1fr); gap: 32px }
       .ft-bottom { flex-direction: column; gap: 16px; padding: 20px 28px }
@@ -363,11 +514,32 @@
       <button class="ico" title="Favoriler">♡</button>
     </div>
   </div>
+  <!-- Hamburger (sadece mobil) -->
+  <button class="hamburger" id="hamburger" aria-label="Menüyü aç">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBİL MENÜ -->
+<div class="mobile-menu" id="mobile-menu">
+  <img src="logo.png" alt="Tuna Gold" class="mm-logo">
+  <a href="#" class="mm-link" onclick="closeMobileMenu()">Koleksiyonlar</a>
+  <a href="#" class="mm-link" onclick="closeMobileMenu()">Yüzükler</a>
+  <a href="#" class="mm-link" onclick="closeMobileMenu()">Kolyeler</a>
+  <a href="#" class="mm-link" onclick="closeMobileMenu()">Küpeler</a>
+  <a href="#" class="mm-link" onclick="closeMobileMenu()">Bilezikler</a>
+  <a href="#about" class="mm-link" onclick="closeMobileMenu()">Hakkımızda</a>
+  <a href="#" class="mm-link" onclick="closeMobileMenu()">İletişim</a>
+  <div class="mm-contact">
+    <a href="tel:+902363120940">0236 312 09 40</a>
+    <a href="tel:+905337144284">0533 714 42 84</a>
+    <a href="https://wa.me/905337144284" target="_blank">WhatsApp ile Ulaş</a>
+  </div>
+</div>
 
 <section class="hero">
   <div class="hero-media">
-    <img src="arkaplan_jpg.png" alt="Tuna Gold Hero">
+    <img src="arkaplan.jpg" alt="Tuna Gold Hero">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-meta">
@@ -542,7 +714,7 @@
   <div class="cat-grid">
     <div class="cat-item ai">
       <div class="cat-img">
-        <img src="yüzük.jpg" alt="Yüzükler">
+        <img src="yuzuk.jpg" alt="Yüzükler">
         <div class="cat-overlay"><span class="cat-name">Yüzükler</span><span class="cat-cta">Koleksiyonu Gör</span></div>
       </div>
     </div>
@@ -564,6 +736,56 @@
         <div class="cat-overlay"><span class="cat-name">Bilezikler</span><span class="cat-cta">Koleksiyonu Gör</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══ INSTAGRAM FEED ══════════════════════════════════════ -->
+<section class="ig-sec">
+  <div class="ig-head">
+    <div class="ig-eye">Sosyal Medya</div>
+    <h2 class="ig-ttl">Instagram'da Bizi Takip Edin</h2>
+    <a href="https://www.instagram.com/tuna_gold/" target="_blank" class="ig-handle">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      @tuna_gold
+    </a>
+    <div class="ig-sep"></div>
+  </div>
+  <div class="ig-grid">
+    <!-- 
+      Instagram fotoğraflarınızı buraya ekleyin.
+      Her görseli ig1.jpg, ig2.jpg ... şeklinde adlandırıp
+      aşağıdaki src değerlerini güncelleyin.
+    -->
+    <a href="https://www.instagram.com/tuna_gold/" target="_blank" class="ig-item">
+      <div class="ig-placeholder"><div class="ig-ph-inner"><div class="ig-ph-num">01</div><span class="ig-ph-lbl">Instagram</span></div></div>
+      <div class="ig-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+    </a>
+    <a href="https://www.instagram.com/tuna_gold/" target="_blank" class="ig-item">
+      <div class="ig-placeholder"><div class="ig-ph-inner"><div class="ig-ph-num">02</div><span class="ig-ph-lbl">Instagram</span></div></div>
+      <div class="ig-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+    </a>
+    <a href="https://www.instagram.com/tuna_gold/" target="_blank" class="ig-item">
+      <div class="ig-placeholder"><div class="ig-ph-inner"><div class="ig-ph-num">03</div><span class="ig-ph-lbl">Instagram</span></div></div>
+      <div class="ig-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+    </a>
+    <a href="https://www.instagram.com/tuna_gold/" target="_blank" class="ig-item">
+      <div class="ig-placeholder"><div class="ig-ph-inner"><div class="ig-ph-num">04</div><span class="ig-ph-lbl">Instagram</span></div></div>
+      <div class="ig-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+    </a>
+    <a href="https://www.instagram.com/tuna_gold/" target="_blank" class="ig-item">
+      <div class="ig-placeholder"><div class="ig-ph-inner"><div class="ig-ph-num">05</div><span class="ig-ph-lbl">Instagram</span></div></div>
+      <div class="ig-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+    </a>
+    <a href="https://www.instagram.com/tuna_gold/" target="_blank" class="ig-item">
+      <div class="ig-placeholder"><div class="ig-ph-inner"><div class="ig-ph-num">06</div><span class="ig-ph-lbl">Instagram</span></div></div>
+      <div class="ig-item-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+    </a>
+  </div>
+  <div class="ig-btn-wrap">
+    <a href="https://www.instagram.com/tuna_gold/" target="_blank" class="ig-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Tüm Gönderileri Gör
+    </a>
   </div>
 </section>
 
@@ -641,6 +863,19 @@
 </a>
 
 <script>
+  // Hamburger Menü
+  function closeMobileMenu() {
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('hamburger').addEventListener('click', function() {
+    this.classList.toggle('open');
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  });
+
   function buildMarquee() {
     const msgs = [
       'Turgutlu Kuyumcular Derneği Onaylı',
