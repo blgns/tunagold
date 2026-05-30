@@ -8,19 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* ── PALETTE: Petrol & Zümrüt ── */
-      --bg:       #F5F0E8;   /* krem pudra — ana arka plan */
-      --bg-2:     #EDE8DF;   /* biraz daha koyu krem — kartlar */
-      --bg-3:     #E2DDD3;   /* marquee / contact arka plan */
-      --ink:      #2C3B35;   /* koyu petrol — ana metin */
-      --ink-2:    #4A6359;   /* orta petrol — ikincil metin */
-      --ink-3:    #7A9189;   /* açık petrol — üçüncül */
-      --ink-4:    #A8BDB5;   /* soluk adaçayı */
-      --g:        #C4B882;   /* altın bej — vurgu */
-      --g-lt:     #DDD5A8;   /* açık altın */
-      --t:        #4A6359;   /* petrol — buton/hover */
-      --t-lt:     #A8BDB5;   /* açık adaçayı — hero accent */
-      --t-ddk:    #2C3B35;   /* koyu petrol */
+      --bg:       #F5F0E8;
+      --bg-2:     #EDE8DF;
+      --bg-3:     #E2DDD3;
+      --ink:      #2C3B35;
+      --ink-2:    #4A6359;
+      --ink-3:    #7A9189;
+      --ink-4:    #A8BDB5;
+      --g:        #C4B882;
+      --g-lt:     #DDD5A8;
+      --t:        #4A6359;
+      --t-lt:     #A8BDB5;
+      --t-ddk:    #2C3B35;
       --border:   rgba(74,99,89,0.12);
       --gbord:    rgba(196,184,130,0.22);
       --nav-bg:   rgba(245,240,232,0.96);
@@ -43,7 +42,6 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* ── NAV ── */
     nav {
       background: var(--nav-bg);
       height: 88px;
@@ -78,7 +76,6 @@
     }
     .ico:hover { color: var(--ink) }
 
-    /* ── HERO ── */
     .hero {
       position: relative; width: 100%; height: 100vh;
       min-height: 600px; overflow: hidden; display: flex; align-items: flex-end;
@@ -170,7 +167,6 @@
       letter-spacing: .24em; text-transform: uppercase; color: rgba(245,240,232,.22);
     }
 
-    /* ── MARQUEE ── */
     .marquee-sec {
       border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border);
       padding: 22px 0; overflow: hidden; background: var(--bg-3);
@@ -182,7 +178,6 @@
     }
     .mq-sep { width:3px; height:3px; background:var(--g); border-radius:50%; opacity:.5; flex-shrink:0 }
 
-    /* ── PRODUCTS ── */
     .prod-sec { padding: 120px 80px; background: var(--bg); }
     .sec-head { text-align: center; margin-bottom: 80px; }
     .sec-eye { font: 400 11px/1 'Jost', sans-serif; letter-spacing: .42em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 14px; }
@@ -216,7 +211,6 @@
     .pprice { font: 500 30px/1 'Cormorant Garamond', Georgia, serif; color: var(--ink); }
     .pprice sup { font: 400 14px/1 'Jost', sans-serif; color: var(--ink-3); vertical-align: super; }
 
-    /* ── ABOUT ── */
     .about { background: var(--ink); display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; }
     .about-l { padding: 96px 80px; display: flex; flex-direction: column; justify-content: center; border-right: 0.5px solid rgba(245,240,232,.06); }
     .ab-eye { font: 400 11px/1 'Jost', sans-serif; letter-spacing: .4em; text-transform: uppercase; color: var(--g); margin-bottom: 22px; }
@@ -241,11 +235,12 @@
     .ab-badge { position: relative; z-index: 1; text-align: center; }
     .ab-badge-frame { border: 0.5px solid rgba(245,240,232,.16); padding: 52px 60px; position: relative; }
     .ab-badge-frame::before { content: ''; position: absolute; inset: 7px; border: 0.5px solid rgba(245,240,232,.07); }
-    .ab-year { font: 500 100px/1 'Cormorant Garamond', Georgia, serif; color: rgba(245,240,232,.88); letter-spacing: -.03em; display: block; }
-    .ab-since { font: 300 9.5px/1 'Jost', sans-serif; letter-spacing: .5em; text-transform: uppercase; color: rgba(245,240,232,.32); margin-top: 14px; }
-    .ab-turgutlu { font: 400 9.5px/1 'Jost', sans-serif; letter-spacing: .3em; text-transform: uppercase; color: var(--g); opacity: .65; margin-top: 8px; }
+    .ab-founded {
+      font: 400 18px/1.6 'Cormorant Garamond', Georgia, serif;
+      color: rgba(245,240,232,.82);
+      letter-spacing: .04em;
+    }
 
-    /* ── CONTACT STRIP ── */
     .contact-strip { background: var(--bg-3); border-top: 0.5px solid var(--border); display: grid; grid-template-columns: 1fr 0.5px 1fr 0.5px 1fr; }
     .cs-col { padding: 48px 52px; display: flex; flex-direction: column; gap: 9px; }
     .cs-div { background: var(--border) }
@@ -254,18 +249,18 @@
     .cs-val { font: 500 19px/1.3 'Cormorant Garamond', Georgia, serif; color: var(--ink); }
     .cs-sub { font: 400 13.5px/1.55 'Jost', sans-serif; color: var(--ink-2); }
 
-    /* ── GOOGLE MAPS ── */
     .map-wrap { width: 100%; padding: 60px 80px; background: var(--bg); border-top: 0.5px solid var(--border); }
     .map-container { width: 100%; height: 450px; position: relative; border: 0.5px solid var(--gbord); overflow: hidden; }
     .map-wrap iframe { display: block; width: 100%; height: 100%; filter: grayscale(1) contrast(1.1) brightness(0.95) sepia(0.08); transition: filter 0.6s ease; }
     .map-container:hover iframe { filter: none; }
     @media (max-width: 900px) { .map-wrap { padding: 40px 20px; } .map-container { height: 300px; } }
 
-    /* ── CATEGORY GRID ── */
     .cat-sec { background: var(--bg); padding: 80px 80px 0; }
     .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
     .cat-item { position: relative; overflow: hidden; cursor: pointer; }
     .cat-img { aspect-ratio: 3/4; position: relative; overflow: hidden; background: var(--bg-2); }
+    .cat-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .55s cubic-bezier(.25,.46,.45,.94); }
+    .cat-item:hover .cat-img img { transform: scale(1.05); }
     .cat-img--placeholder { display: flex; align-items: center; justify-content: center; border: 1px dashed var(--ink-4); }
     .ph-label { font: 400 10px/1.7 'Jost', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); text-align: center; }
     .ph-label span { font-size: 9px; color: var(--ink-4); display: block; margin-top: 4px; letter-spacing:.06em; text-transform:none }
@@ -275,7 +270,6 @@
     .cat-cta { font: 400 7.5px/1 'Jost', sans-serif; letter-spacing: .28em; text-transform: uppercase; color: var(--t-lt); display: flex; align-items: center; gap: 8px; }
     .cat-cta::after { content: '→' }
 
-    /* ── MEGA FOOTER ── */
     .ft-mega { background: var(--ink); margin-top: 80px; padding: 0; border-top: 0.5px solid rgba(196,184,130,.2); }
     .ft-top { display: grid; grid-template-columns: 300px 1fr; gap: 80px; padding: 80px; border-bottom: 0.5px solid rgba(245,240,232,.05); }
     .ft-logo-img { height: 48px; width: auto; object-fit: contain; margin-bottom: 24px; display: block; filter: brightness(0) invert(1); opacity: .65; }
@@ -298,13 +292,11 @@
     .ft-legal-link { font: 400 11px/1 'Jost', sans-serif; letter-spacing: .05em; color: rgba(196,184,130,.45); text-decoration: none; transition: color .2s; }
     .ft-legal-link:hover { color: var(--g) }
 
-    /* ── ANIMATIONS ── */
     @keyframes fiu { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
     @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
     .ai { opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.23,1,.32,1), transform .8s cubic-bezier(.23,1,.32,1); }
     .ai.v { opacity:1; transform:translateY(0) }
 
-    /* ── WHATSAPP ── */
     .wa-btn {
       position: fixed; bottom: 32px; right: 32px; z-index: 9000;
       display: flex; align-items: center; gap: 10px;
@@ -317,7 +309,6 @@
     .wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,.45); }
     .wa-btn svg { flex-shrink: 0 }
 
-    /* ── MOBILE ── */
     @media (max-width: 900px) {
       nav { padding: 0 20px }
       .nl, .nr { display: none }
@@ -353,7 +344,6 @@
 
 <div class="grain" aria-hidden="true"></div>
 
-<!-- ═══ NAV ══════════════════════════════════════════════════ -->
 <nav>
   <div class="nl">
     <a href="#" class="na">Koleksiyonlar</a>
@@ -375,15 +365,8 @@
   </div>
 </nav>
 
-<!-- ═══ HERO ══════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-media">
-    <!-- <img src="hero.jpg" alt="Tuna Gold Hero"> -->
-    <!--
-    <video autoplay muted loop playsinline>
-      <source src="hero.mp4" type="video/mp4">
-    </video>
-    -->
     <div class="hero-placeholder">
       <div class="hero-placeholder-icon">▶</div>
       <div class="hero-placeholder-text">Video veya Fotoğraf Alanı</div>
@@ -420,12 +403,10 @@
   </div>
 </section>
 
-<!-- ═══ MARQUEE ═══════════════════════════════════════════════ -->
 <div class="marquee-sec">
   <div class="marquee-track" id="marquee-track"></div>
 </div>
 
-<!-- ═══ PRODUCTS ══════════════════════════════════════════════ -->
 <section class="prod-sec">
   <div class="sec-head ai">
     <div class="sec-eye">Öne Çıkan Ürünler</div>
@@ -434,12 +415,9 @@
   </div>
   <div class="prod-grid" id="prod-grid">
 
-    <!-- ÜRÜN EKLEMEK: Bu bloğu kopyala, fotoğraf ve bilgileri doldur -->
-
     <div class="pc ai">
       <div class="pi">
         <span class="ptag">Yeni</span>
-        <!-- <img src="urun1.jpg" alt="Ürün Adı"> -->
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.25">
           <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#4A6359" stroke-width="1.5" stroke-dasharray="6 4"/>
           <line x1="60" y1="60" x2="140" y2="140" stroke="#4A6359" stroke-width="1" opacity=".5"/>
@@ -510,7 +488,6 @@
   </div>
 </section>
 
-<!-- ═══ ABOUT ═════════════════════════════════════════════════ -->
 <section class="about" id="about">
   <div class="about-l">
     <div class="ab-eye ai">Hakkımızda</div>
@@ -525,15 +502,12 @@
   <div class="about-r">
     <div class="ab-badge">
       <div class="ab-badge-frame">
-        <span class="ab-year">1995</span>
-        <div class="ab-since">· Est. in Turgutlu ·</div>
-        <div class="ab-turgutlu">Turgutlu / Manisa</div>
+        <div class="ab-founded">1995'te Turgutlu'da kuruldu</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CONTACT STRIP ══════════════════════════════════════════ -->
 <div class="contact-strip">
   <div class="cs-col">
     <span class="cs-icon">✦</span>
@@ -552,12 +526,14 @@
   <div class="cs-col">
     <span class="cs-icon">◇</span>
     <span class="cs-label">İletişim</span>
-    <span class="cs-val">Bilgi & İletişim</span>
+    <span class="cs-val">Bilgi &amp; İletişim</span>
     <span class="cs-sub">oztunakuyumculuk1997@gmail.com</span>
+    <span class="cs-sub">0236 312 09 40</span>
+    <span class="cs-sub">0533 714 42 84</span>
+    <span class="cs-sub">0555 985 53 74</span>
   </div>
 </div>
 
-<!-- ═══ HARİTA ════════════════════════════════════════════════ -->
 <div class="map-wrap">
   <div class="map-container">
     <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
@@ -566,7 +542,6 @@
   </div>
 </div>
 
-<!-- ═══ KATEGORİLER ══════════════════════════════════════════ -->
 <section class="cat-sec">
   <div class="cat-grid">
     <div class="cat-item ai">
@@ -588,15 +563,14 @@
       </div>
     </div>
     <div class="cat-item ai" style="transition-delay:.24s">
-      <div class="cat-img cat-img--placeholder">
-        <div class="ph-label">Bilezik Görseli<br><span>Buraya yükleyin</span></div>
+      <div class="cat-img">
+        <img src="bilezik.jpg" alt="Bilezikler">
         <div class="cat-overlay"><span class="cat-name">Bilezikler</span><span class="cat-cta">Koleksiyonu Gör</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ════════════════════════════════════════════════ -->
 <footer class="ft-mega">
   <div class="ft-top">
     <div class="ft-brand">
@@ -623,7 +597,7 @@
       <div class="ft-col">
         <div class="ft-col-head">Hizmetler</div>
         <a href="#" class="ft-link">Kişiye Özel Tasarım</a>
-        <a href="#" class="ft-link">Tamir & Bakım</a>
+        <a href="#" class="ft-link">Tamir &amp; Bakım</a>
       </div>
       <div class="ft-col">
         <div class="ft-col-head">Kurumsal</div>
@@ -639,6 +613,10 @@
         <div class="ft-contact-item">
           <span class="ft-contact-label">E-posta</span>
           <span class="ft-contact-val">oztunakuyumculuk1997@gmail.com</span>
+        </div>
+        <div class="ft-contact-item">
+          <span class="ft-contact-label">Telefon</span>
+          <span class="ft-contact-val">0236 312 09 40<br>0533 714 42 84<br>0555 985 53 74</span>
         </div>
         <div class="ft-contact-item">
           <span class="ft-contact-label">Çalışma Saatleri</span>
@@ -658,7 +636,6 @@
   </div>
 </footer>
 
-<!-- ═══ WHATSAPP SABİT BUTON ═════════════════════════════════ -->
 <a href="https://wa.me/905337144284?text=Merhaba%2C%20takılarınız%20hakkında%20bilgi%20almak%20istiyorum."
    class="wa-btn" target="_blank" aria-label="WhatsApp ile iletişim">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
