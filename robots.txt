@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tuna-gold.com/sitemap.xml
