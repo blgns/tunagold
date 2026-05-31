@@ -13,6 +13,13 @@
   <meta name="theme-color" content="#2C3B35">
   <link rel="canonical" href="https://tuna-gold.com/">
 
+  <!-- Favicon & App İkonları -->
+  <!-- favicon.png, apple-touch-icon.png dosyalarını aynı klasöre yükleyin -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="msapplication-TileImage" content="apple-touch-icon.png">
+
   <!-- Open Graph (Sosyal Medya Paylaşımı) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tuna-gold.com/">
@@ -129,7 +136,6 @@
     }
     .ico:hover { color: var(--ink) }
 
-    /* ── MOBİL HAMBURGER MENÜ ── */
     .hamburger {
       display: none; flex-direction: column; justify-content: center;
       gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; z-index: 200;
@@ -170,7 +176,6 @@
       height: 52px; width: auto; object-fit: contain;
     }
 
-    /* ── INSTAGRAM FEED ── */
     .ig-sec { padding: 100px 80px; background: var(--bg-2); border-top: 0.5px solid var(--border); }
     .ig-head { text-align: center; margin-bottom: 48px; }
     .ig-eye { font: 400 11px/1 'Jost', sans-serif; letter-spacing: .42em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 14px; }
@@ -182,37 +187,6 @@
     }
     .ig-handle:hover { color: var(--ink) }
     .ig-sep { width:36px; height:0.5px; background:var(--g); margin:18px auto 0; opacity:.6 }
-    .ig-grid {
-      display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px;
-    }
-    .ig-item {
-      aspect-ratio: 1; overflow: hidden; position: relative;
-      background: var(--bg-3); cursor: pointer;
-    }
-    .ig-item img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s cubic-bezier(.25,.46,.45,.94); }
-    .ig-item:hover img { transform: scale(1.08); }
-    .ig-item-overlay {
-      position: absolute; inset: 0;
-      background: rgba(44,59,53,.55);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity .3s;
-    }
-    .ig-item:hover .ig-item-overlay { opacity: 1; }
-    .ig-item-overlay svg { color: rgba(245,240,232,.9); }
-    .ig-placeholder {
-      width:100%; height:100%;
-      display:flex; align-items:center; justify-content:center;
-      background: var(--bg-3);
-    }
-    .ig-ph-inner { text-align:center; }
-    .ig-ph-num {
-      font: 500 28px/1 'Cormorant Garamond', Georgia, serif;
-      color: var(--ink-4);
-    }
-    .ig-ph-lbl {
-      font: 400 8px/1 'Jost', sans-serif; letter-spacing:.2em;
-      text-transform:uppercase; color: var(--ink-4); margin-top:6px; display:block;
-    }
     .ig-btn-wrap { text-align: center; margin-top: 40px; }
     .ig-btn {
       display: inline-flex; align-items: center; gap: 10px;
@@ -232,30 +206,7 @@
       width: 100%; height: 100%; object-fit: cover; object-position: 55% top; display: block;
     }
     @media (max-width: 900px) {
-      .hero-media img {
-        object-fit: cover;
-        object-position: 72% top;
-      }
-    }
-    .hero-placeholder {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #2C3B35 0%, #4A6359 50%, #3A5048 100%);
-      display: flex; flex-direction: column; align-items: center;
-      justify-content: center; gap: 16px;
-    }
-    .hero-placeholder-icon {
-      width: 64px; height: 64px;
-      border: 1px dashed rgba(245,240,232,.3); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; color: rgba(245,240,232,.4);
-    }
-    .hero-placeholder-text {
-      font: 400 10px/1.7 'Jost', sans-serif; letter-spacing: .28em;
-      text-transform: uppercase; color: rgba(245,240,232,.3); text-align: center;
-    }
-    .hero-placeholder-sub {
-      font: 400 11px/1.5 'Jost', sans-serif; color: rgba(245,240,232,.15);
-      letter-spacing: .08em; text-align: center;
+      .hero-media img { object-fit: cover; object-position: 72% top; }
     }
     .hero-overlay {
       position: absolute; inset: 0; z-index: 1;
@@ -284,15 +235,9 @@
       border: none; padding: 16px 44px;
       font: 400 9px/1 'Jost', sans-serif; letter-spacing: .22em;
       text-transform: uppercase; cursor: pointer; transition: background .22s, color .22s;
+      text-decoration: none; display: inline-block;
     }
     .btn-p:hover { background: var(--g); color: var(--ink) }
-    .btn-s {
-      background: transparent; color: rgba(245,240,232,.85);
-      border: 0.5px solid rgba(245,240,232,.3); padding: 16px 44px;
-      font: 400 9px/1 'Jost', sans-serif; letter-spacing: .22em;
-      text-transform: uppercase; cursor: pointer; transition: all .22s;
-    }
-    .btn-s:hover { border-color: var(--t-lt); color: var(--t-lt) }
     .hero-trust { display: flex; flex-direction: column; gap: 22px; animation: fiu .9s .65s both; }
     .ht-item { text-align: right }
     .ht-n { font: 500 34px/1 'Cormorant Garamond', Georgia, serif; color: rgba(245,240,232,.88); }
@@ -340,6 +285,7 @@
     .pc {
       background: var(--bg); cursor: pointer; transition: background .3s;
       position: relative; overflow: hidden; border-right: 0.5px solid var(--border);
+      text-decoration: none; color: inherit;
     }
     .pc:last-child { border-right: none }
     .pc:hover { background: var(--bg-2) }
@@ -388,11 +334,7 @@
     .ab-badge { position: relative; z-index: 1; text-align: center; }
     .ab-badge-frame { border: 0.5px solid rgba(245,240,232,.16); padding: 52px 60px; position: relative; }
     .ab-badge-frame::before { content: ''; position: absolute; inset: 7px; border: 0.5px solid rgba(245,240,232,.07); }
-    .ab-founded {
-      font: 400 18px/1.6 'Cormorant Garamond', Georgia, serif;
-      color: rgba(245,240,232,.82);
-      letter-spacing: .04em;
-    }
+    .ab-founded { font: 400 18px/1.6 'Cormorant Garamond', Georgia, serif; color: rgba(245,240,232,.82); letter-spacing: .04em; }
 
     .contact-strip { background: var(--bg-3); border-top: 0.5px solid var(--border); display: grid; grid-template-columns: 1fr 0.5px 1fr 0.5px 1fr; }
     .cs-col { padding: 48px 52px; display: flex; flex-direction: column; gap: 9px; }
@@ -488,7 +430,6 @@
       .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 8px }
       .cat-sec { padding: 48px 20px 0 }
       .ig-sec { padding: 72px 20px; }
-      .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
       .ft-top { grid-template-columns: 1fr; gap: 40px; padding: 48px 28px }
       .ft-cols { grid-template-columns: repeat(2, 1fr); gap: 32px }
       .ft-bottom { flex-direction: column; gap: 16px; padding: 20px 28px }
@@ -503,11 +444,11 @@
 
 <nav>
   <div class="nl">
-    <a href="#categories" class="na">Koleksiyonlar</a>
-    <a href="#categories" class="na">Yüzükler</a>
-    <a href="#categories" class="na">Kolyeler</a>
-    <a href="#categories" class="na">Küpeler</a>
-    <a href="#categories" class="na">Bilezikler</a>
+    <a href="collections.html" class="na">Koleksiyonlar</a>
+    <a href="collections.html?cat=yuzuk" class="na">Yüzükler</a>
+    <a href="collections.html?cat=kolye" class="na">Kolyeler</a>
+    <a href="collections.html?cat=kupe" class="na">Küpeler</a>
+    <a href="collections.html?cat=bilezik" class="na">Bilezikler</a>
   </div>
   <div class="logo-wrap">
     <img src="logo.png" alt="Tuna Gold" class="logo-img">
@@ -520,7 +461,6 @@
       <button class="ico" title="Favoriler">♡</button>
     </div>
   </div>
-  <!-- Hamburger (sadece mobil) -->
   <button class="hamburger" id="hamburger" aria-label="Menüyü aç">
     <span></span><span></span><span></span>
   </button>
@@ -529,11 +469,11 @@
 <!-- MOBİL MENÜ -->
 <div class="mobile-menu" id="mobile-menu">
   <img src="logo.png" alt="Tuna Gold" class="mm-logo">
-  <a href="#categories" class="mm-link" onclick="closeMobileMenu()">Koleksiyonlar</a>
-  <a href="#categories" class="mm-link" onclick="closeMobileMenu()">Yüzükler</a>
-  <a href="#categories" class="mm-link" onclick="closeMobileMenu()">Kolyeler</a>
-  <a href="#categories" class="mm-link" onclick="closeMobileMenu()">Küpeler</a>
-  <a href="#categories" class="mm-link" onclick="closeMobileMenu()">Bilezikler</a>
+  <a href="collections.html" class="mm-link" onclick="closeMobileMenu()">Koleksiyonlar</a>
+  <a href="collections.html?cat=yuzuk" class="mm-link" onclick="closeMobileMenu()">Yüzükler</a>
+  <a href="collections.html?cat=kolye" class="mm-link" onclick="closeMobileMenu()">Kolyeler</a>
+  <a href="collections.html?cat=kupe" class="mm-link" onclick="closeMobileMenu()">Küpeler</a>
+  <a href="collections.html?cat=bilezik" class="mm-link" onclick="closeMobileMenu()">Bilezikler</a>
   <a href="#about" class="mm-link" onclick="closeMobileMenu()">Hakkımızda</a>
   <a href="#contact" class="mm-link" onclick="closeMobileMenu()">İletişim</a>
   <div class="mm-contact">
@@ -559,7 +499,7 @@
       <h1 class="h-h1">İnce İşçilik,<br><em>Sonsuz</em><br>Değer</h1>
       <p class="h-p">İnce işçilik, sonsuz değer. 1995'ten bu yana geleneksel ustalığı modern zarafetle harmanlayarak en seçkin altın takıları sunuyoruz.</p>
       <div class="h-btns">
-        <button class="btn-p">Koleksiyonu Keşfet</button>
+        <a href="collections.html" class="btn-p">Koleksiyonu Keşfet</a>
       </div>
     </div>
     <div class="hero-content-r">
@@ -591,30 +531,30 @@
     <div class="sec-sep"></div>
   </div>
   <div class="cat-grid">
-    <div class="cat-item ai">
+    <a href="collections.html?cat=yuzuk" class="cat-item ai" style="text-decoration:none;">
       <div class="cat-img">
         <img src="yuzuk.jpg" alt="Yüzükler">
         <div class="cat-overlay"><span class="cat-name">Yüzükler</span><span class="cat-cta">Koleksiyonu Gör</span></div>
       </div>
-    </div>
-    <div class="cat-item ai" style="transition-delay:.08s">
+    </a>
+    <a href="collections.html?cat=kolye" class="cat-item ai" style="transition-delay:.08s; text-decoration:none;">
       <div class="cat-img cat-img--placeholder">
         <div class="ph-label">Kolye Görseli<br><span>Buraya yükleyin</span></div>
         <div class="cat-overlay"><span class="cat-name">Kolyeler</span><span class="cat-cta">Koleksiyonu Gör</span></div>
       </div>
-    </div>
-    <div class="cat-item ai" style="transition-delay:.16s">
+    </a>
+    <a href="collections.html?cat=kupe" class="cat-item ai" style="transition-delay:.16s; text-decoration:none;">
       <div class="cat-img cat-img--placeholder">
         <div class="ph-label">Küpe Görseli<br><span>Buraya yükleyin</span></div>
         <div class="cat-overlay"><span class="cat-name">Küpeler</span><span class="cat-cta">Koleksiyonu Gör</span></div>
       </div>
-    </div>
-    <div class="cat-item ai" style="transition-delay:.24s">
+    </a>
+    <a href="collections.html?cat=bilezik" class="cat-item ai" style="transition-delay:.24s; text-decoration:none;">
       <div class="cat-img">
         <img src="bilezik.jpg" alt="Bilezikler">
         <div class="cat-overlay"><span class="cat-name">Bilezikler</span><span class="cat-cta">Koleksiyonu Gör</span></div>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -627,7 +567,7 @@
   </div>
   <div class="prod-grid" id="prod-grid">
 
-    <div class="pc ai">
+    <a href="collections.html" class="pc ai">
       <div class="pi">
         <span class="ptag">Yeni</span>
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.25">
@@ -643,9 +583,9 @@
         <div class="pwt">— gr</div>
         <div class="ppr"><div class="pprice"><sup>₺</sup>—</div></div>
       </div>
-    </div>
+    </a>
 
-    <div class="pc ai">
+    <a href="collections.html" class="pc ai">
       <div class="pi">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.25">
           <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#4A6359" stroke-width="1.5" stroke-dasharray="6 4"/>
@@ -660,9 +600,9 @@
         <div class="pwt">— gr</div>
         <div class="ppr"><div class="pprice"><sup>₺</sup>—</div></div>
       </div>
-    </div>
+    </a>
 
-    <div class="pc ai">
+    <a href="collections.html" class="pc ai">
       <div class="pi">
         <span class="ptag">Bestseller</span>
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.25">
@@ -678,9 +618,9 @@
         <div class="pwt">— gr</div>
         <div class="ppr"><div class="pprice"><sup>₺</sup>—</div></div>
       </div>
-    </div>
+    </a>
 
-    <div class="pc ai">
+    <a href="collections.html" class="pc ai">
       <div class="pi">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:60%;height:60%;opacity:.25">
           <rect x="60" y="60" width="80" height="80" rx="4" fill="none" stroke="#4A6359" stroke-width="1.5" stroke-dasharray="6 4"/>
@@ -695,7 +635,7 @@
         <div class="pwt">— gr</div>
         <div class="ppr"><div class="pprice"><sup>₺</sup>—</div></div>
       </div>
-    </div>
+    </a>
 
   </div>
 </section>
@@ -788,7 +728,7 @@
         <a href="https://www.facebook.com/profile.php?id=61553205606111" target="_blank" class="ft-soc-link" aria-label="Facebook">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
         </a>
-        <a href="https://wa.me/905337144284?text=Merhaba%2C%20takılarınız%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="ft-soc-link" aria-label="WhatsApp">
+        <a href="https://wa.me/905337144284?text=Merhaba%2C%20tak%C4%B1lar%C4%B1n%C4%B1z%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="ft-soc-link" aria-label="WhatsApp">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
       </div>
@@ -796,11 +736,11 @@
     <div class="ft-cols">
       <div class="ft-col">
         <div class="ft-col-head">Koleksiyonlar</div>
-        <a href="#categories" class="ft-link">Yüzükler</a>
-        <a href="#categories" class="ft-link">Kolyeler</a>
-        <a href="#categories" class="ft-link">Küpeler</a>
-        <a href="#categories" class="ft-link">Bilezikler</a>
-        <a href="#categories" class="ft-link">Düğün Koleksiyonu</a>
+        <a href="collections.html?cat=yuzuk" class="ft-link">Yüzükler</a>
+        <a href="collections.html?cat=kolye" class="ft-link">Kolyeler</a>
+        <a href="collections.html?cat=kupe" class="ft-link">Küpeler</a>
+        <a href="collections.html?cat=bilezik" class="ft-link">Bilezikler</a>
+        <a href="collections.html" class="ft-link">Düğün Koleksiyonu</a>
       </div>
       <div class="ft-col">
         <div class="ft-col-head">Hizmetler</div>
@@ -844,7 +784,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/905337144284?text=Merhaba%2C%20takılarınız%20hakkında%20bilgi%20almak%20istiyorum."
+<a href="https://wa.me/905337144284?text=Merhaba%2C%20tak%C4%B1lar%C4%B1n%C4%B1z%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
    class="wa-btn" target="_blank" aria-label="WhatsApp ile iletişim">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -853,7 +793,6 @@
 </a>
 
 <script>
-  // Hamburger Menü
   function closeMobileMenu() {
     document.getElementById('hamburger').classList.remove('open');
     document.getElementById('mobile-menu').classList.remove('open');
