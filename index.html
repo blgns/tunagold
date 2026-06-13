@@ -118,6 +118,8 @@
   .pcard .pimg .tag{position:absolute;top:12px;left:12px;background:var(--white);color:var(--ink);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 11px;border-radius:999px;font-weight:600}
   .pcard .pimg .tag.gold{background:var(--gold);color:#fff}
   .pcard .pimg .ph{font-size:.82rem;color:var(--faint)}
+  .pcard .pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .pcard:hover .pimg img{transform:scale(1.05)}
   .pcard .pimg .heart{position:absolute;top:10px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(-5px);transition:.35s var(--ease)}
   .pcard:hover .heart{opacity:1;transform:none}
   .pcard .pmeta{padding:16px 2px 0;text-align:center}
@@ -166,6 +168,8 @@
   .ig-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:40px}
   .ig-row .t{aspect-ratio:1/1;border-radius:4px;background:var(--paper);overflow:hidden;position:relative;border:1px solid var(--line)}
   .ig-row .t::after{content:"❋";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:1.3rem}
+  .ig-row .t img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;transition:transform .8s var(--ease)}
+  .ig-row .t:hover img{transform:scale(1.06)}
 
   /* FOOTER — light, jess-like */
   footer{background:var(--paper);border-top:1px solid var(--line);padding-top:74px}
@@ -272,19 +276,19 @@
     </div>
     <div class="rail" id="cols">
       <a class="col-card reveal" href="https://tuna-gold.com/collections.html?cat=yuzuk">
-        <div class="ci"><span class="bg" style="background-image:url('https://tuna-gold.com/arkaplan.jpg')"></span></div>
+        <div class="ci"><span class="bg" style="background-image:url('https://tuna-gold.com/yuzuk.jpg')"></span></div>
         <div class="cn"><h3>Yüzükler</h3><span class="go">Keşfet</span></div>
       </a>
       <a class="col-card reveal" href="https://tuna-gold.com/collections.html?cat=kolye">
-        <div class="ci"><span class="bg" style="background-image:url('https://tuna-gold.com/hakkimizda.jpg')"></span></div>
+        <div class="ci"><span class="bg" style="background-image:url('https://tuna-gold.com/kolye.jpg')"></span></div>
         <div class="cn"><h3>Kolyeler</h3><span class="go">Keşfet</span></div>
       </a>
       <a class="col-card reveal" href="https://tuna-gold.com/collections.html?cat=kupe">
-        <div class="ci"><span class="bg" style="background-image:url('https://tuna-gold.com/arkaplan.jpg')"></span></div>
+        <div class="ci"><span class="bg" style="background-image:url('https://tuna-gold.com/kupe.jpg')"></span></div>
         <div class="cn"><h3>Küpeler</h3><span class="go">Keşfet</span></div>
       </a>
       <a class="col-card reveal" href="https://tuna-gold.com/collections.html?cat=bilezik">
-        <div class="ci"><span class="bg" style="background-image:url('https://tuna-gold.com/hakkimizda.jpg')"></span></div>
+        <div class="ci"><span class="bg" style="background-image:url('https://tuna-gold.com/bilezik.jpg')"></span></div>
         <div class="cn"><h3>Bilezikler</h3><span class="go">Keşfet</span></div>
       </a>
       <a class="col-card reveal" href="https://tuna-gold.com/collections.html">
@@ -317,23 +321,23 @@
     </div>
     <div class="rail" id="prods">
       <a class="pcard reveal" href="https://tuna-gold.com/collections.html">
-        <div class="pimg"><span class="tag gold">Yeni</span><span class="heart">♡</span><span class="ph">Fotoğraf</span></div>
+        <div class="pimg"><span class="tag gold">Yeni</span><span class="heart">♡</span><img src="https://tuna-gold.com/yuzuk.jpg" alt="Yüzük" loading="lazy"></div>
         <div class="pmeta"><div class="ayar">14 Ayar · Altın</div><div class="pname">Ürün Adı</div><div class="price"><span class="ask">Fiyat için sor →</span></div></div>
       </a>
       <a class="pcard reveal" href="https://tuna-gold.com/collections.html">
-        <div class="pimg"><span class="heart">♡</span><span class="ph">Fotoğraf</span></div>
+        <div class="pimg"><span class="heart">♡</span><img src="https://tuna-gold.com/bilezik.jpg" alt="Bilezik" loading="lazy"></div>
         <div class="pmeta"><div class="ayar">22 Ayar · Altın</div><div class="pname">Ürün Adı</div><div class="price"><span class="ask">Fiyat için sor →</span></div></div>
       </a>
       <a class="pcard reveal" href="https://tuna-gold.com/collections.html">
-        <div class="pimg"><span class="tag">Çok Satan</span><span class="heart">♡</span><span class="ph">Fotoğraf</span></div>
+        <div class="pimg"><span class="tag">Çok Satan</span><span class="heart">♡</span><img src="https://tuna-gold.com/kolye.jpg" alt="Kolye" loading="lazy"></div>
         <div class="pmeta"><div class="ayar">18 Ayar · Altın</div><div class="pname">Ürün Adı</div><div class="price"><span class="ask">Fiyat için sor →</span></div></div>
       </a>
       <a class="pcard reveal" href="https://tuna-gold.com/collections.html">
-        <div class="pimg"><span class="heart">♡</span><span class="ph">Fotoğraf</span></div>
+        <div class="pimg"><span class="heart">♡</span><img src="https://tuna-gold.com/kupe.jpg" alt="Küpe" loading="lazy"></div>
         <div class="pmeta"><div class="ayar">14 Ayar · Altın</div><div class="pname">Ürün Adı</div><div class="price"><span class="ask">Fiyat için sor →</span></div></div>
       </a>
       <a class="pcard reveal" href="https://tuna-gold.com/collections.html">
-        <div class="pimg"><span class="heart">♡</span><span class="ph">Fotoğraf</span></div>
+        <div class="pimg"><span class="heart">♡</span><img src="https://tuna-gold.com/bilezik.jpg" alt="Bilezik" loading="lazy"></div>
         <div class="pmeta"><div class="ayar">22 Ayar · Altın</div><div class="pname">Ürün Adı</div><div class="price"><span class="ask">Fiyat için sor →</span></div></div>
       </a>
     </div>
@@ -403,12 +407,12 @@
     <h2><a href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener">@tuna_gold</a></h2>
     <a class="pill pill-ghost" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener">Instagram'da Takip Et <span class="arr">→</span></a>
     <div class="ig-row reveal">
-      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"></a>
-      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"></a>
-      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"></a>
-      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"></a>
-      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"></a>
-      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"></a>
+      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"><img src="https://tuna-gold.com/yuzuk.jpg" alt="Yüzük" loading="lazy"></a>
+      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"><img src="https://tuna-gold.com/kolye.jpg" alt="Kolye" loading="lazy"></a>
+      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"><img src="https://tuna-gold.com/kupe.jpg" alt="Küpe" loading="lazy"></a>
+      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"><img src="https://tuna-gold.com/bilezik.jpg" alt="Bilezik" loading="lazy"></a>
+      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"><img src="https://tuna-gold.com/hakkimizda.jpg" alt="Tuna Gold" loading="lazy"></a>
+      <a class="t" href="https://www.instagram.com/tuna_gold/" target="_blank" rel="noopener"><img src="https://tuna-gold.com/arkaplan.jpg" alt="Tuna Gold" loading="lazy"></a>
     </div>
   </div>
 </section>
